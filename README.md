@@ -2,7 +2,8 @@
 
 
 *Contributors:*
-@jesslee2023
-@Shandiyaravi
-@Rahmat-Khavari-Hyper-Island
-@elen-oz
+
+- [jesslee2023](jesslee2023)
+- [Shandiyaravi](https://github.com/Shandiyaravi)
+- [Rahmat-Khavari-Hyper-Island](https://github.com/Rahmat-Khavari-Hyper-Island)
+- [elen-oz](https://github.com/elen-oz)
