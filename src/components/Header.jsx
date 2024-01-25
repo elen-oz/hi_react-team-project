@@ -99,7 +99,9 @@ const Header = () => {
                 </ul>
               </li>
               <li className='nav-item'>
-                <a className='nav-link'>Contact</a>
+                <a className='nav-link' href='/contact'>
+                  Contact
+                </a>
               </li>
             </ul>
             <form className='d-flex' role='search'>
