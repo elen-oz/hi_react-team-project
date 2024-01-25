@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import BookPage from './pages/BookPage';
@@ -10,10 +11,31 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia) {
+      let darkThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+      if (darkThemeQuery.matches) {
+        console.log('Dark theme');
+        setDarkMode(true);
+      } else {
+        console.log('Light theme');
+        setDarkMode(false);
+      }
+    }
+  }, []);
+
+  const darkModeHandle = () => {
+    setDarkMode(!darkMode);
+    localStorage.setItem('darkMode', !darkMode);
+  };
+
   return (
     <>
       <Router>
-        <Header />
+        <Header darkMode={darkMode} toggleTheme={darkModeHandle} />
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/books/:id' element={<BookPage />} />
