@@ -42,20 +42,58 @@ const Header = () => {
                 <ul className='dropdown-menu'>
                   <li>
                     <a className='dropdown-item' href='#'>
-                      Action
+                      Adventure
                     </a>
                   </li>
                   <li>
                     <a className='dropdown-item' href='#'>
-                      Another action
+                      Biography
                     </a>
                   </li>
                   <li>
-                    <hr className='dropdown-divider' />
+                    <a className='dropdown-item' href='#'>
+                      Classics
+                    </a>
                   </li>
                   <li>
                     <a className='dropdown-item' href='#'>
-                      Something else here
+                      Fantasy
+                    </a>
+                  </li>
+                  <li>
+                    <a className='dropdown-item' href='#'>
+                      Fiction
+                    </a>
+                  </li>
+                  <li>
+                    <a className='dropdown-item' href='#'>
+                      Horror
+                    </a>
+                  </li>
+                  <li>
+                    <a className='dropdown-item' href='#'>
+                      History
+                    </a>
+                  </li>
+
+                  <li>
+                    <a className='dropdown-item' href='#'>
+                      Mystery
+                    </a>
+                  </li>
+                  <li>
+                    <a className='dropdown-item' href='#'>
+                      Romance
+                    </a>
+                  </li>
+                  <li>
+                    <a className='dropdown-item' href='#'>
+                      Science fiction
+                    </a>
+                  </li>
+                  <li>
+                    <a className='dropdown-item' href='#'>
+                      Thriller
                     </a>
                   </li>
                 </ul>
