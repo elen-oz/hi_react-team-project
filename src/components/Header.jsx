@@ -11,8 +11,8 @@ const Header = ({ darkMode, toggleTheme }) => {
           </Link>
 
           <div>
-            <div className='d-md-none d-inline d-flex flex-end'>
-              <div className='p-2 mx-4 flex-grow-1'>
+            <div className='d-md-none d-block d-flex justify-content-end'>
+              <div className='p-2 mx-4 '>
                 {darkMode ? (
                   <BsBrightnessHigh
                     className='text-white'
@@ -104,6 +104,11 @@ const Header = ({ darkMode, toggleTheme }) => {
                     Contact
                   </Link>
                 </li>
+                <li className='d-md-none d-block'>
+                  <Link to='/checkout' className='nav-link'>
+                    Cart
+                  </Link>
+                </li>
               </ul>
 
               <div className='d-md-block d-none px-3'>
@@ -128,7 +133,8 @@ const Header = ({ darkMode, toggleTheme }) => {
                   Search
                 </button>
               </form>
-              <div className='px-4'>
+
+              <div className='d-md-block d-none px-4'>
                 <Link to='/checkout'>
                   <BsHandbag size={24} />
                 </Link>
