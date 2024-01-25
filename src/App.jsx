@@ -13,9 +13,9 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/books/:id" element={<BookPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path='/' element={<Homepage />} />
+          <Route path='/books/:id' element={<BookPage />} />
+          <Route path='/checkout' element={<CheckoutPage />} />
         </Routes>
         <Footer />
       </Router>
