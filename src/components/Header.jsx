@@ -1,11 +1,15 @@
+import { Link } from 'react-router-dom';
+import { BsHandbag } from 'react-icons/bs';
+
 const Header = () => {
   return (
     <header>
       <nav className='navbar navbar-expand-lg bg-body-tertiary'>
         <div className='container-fluid'>
-          <a className='navbar-brand' href='#'>
-            Navbar
-          </a>
+          <Link to='/.' className='navbar-brand'>
+            HY Library
+          </Link>
+
           <button
             className='navbar-toggler'
             type='button'
@@ -20,14 +24,14 @@ const Header = () => {
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
               <li className='nav-item'>
-                <a className='nav-link active' aria-current='page' href='/'>
+                <Link to='./' className='nav-link active'>
                   Home
-                </a>
+                </Link>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='#'>
+                <Link to='./about' className='nav-link'>
                   About
-                </a>
+                </Link>
               </li>
               <li className='nav-item dropdown'>
                 <a
@@ -41,65 +45,47 @@ const Header = () => {
                 </a>
                 <ul className='dropdown-menu'>
                   <li>
-                    <a className='dropdown-item' href='#'>
+                    <Link to='./' className='dropdown-item'>
                       Adventure
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className='dropdown-item' href='#'>
-                      Biography
-                    </a>
+                    <Link className='dropdown-item'>Biography</Link>
                   </li>
                   <li>
-                    <a className='dropdown-item' href='#'>
-                      Classics
-                    </a>
+                    <Link className='dropdown-item'>Classics</Link>
                   </li>
                   <li>
-                    <a className='dropdown-item' href='#'>
-                      Fantasy
-                    </a>
+                    <Link className='dropdown-item'>Fantasy</Link>
                   </li>
                   <li>
-                    <a className='dropdown-item' href='#'>
-                      Fiction
-                    </a>
+                    <Link className='dropdown-item'>Fiction</Link>
                   </li>
                   <li>
-                    <a className='dropdown-item' href='#'>
-                      Horror
-                    </a>
+                    <Link className='dropdown-item'>Horror</Link>
                   </li>
                   <li>
-                    <a className='dropdown-item' href='#'>
-                      History
-                    </a>
+                    <Link className='dropdown-item'>History</Link>
                   </li>
 
                   <li>
-                    <a className='dropdown-item' href='#'>
-                      Mystery
-                    </a>
+                    <Link className='dropdown-item'>Mystery</Link>
                   </li>
                   <li>
-                    <a className='dropdown-item' href='#'>
-                      Romance
-                    </a>
+                    <Link className='dropdown-item'>Romance</Link>
                   </li>
                   <li>
-                    <a className='dropdown-item' href='#'>
-                      Science fiction
-                    </a>
+                    <Link className='dropdown-item'>Science fiction</Link>
                   </li>
                   <li>
-                    <a className='dropdown-item' href='#'>
-                      Thriller
-                    </a>
+                    <Link className='dropdown-item'>Thriller</Link>
                   </li>
                 </ul>
               </li>
               <li className='nav-item'>
-                <a className='nav-link'>Contact</a>
+                <Link to='/contact' className='nav-link'>
+                  Contact
+                </Link>
               </li>
             </ul>
             <form className='d-flex' role='search'>
@@ -113,6 +99,11 @@ const Header = () => {
                 Search
               </button>
             </form>
+            <div className='px-5'>
+              <Link to='/checkout'>
+                <BsHandbag size={24} />
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
