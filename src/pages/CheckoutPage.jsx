@@ -1,5 +1,12 @@
+import React from "react";
+import CheckoutForm from "../components/CheckoutForm";
+
 const CheckoutPage = () => {
-  return <div>CheckoutPage</div>;
+  return (
+    <div>
+      <CheckoutForm />
+    </div>
+  );
 };
 
 export default CheckoutPage;
