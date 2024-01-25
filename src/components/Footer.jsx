@@ -8,7 +8,7 @@ const Footer = () => {
             className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
           >
             <svg className="bi me-2" width="40" height="32">
-              <use xlink:href="#bootstrap"></use>
+              <use xlinkHref="#bootstrap"></use>
             </svg>
           </a>
           <p className="text-body-secondary">© 2023</p>
