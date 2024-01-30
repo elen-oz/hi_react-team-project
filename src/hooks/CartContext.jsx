@@ -3,7 +3,16 @@ import React, { createContext, useState, useEffect } from "react";
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  // Retrieve cart data from local storage, or an empty array if not present
+  const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem("cart");
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+
+  // Update local storage whenever cart changes
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   // Function to add item to the cart by ID
   const addToCart = (id) => {
@@ -22,11 +31,6 @@ const CartProvider = ({ children }) => {
       setCart([...cart, { id, amount: 1 }]);
     }
   };
-
-  // Log the updated cart whenever it changes
-  useEffect(() => {
-    console.log("Updated Cart:", cart);
-  }, [cart]);
 
   return (
     <CartContext.Provider value={{ addToCart }}>
