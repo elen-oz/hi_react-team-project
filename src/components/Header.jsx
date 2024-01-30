@@ -1,10 +1,21 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { BsHandbag, BsBrightnessHigh, BsFillMoonFill } from "react-icons/bs";
 import { BookContext } from "../hooks/bookContext";
 
 const Header = ({ darkMode, toggleTheme }) => {
   const { fetchBooksByCategory } = useContext(BookContext);
+  const [bookSearch, setBookSearch] = useState("");
+
+  const handleInputChange = (e) => {
+    setBookSearch(e.target.value);
+  };
+
+  const handleSearchBook = (e) => {
+    e.preventDefault();
+    fetchBooksByCategory(bookSearch, "");
+  };
+
   const handleCategorySelect = (category) => {
     fetchBooksByCategory("", category);
   };
@@ -199,8 +210,13 @@ const Header = ({ darkMode, toggleTheme }) => {
                   type='search'
                   placeholder='Search'
                   aria-label='Search'
+                  onChange={handleInputChange}
                 />
-                <button className='btn btn-outline-success' type='submit'>
+                <button
+                  onClick={handleSearchBook}
+                  className='btn btn-outline-success'
+                  type='submit'
+                >
                   Search
                 </button>
               </form>
