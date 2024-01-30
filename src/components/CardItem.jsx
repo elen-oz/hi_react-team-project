@@ -1,31 +1,38 @@
 import { Link } from 'react-router-dom';
 
-const CardItem = ({ title, image }) => {
-  return <div>{title}</div>;
-  // return (
-  //   <div className="container text-center">
-  //     <div className="row">
+function makeShorterName(name) {
+  let nameArray = name;
+  if (name.length > 17) {
+    nameArray = `${name.slice(0, 18)}...`;
+  }
 
-  //       {books.map((book) => (
-  //         <div key={book.id} className="col">
-  //           <Link to={`/books/${book.id}`}>
-  //             <div className="card" style={{ width: "18rem" }}>
-  //               <img
-  //                 src={image}
-  //                 className="card-img-top"
-  //                 alt={book.volumeInfo.title}
-  //               />
-  //               <div className="card-body">
-  //                 <h5 className="card-title">{book.volumeInfo.title}</h5>
-  //                 <button className="btn btn-primary">Go somewhere</button>
-  //               </div>
-  //             </div>
-  //           </Link>
-  //         </div>
-  //       ))}
-  //     </div>
-  //   </div>
-  // );
+  return nameArray;
+}
+
+const CardItem = ({ title, image, id }) => {
+  return (
+    <div key={id} className='col '>
+      <Link to={`/books/${id}`}>
+        <div className='card'>
+          <div
+            className='w-100 overflow-hidden d-flex align-items-center'
+            style={{ height: '250px' }}
+          >
+            <img
+              src={image}
+              className='rounded  object-cover w-100'
+              alt={title}
+            />
+          </div>
+
+          <div className='card-body'>
+            <h6 className='card-title fs-6'>{makeShorterName(title)}</h6>
+            <button className='btn btn-primary'>Add to Cart</button>
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
 };
 
 export default CardItem;
