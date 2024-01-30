@@ -1,56 +1,34 @@
-import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Homepage from "./pages/Homepage";
-import BookPage from "./pages/BookPage";
-import CartPopUp from "./components/CartPopUp";
-import CheckoutPage from "./pages/CheckoutPage";
-import ContactPage from "./pages/ContactPage";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import PrivacyPage from "./pages/PrivacyPage";
-import TermsOfUsePage from "./pages/TermsOfUsePage";
-import AboutCookiesPage from "./pages/AboutCookiesPage";
-import AccessibilityPage from "./pages/AccessibilityPage";
-import ManageCookiesPage from "./pages/ManageCookiesPage";
-import NotFoundPage from "./pages/NotFoundPage";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { useContext, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeContext } from './hooks/themeContext';
+import Homepage from './pages/Homepage';
+import BookPage from './pages/BookPage';
+import CartPopUp from './components/CartPopUp';
+import CheckoutPage from './pages/CheckoutPage';
+import ContactPage from './pages/ContactPage';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsOfUsePage from './pages/TermsOfUsePage';
+import AboutCookiesPage from './pages/AboutCookiesPage';
+import AccessibilityPage from './pages/AccessibilityPage';
+import ManageCookiesPage from './pages/ManageCookiesPage';
+import NotFoundPage from './pages/NotFoundPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const { darkMode, bgColorClass } = useContext(ThemeContext);
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
   };
 
-  useEffect(() => {
-    if (window.matchMedia) {
-      let darkThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
-
-      if (darkThemeQuery.matches) {
-        console.log("Dark theme");
-        setDarkMode(true);
-      } else {
-        console.log("Light theme");
-        setDarkMode(false);
-      }
-    }
-  }, []);
-
-  const darkModeHandle = () => {
-    setDarkMode(!darkMode);
-    localStorage.setItem("darkMode", !darkMode);
-  };
-
   return (
-    <>
+    <div data-bs-theme={darkMode ? 'dark' : 'light'} className={bgColorClass}>
       <Router>
-        <Header
-          darkMode={darkMode}
-          toggleTheme={darkModeHandle}
-          toggleCart={toggleCart}
-        />
+        <Header toggleCart={toggleCart} />
         <CartPopUp isOpen={isCartOpen} closeCart={() => setIsCartOpen(false)} />
         <Routes>
           <Route path='/' element={<Homepage />} />
@@ -66,7 +44,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
-    </>
+    </div>
   );
 }
 
