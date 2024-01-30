@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 import { ThemeContext } from '../hooks/themeContext';
 
 const Footer = () => {
-  const { bgColorClass } = useContext(ThemeContext);
+  const { bgColorClass, darkMode } = useContext(ThemeContext);
+  const textColor = darkMode ? 'text-light' : 'text-dark';
 
   return (
     <div className={bgColorClass}>
       <div className='container'>
         <footer className='row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top'>
           <div className='col mb-3'>
-            <h5>ABOUT HI LIBRARY</h5>
+            <h5 className={textColor}>ABOUT HI LIBRARY</h5>
             <ul className='nav flex-column'>
               <li className='nav-item mb-2'>
                 <Link
@@ -53,7 +54,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col mb-3'>
-            <h5>HELP & SUPPORT</h5>
+            <h5 className={textColor}>HELP & SUPPORT</h5>
             <ul className='nav flex-column'>
               <li className='nav-item mb-2'>
                 <Link
@@ -66,14 +67,16 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col mb-3'>
-            <h5>Schedule</h5>
+            <h5 className={textColor}>Schedule</h5>
             <ul className='nav flex-column'>
-              <li className='nav-item mb-2'>Monday-Sunday</li>
-              <li className='nav-item mb-2'>9am-11pm</li>
+              <li className='nav-item mb-2 text-body-secondary'>
+                Monday-Sunday
+              </li>
+              <li className='nav-item mb-2 text-body-secondary'>9am-11pm</li>
             </ul>
           </div>
           <div className='col mb-3'>
-            <h5>Follow Us</h5>
+            <h5 className={textColor}>Follow Us</h5>
             <ul className='nav flex-column'>
               <li className='nav-item mb-2'>
                 <a
@@ -86,9 +89,11 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col mb-3'>
-            <h5>Address</h5>
+            <h5 className={textColor}>Address</h5>
             <ul className='nav flex-column'>
-              <li className='nav-item mb-2'>Virkesvägen 2, 12030, Stockholm</li>
+              <li className='nav-item mb-2 text-body-secondary'>
+                Virkesvägen 2, 12030, Stockholm
+              </li>
             </ul>
           </div>
           <hr style={{ width: '100%' }} />
