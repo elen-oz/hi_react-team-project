@@ -3,8 +3,13 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+
+  const addToCart = (e) => {
+    console.log("book added to the cart");
+  };
+
   return (
-    <CartContext.Provider value={"this is cart context"}>
+    <CartContext.Provider value={{ addToCart }}>
       {children}
     </CartContext.Provider>
   );

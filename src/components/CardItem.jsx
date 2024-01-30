@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { CartContext } from "../hooks/CartContext";
+import { useContext } from "react";
 
 function makeShorterName(name) {
   let nameArray = name;
@@ -10,6 +12,8 @@ function makeShorterName(name) {
 }
 
 const CardItem = ({ title, image, id, price, currency }) => {
+  const { addToCart } = useContext(CartContext);
+
   return (
     <div key={id} className="col ">
       <Link to={`/books/${id}`}>
@@ -30,7 +34,15 @@ const CardItem = ({ title, image, id, price, currency }) => {
             <h6 className="card-title fs-6">
               {makeShorterName(price) + " " + currency}
             </h6>
-            <button className="btn btn-primary">Add to Cart</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                addToCart();
+              }}
+              className="btn btn-primary"
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </Link>
