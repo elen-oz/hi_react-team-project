@@ -37,7 +37,7 @@ const CardItem = ({ title, image, id, price, currency }) => {
             <button
               onClick={(e) => {
                 e.preventDefault();
-                addToCart();
+                addToCart(id);
               }}
               className="btn btn-primary"
             >
