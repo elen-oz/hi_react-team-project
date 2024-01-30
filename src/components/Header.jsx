@@ -1,9 +1,16 @@
-import { Link } from 'react-router-dom';
-import { BsHandbag, BsBrightnessHigh, BsFillMoonFill } from 'react-icons/bs';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { BsHandbag, BsBrightnessHigh, BsFillMoonFill } from "react-icons/bs";
+import { BookContext } from "../hooks/bookContext";
 
 const Header = ({ darkMode, toggleTheme }) => {
+  const { fetchBooksByCategory } = useContext(BookContext);
+  const handleCategorySelect = (category) => {
+    fetchBooksByCategory("", category);
+  };
+
   return (
-    <header data-bs-theme={darkMode ? 'dark' : 'light'}>
+    <header data-bs-theme={darkMode ? "dark" : "light"}>
       <nav className='navbar navbar-expand-md bg-body-tertiary'>
         <div className='container-fluid'>
           <Link to='/.' className='navbar-brand'>
@@ -62,40 +69,104 @@ const Header = ({ darkMode, toggleTheme }) => {
                   </a>
                   <ul className='dropdown-menu'>
                     <li>
-                      <Link to='./' className='dropdown-item'>
+                      <Link
+                        to='./'
+                        onClick={() => handleCategorySelect("Adventure")}
+                        className='dropdown-item'
+                      >
                         Adventure
                       </Link>
                     </li>
                     <li>
-                      <Link className='dropdown-item'>Biography</Link>
+                      <Link
+                        to='./'
+                        onClick={() => handleCategorySelect("Biography")}
+                        className='dropdown-item'
+                      >
+                        Biography
+                      </Link>
                     </li>
                     <li>
-                      <Link className='dropdown-item'>Classics</Link>
+                      <Link
+                        to='./'
+                        onClick={() => handleCategorySelect("Classics")}
+                        className='dropdown-item'
+                      >
+                        Classics
+                      </Link>
                     </li>
                     <li>
-                      <Link className='dropdown-item'>Fantasy</Link>
+                      <Link
+                        to='./'
+                        onClick={() => handleCategorySelect("Fantasy")}
+                        className='dropdown-item'
+                      >
+                        Fantasy
+                      </Link>
                     </li>
                     <li>
-                      <Link className='dropdown-item'>Fiction</Link>
+                      <Link
+                        to='./'
+                        onClick={() => handleCategorySelect("Fiction")}
+                        className='dropdown-item'
+                      >
+                        Fiction
+                      </Link>
                     </li>
                     <li>
-                      <Link className='dropdown-item'>Horror</Link>
+                      <Link
+                        to='./'
+                        onClick={() => handleCategorySelect("Horror")}
+                        className='dropdown-item'
+                      >
+                        Horror
+                      </Link>
                     </li>
                     <li>
-                      <Link className='dropdown-item'>History</Link>
+                      <Link
+                        to='./'
+                        onClick={() => handleCategorySelect("History")}
+                        className='dropdown-item'
+                      >
+                        History
+                      </Link>
                     </li>
 
                     <li>
-                      <Link className='dropdown-item'>Mystery</Link>
+                      <Link
+                        to='./'
+                        onClick={() => handleCategorySelect("Mystery")}
+                        className='dropdown-item'
+                      >
+                        Mystery
+                      </Link>
                     </li>
                     <li>
-                      <Link className='dropdown-item'>Romance</Link>
+                      <Link
+                        to='./'
+                        onClick={() => handleCategorySelect("Romance")}
+                        className='dropdown-item'
+                      >
+                        Romance
+                      </Link>
                     </li>
                     <li>
-                      <Link className='dropdown-item'>Science fiction</Link>
+                      <Link
+                        to='./'
+                        onClick={() => handleCategorySelect("Science fiction")}
+                        className='dropdown-item'
+                      >
+                        Science fiction
+                      </Link>
                     </li>
                     <li>
-                      <Link className='dropdown-item'>Thriller</Link>
+                      <Link
+                        to='./'
+                        onClick={() => handleCategorySelect("Thriller")}
+                        className='dropdown-item'
+                      >
+                        Thriller
+                      </Link>
                     </li>
                   </ul>
                 </li>
