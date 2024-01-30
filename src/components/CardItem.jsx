@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const CardItem = ({ title, image }) => {
   return <div>{title}</div>;

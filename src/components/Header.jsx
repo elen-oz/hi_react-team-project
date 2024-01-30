@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { BsHandbag, BsBrightnessHigh, BsFillMoonFill } from "react-icons/bs";
-import { BookContext } from "../hooks/bookContext";
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { BsHandbag, BsBrightnessHigh, BsFillMoonFill } from 'react-icons/bs';
+import { BookContext } from '../hooks/bookContext';
 
 const Header = ({ darkMode, toggleTheme }) => {
   const { fetchBooksByCategory } = useContext(BookContext);
-  const [bookSearch, setBookSearch] = useState("");
+  const [bookSearch, setBookSearch] = useState('');
 
   const handleInputChange = (e) => {
     setBookSearch(e.target.value);
@@ -13,15 +13,15 @@ const Header = ({ darkMode, toggleTheme }) => {
 
   const handleSearchBook = (e) => {
     e.preventDefault();
-    fetchBooksByCategory(bookSearch, "");
+    fetchBooksByCategory(bookSearch, '');
   };
 
   const handleCategorySelect = (category) => {
-    fetchBooksByCategory("", category);
+    fetchBooksByCategory('', category);
   };
 
   return (
-    <header data-bs-theme={darkMode ? "dark" : "light"}>
+    <header data-bs-theme={darkMode ? 'dark' : 'light'}>
       <nav className='navbar navbar-expand-md bg-body-tertiary'>
         <div className='container-fluid'>
           <Link to='/.' className='navbar-brand'>
@@ -82,7 +82,7 @@ const Header = ({ darkMode, toggleTheme }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Adventure")}
+                        onClick={() => handleCategorySelect('Adventure')}
                         className='dropdown-item'
                       >
                         Adventure
@@ -91,7 +91,7 @@ const Header = ({ darkMode, toggleTheme }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Biography")}
+                        onClick={() => handleCategorySelect('Biography')}
                         className='dropdown-item'
                       >
                         Biography
@@ -100,7 +100,7 @@ const Header = ({ darkMode, toggleTheme }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Classics")}
+                        onClick={() => handleCategorySelect('Classics')}
                         className='dropdown-item'
                       >
                         Classics
@@ -109,7 +109,7 @@ const Header = ({ darkMode, toggleTheme }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Fantasy")}
+                        onClick={() => handleCategorySelect('Fantasy')}
                         className='dropdown-item'
                       >
                         Fantasy
@@ -118,7 +118,7 @@ const Header = ({ darkMode, toggleTheme }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Fiction")}
+                        onClick={() => handleCategorySelect('Fiction')}
                         className='dropdown-item'
                       >
                         Fiction
@@ -127,7 +127,7 @@ const Header = ({ darkMode, toggleTheme }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Horror")}
+                        onClick={() => handleCategorySelect('Horror')}
                         className='dropdown-item'
                       >
                         Horror
@@ -136,7 +136,7 @@ const Header = ({ darkMode, toggleTheme }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("History")}
+                        onClick={() => handleCategorySelect('History')}
                         className='dropdown-item'
                       >
                         History
@@ -146,7 +146,7 @@ const Header = ({ darkMode, toggleTheme }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Mystery")}
+                        onClick={() => handleCategorySelect('Mystery')}
                         className='dropdown-item'
                       >
                         Mystery
@@ -155,7 +155,7 @@ const Header = ({ darkMode, toggleTheme }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Romance")}
+                        onClick={() => handleCategorySelect('Romance')}
                         className='dropdown-item'
                       >
                         Romance
@@ -164,7 +164,7 @@ const Header = ({ darkMode, toggleTheme }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Science fiction")}
+                        onClick={() => handleCategorySelect('Science fiction')}
                         className='dropdown-item'
                       >
                         Science fiction
@@ -173,7 +173,7 @@ const Header = ({ darkMode, toggleTheme }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Thriller")}
+                        onClick={() => handleCategorySelect('Thriller')}
                         className='dropdown-item'
                       >
                         Thriller
