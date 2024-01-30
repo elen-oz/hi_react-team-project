@@ -5,7 +5,7 @@ const Footer = () => {
     <div className='container'>
       <footer className='row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top'>
         <div className='col mb-3'>
-          <h5>ABOUT OUR ONLINE LIBRARY</h5>
+          <h5>ABOUT HI LIBRARY</h5>
           <ul className='nav flex-column'>
             <li className='nav-item mb-2'>
               <Link to='/privacy' className='nav-link p-0 text-body-secondary'>

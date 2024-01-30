@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import BookPage from "./pages/BookPage";
+import CartPopUp from "./components/CartPopUp";
 import CheckoutPage from "./pages/CheckoutPage";
 import ContactPage from "./pages/ContactPage";
 import Header from "./components/Header";
@@ -17,6 +18,11 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
 
   useEffect(() => {
     if (window.matchMedia) {
@@ -40,7 +46,12 @@ function App() {
   return (
     <>
       <Router>
-        <Header darkMode={darkMode} toggleTheme={darkModeHandle} />
+        <Header
+          darkMode={darkMode}
+          toggleTheme={darkModeHandle}
+          toggleCart={toggleCart}
+        />
+        <CartPopUp isOpen={isCartOpen} closeCart={() => setIsCartOpen(false)} />
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/books/:id' element={<BookPage />} />
