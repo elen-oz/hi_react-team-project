@@ -43,7 +43,7 @@ const CardItem = ({ title, image, id, price, currency }) => {
             />
           </div>
 
-          <div className='card-body'>
+          <div className='card-body py-0'>
             <h6 className='card-title fs-6'>{makeShorterName(title)}</h6>
 
             {/* <h6 className='card-title fs-6'>
@@ -61,7 +61,7 @@ const CardItem = ({ title, image, id, price, currency }) => {
           <RatingStars value={0} edit={false} />
         )}
 
-        <div className='d-flex gap-2 mb-3'>
+        <div className='d-flex gap-2 my-2'>
           <button className='btn btn-primary'>Add to Cart</button>
           <button
             className='btn btn-info'
