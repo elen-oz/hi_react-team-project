@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import RatingStars from "./RatingStars";
+import { BookContext } from "../hooks/bookContext";
 
 const ReviewModal = ({ id, title, show, handleClose, setStoredRating }) => {
   const [rating, setRating] = useState(0);
+  const { books } = useContext(BookContext);
+  const item = books.find((book) => book.id === id);
+
   const handleSubmit = () => {
     const message = document.getElementById(`reviewModalMessage${id}`).value;
 
@@ -37,7 +41,7 @@ const ReviewModal = ({ id, title, show, handleClose, setStoredRating }) => {
           <div className='modal-header'>
             <h6>
               Author:
-              {/* {item.author} */}
+              {` ${item.volumeInfo.authors}`}
             </h6>
           </div>
           <div className='modal-body'>

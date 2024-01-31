@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import ReviewModal from './ReviewModal';
-import RatingStars from './RatingStars';
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import ReviewModal from "./ReviewModal";
+import RatingStars from "./RatingStars";
 
 function makeShorterName(name) {
   let nameArray = name;
@@ -29,12 +29,12 @@ const CardItem = ({ title, image, id, price, currency }) => {
     setShowModal(!showModal);
   };
   return (
-    <div key={id} style={{ maxWidth: '14rem' }}>
+    <div key={id} style={{ maxWidth: "14rem" }}>
       <div className='card align-items-center'>
         <Link to={`/books/${id}`}>
           <div
             className='overflow-hidden d-flex align-items-center'
-            style={{ height: '20.5rem' }}
+            style={{ height: "20.5rem" }}
           >
             <img
               src={image}
@@ -43,7 +43,7 @@ const CardItem = ({ title, image, id, price, currency }) => {
             />
           </div>
 
-          <div className='card-body'>
+          <div className='card-body py-0'>
             <h6 className='card-title fs-6'>{makeShorterName(title)}</h6>
 
             {/* <h6 className='card-title fs-6'>
@@ -61,7 +61,7 @@ const CardItem = ({ title, image, id, price, currency }) => {
           <RatingStars value={0} edit={false} />
         )}
 
-        <div className='d-flex gap-2 mb-3'>
+        <div className='d-flex gap-2 my-2'>
           <button className='btn btn-primary'>Add to Cart</button>
           <button
             className='btn btn-info'

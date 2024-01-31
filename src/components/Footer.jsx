@@ -1,16 +1,16 @@
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 
-import { ThemeContext } from '../hooks/themeContext';
+import { ThemeContext } from "../hooks/themeContext";
 
 const Footer = () => {
   const { bgColorClass, darkMode } = useContext(ThemeContext);
-  const textColor = darkMode ? 'text-light' : 'text-dark';
+  const textColor = darkMode ? "text-light" : "text-dark";
 
   return (
     <div className={bgColorClass}>
       <div className='container'>
-        <footer className='row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top'>
+        <footer className='row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top  mb-0'>
           <div className='col mb-3'>
             <h5 className={textColor}>ABOUT HI LIBRARY</h5>
             <ul className='nav flex-column'>
@@ -27,22 +27,7 @@ const Footer = () => {
                   Terms of Use
                 </Link>
               </li>
-              <li className='nav-item mb-2'>
-                <Link
-                  to='/cookies'
-                  className='nav-link p-0 text-body-secondary'
-                >
-                  About Cookies
-                </Link>
-              </li>
-              <li className='nav-item mb-2'>
-                <Link
-                  to='/manage-cookies'
-                  className='nav-link p-0 text-body-secondary'
-                >
-                  Manage Cookies
-                </Link>
-              </li>
+
               <li className='nav-item mb-2'>
                 <Link
                   to='/accessibility'
@@ -96,10 +81,10 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <hr style={{ width: '100%' }} />
+          <hr style={{ width: "100%" }} />
           <div className='d-flex justify-content-between w-100'>
             <div className='col mb-3'>
-              <p className='text-body-secondary' style={{ fontSize: 'larger' }}>
+              <p className='text-body-secondary' style={{ fontSize: "larger" }}>
                 TEAM 7
               </p>
             </div>
@@ -109,7 +94,7 @@ const Footer = () => {
               </svg>
               <p
                 className='text-body-secondary'
-                style={{ fontSize: 'smaller' }}
+                style={{ fontSize: "smaller" }}
               >
                 Copyright ©2024 Google Books, Inc or related companies. All
                 rights reserved, including rights for text and data mining and
