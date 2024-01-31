@@ -4,7 +4,7 @@ import { BookContext } from '../hooks/bookContext';
 import { CartContext } from '../hooks/CartContext';
 import noImage from '../assets/No-Image-Placeholder.png';
 
-const Homepage = () => {
+const Homepage = ({ category }) => {
   const { books } = useContext(BookContext);
   const { addItem } = useContext(CartContext);
 
@@ -14,6 +14,11 @@ const Homepage = () => {
 
   return (
     <div className='container p-2'>
+      {category && (
+        <div className='p-3'>
+          <h5 style={{ paddingLeft: '5%' }}>{`Category > ${category}`}</h5>
+        </div>
+      )}
       <div className='d-flex row justify-content-center align-items-center g-3'>
         {books.map((book) => (
           <CardItem
