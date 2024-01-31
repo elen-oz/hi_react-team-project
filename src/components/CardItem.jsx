@@ -12,7 +12,15 @@ function makeShorterName(name) {
   return nameArray;
 }
 
-const CardItem = ({ title, image, id, price, currency }) => {
+const CardItem = ({
+  title,
+  image,
+  id,
+  price,
+  currency,
+  addToCart,
+  isForSale,
+}) => {
   const [showModal, setShowModal] = useState(false);
   const [storedRating, setStoredRating] = useState(0);
 
@@ -28,6 +36,7 @@ const CardItem = ({ title, image, id, price, currency }) => {
     // e.stopPropagation();
     setShowModal(!showModal);
   };
+
   return (
     <div key={id} style={{ maxWidth: '14rem' }}>
       <div className='card align-items-center'>
@@ -45,11 +54,6 @@ const CardItem = ({ title, image, id, price, currency }) => {
 
           <div className='card-body py-0'>
             <h6 className='card-title fs-6'>{makeShorterName(title)}</h6>
-
-            {/* <h6 className='card-title fs-6'>
-              {makeShorterName(price) + ' ' + currency}
-            </h6>
-            <button className='btn btn-primary'>Add to Cart</button> */}
           </div>
         </Link>
 
@@ -61,8 +65,16 @@ const CardItem = ({ title, image, id, price, currency }) => {
           <RatingStars value={0} edit={false} />
         )}
 
-        <div className='d-flex gap-2 my-2'>
-          <button className='btn btn-primary'>Add to Cart</button>
+        <div className='d-flex gap-2 mb-3'>
+          {isForSale ? (
+            <button className='btn btn-primary' onClick={addToCart}>
+              Add to Cart
+            </button>
+          ) : (
+            <button className='btn btn-primary disabled' disabled>
+              Loan
+            </button>
+          )}
           <button
             className='btn btn-info'
             data-bs-toggle='modal'

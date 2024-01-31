@@ -1,10 +1,16 @@
 import { useContext } from 'react';
 import CardItem from '../components/CardItem';
 import { BookContext } from '../hooks/bookContext';
+import { CartContext } from '../hooks/CartContext';
 import noImage from '../assets/No-Image-Placeholder.png';
 
 const Homepage = () => {
   const { books } = useContext(BookContext);
+  const { addItem } = useContext(CartContext);
+
+  const handleAddItemToCart = (item) => {
+    addItem(item);
+  };
 
   return (
     <div className='container p-2'>
@@ -25,6 +31,10 @@ const Homepage = () => {
                 ? book.saleInfo.listPrice.currencyCode
                 : ''
             }
+            addToCart={() => {
+              handleAddItemToCart(book);
+            }}
+            isForSale={book?.saleInfo?.listPrice !== undefined}
           />
         ))}
       </div>
