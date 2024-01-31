@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../hooks/CartContext';
+import { ThemeContext } from '../hooks/themeContext';
 
 const CartPopUp = ({ isOpen, closeCart }) => {
   const { items, totalAmount, removeItem, clearCart } = useContext(CartContext);
@@ -10,10 +11,9 @@ const CartPopUp = ({ isOpen, closeCart }) => {
   };
 
   const cartStyle = {
-    // transform: isOpen ? 'translateX(0)' : 'translateX(100%)',
-    // transition: 'transform 0.3s ease-in-out',
+    // todo: animation does not work
     transform: isOpen ? 'translateX(0)' : 'translateX(100%)',
-    transition: 'transform 0.3s ease-in-out',
+    transition: 'transform 0.9s ease-in-out',
   };
   const { darkMode } = useContext(ThemeContext);
   const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
@@ -48,7 +48,7 @@ const CartPopUp = ({ isOpen, closeCart }) => {
             <li key={index}>
               {item.volumeInfo.title} - {item.volumeInfo.authors}{' '}
               <button
-                className='btn btn-secondary'
+                className='btn btn-warning'
                 onClick={() => {
                   handleRemoveItemToCart(item.id);
                 }}
@@ -62,10 +62,10 @@ const CartPopUp = ({ isOpen, closeCart }) => {
         <div>Total: {totalAmount}</div>
 
         <div className='d-flex justify-content-between mt-3'>
-          <Link to='/checkout' className='btn btn-primary'>
+          <Link to='/checkout' className='btn btn-success'>
             CHECKOUT
           </Link>
-          <button className='btn btn-secondary' onClick={clearCart}>
+          <button className='btn btn-danger' onClick={clearCart}>
             Clear
           </button>
           <button className='btn btn-secondary' onClick={closeCart}>

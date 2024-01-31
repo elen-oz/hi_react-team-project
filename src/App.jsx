@@ -39,7 +39,6 @@ function App() {
 
           <Route path='/terms' element={<TermsOfUsePage />} />
           <Route path='/accessibility' element={<AccessibilityPage />} />
-          <Route path='/manage-cookies' element={<ManageCookiesPage />} />
 
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
