@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import ReviewModal from "./ReviewModal";
-import RatingStars from "./RatingStars";
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import ReviewModal from './ReviewModal';
+import RatingStars from './RatingStars';
 
 function makeShorterName(name) {
   let nameArray = name;
@@ -12,7 +12,7 @@ function makeShorterName(name) {
   return nameArray;
 }
 
-const CardItem = ({ title, image, id }) => {
+const CardItem = ({ title, image, id, price, currency }) => {
   const [showModal, setShowModal] = useState(false);
   const [storedRating, setStoredRating] = useState(0);
 
@@ -29,22 +29,27 @@ const CardItem = ({ title, image, id }) => {
     setShowModal(!showModal);
   };
   return (
-    <div key={id} className='col '>
+    <div key={id} style={{ maxWidth: '14rem' }}>
       <div className='card align-items-center'>
         <Link to={`/books/${id}`}>
           <div
-            className='w-100 overflow-hidden d-flex align-items-center'
-            style={{ height: "250px" }}
+            className='overflow-hidden d-flex align-items-center'
+            style={{ height: '20.5rem' }}
           >
             <img
               src={image}
-              className='rounded  object-cover w-100'
+              className='rounded object-cover w-100'
               alt={title}
             />
           </div>
 
           <div className='card-body'>
             <h6 className='card-title fs-6'>{makeShorterName(title)}</h6>
+
+            {/* <h6 className='card-title fs-6'>
+              {makeShorterName(price) + ' ' + currency}
+            </h6>
+            <button className='btn btn-primary'>Add to Cart</button> */}
           </div>
         </Link>
 

@@ -1,11 +1,13 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { BsHandbag, BsBrightnessHigh, BsFillMoonFill } from "react-icons/bs";
-import { BookContext } from "../hooks/bookContext";
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { BsHandbag, BsBrightnessHigh, BsFillMoonFill } from 'react-icons/bs';
+import { BookContext } from '../hooks/bookContext';
+import { ThemeContext } from '../hooks/themeContext';
 
-const Header = ({ darkMode, toggleTheme, toggleCart }) => {
+const Header = ({ toggleCart }) => {
   const { fetchBooksByCategory } = useContext(BookContext);
-  const [bookSearch, setBookSearch] = useState("");
+  const [bookSearch, setBookSearch] = useState('');
+  const { darkMode, darkModeHandle } = useContext(ThemeContext);
 
   const handleInputChange = (e) => {
     setBookSearch(e.target.value);
@@ -13,16 +15,20 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
 
   const handleSearchBook = (e) => {
     e.preventDefault();
-    fetchBooksByCategory(bookSearch, "");
+    fetchBooksByCategory(bookSearch, '');
   };
 
   const handleCategorySelect = (category) => {
-    fetchBooksByCategory("", category);
+    fetchBooksByCategory('', category);
   };
 
+  // const bgColorClass = darkMode ? 'bg-primary' : 'bg-info';
+  const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
+
   return (
-    <header data-bs-theme={darkMode ? "dark" : "light"}>
-      <nav className='navbar navbar-expand-md bg-body-tertiary'>
+    // <header data-bs-theme='dark' className='mb-4'>
+    <header className='mb-4 border-bottom'>
+      <nav className={`navbar navbar-expand-md ${bgColorClass}`}>
         <div className='container-fluid'>
           <Link to='/.' className='navbar-brand'>
             HI Library
@@ -34,10 +40,10 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                 {darkMode ? (
                   <BsBrightnessHigh
                     className='text-white'
-                    onClick={toggleTheme}
+                    onClick={darkModeHandle}
                   />
                 ) : (
-                  <BsFillMoonFill onClick={toggleTheme} />
+                  <BsFillMoonFill onClick={darkModeHandle} />
                 )}
               </div>
 
@@ -63,11 +69,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                     Home
                   </Link>
                 </li>
-                {/* <li className='nav-item'>
-                <Link to='./about' className='nav-link'>
-                  About
-                </Link>
-              </li> */}
+
                 <li className='nav-item dropdown'>
                   <a
                     className='nav-link dropdown-toggle'
@@ -82,7 +84,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Adventure")}
+                        onClick={() => handleCategorySelect('Adventure')}
                         className='dropdown-item'
                       >
                         Adventure
@@ -91,7 +93,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Biography")}
+                        onClick={() => handleCategorySelect('Biography')}
                         className='dropdown-item'
                       >
                         Biography
@@ -100,7 +102,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Classics")}
+                        onClick={() => handleCategorySelect('Classics')}
                         className='dropdown-item'
                       >
                         Classics
@@ -109,7 +111,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Fantasy")}
+                        onClick={() => handleCategorySelect('Fantasy')}
                         className='dropdown-item'
                       >
                         Fantasy
@@ -118,7 +120,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Fiction")}
+                        onClick={() => handleCategorySelect('Fiction')}
                         className='dropdown-item'
                       >
                         Fiction
@@ -127,7 +129,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Horror")}
+                        onClick={() => handleCategorySelect('Horror')}
                         className='dropdown-item'
                       >
                         Horror
@@ -136,7 +138,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("History")}
+                        onClick={() => handleCategorySelect('History')}
                         className='dropdown-item'
                       >
                         History
@@ -146,7 +148,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Mystery")}
+                        onClick={() => handleCategorySelect('Mystery')}
                         className='dropdown-item'
                       >
                         Mystery
@@ -155,7 +157,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Romance")}
+                        onClick={() => handleCategorySelect('Romance')}
                         className='dropdown-item'
                       >
                         Romance
@@ -164,7 +166,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Science fiction")}
+                        onClick={() => handleCategorySelect('Science fiction')}
                         className='dropdown-item'
                       >
                         Science fiction
@@ -173,7 +175,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                     <li>
                       <Link
                         to='./'
-                        onClick={() => handleCategorySelect("Thriller")}
+                        onClick={() => handleCategorySelect('Thriller')}
                         className='dropdown-item'
                       >
                         Thriller
@@ -197,15 +199,16 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                 {darkMode ? (
                   <BsBrightnessHigh
                     className='text-white'
-                    onClick={toggleTheme}
+                    onClick={darkModeHandle}
                   />
                 ) : (
-                  <BsFillMoonFill onClick={toggleTheme} />
+                  <BsFillMoonFill onClick={darkModeHandle} />
                 )}
               </div>
 
               <form className='d-flex' role='search'>
                 <input
+                  data-bs-theme={darkMode ? 'dark' : 'light'}
                   className='form-control me-2'
                   type='search'
                   placeholder='Search'
@@ -214,7 +217,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
                 />
                 <button
                   onClick={handleSearchBook}
-                  className='btn btn-outline-success'
+                  className='btn btn-secondary'
                   type='submit'
                 >
                   Search
@@ -223,7 +226,7 @@ const Header = ({ darkMode, toggleTheme, toggleCart }) => {
 
               <div className='d-md-block d-none px-4'>
                 <Link
-                  to='./'
+                  to='./checkout'
                   onClick={(e) => {
                     e.preventDefault();
                     toggleCart();
