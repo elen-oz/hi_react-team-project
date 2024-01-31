@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import Rating from "react-rating-stars-component";
+import RatingStars from "./RatingStars";
 
-const ReviewModal = ({ id, title, show, handleClose }) => {
+const ReviewModal = ({ id, title, show, handleClose, setStoredRating }) => {
   const [rating, setRating] = useState(0);
-  const handleRatingChange = (newValue) => {
-    setRating(newValue);
-  };
   const handleSubmit = () => {
-    // console.log("Rating:", rating);
     const message = document.getElementById(`reviewModalMessage${id}`).value;
 
     const reviewData = {
@@ -18,6 +14,7 @@ const ReviewModal = ({ id, title, show, handleClose }) => {
     const reviewDataJson = JSON.stringify(reviewData);
 
     localStorage.setItem(`reviewData${id}`, reviewDataJson);
+    setStoredRating(rating);
     handleClose();
   };
   return (
@@ -44,10 +41,7 @@ const ReviewModal = ({ id, title, show, handleClose }) => {
             </h6>
           </div>
           <div className='modal-body'>
-            <div className='form-group'>
-              <label>Rating:</label>
-              <Rating value={rating} onChange={handleRatingChange} />
-            </div>
+            <RatingStars value={0} setNewRating={setRating} edit={true} />
             <div className='form-group'>
               <label htmlFor={`reviewModalMessage${id}`}>Message:</label>
               <textarea

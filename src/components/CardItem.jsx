@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReviewModal from "./ReviewModal";
+import RatingStars from "./RatingStars";
 
 function makeShorterName(name) {
   let nameArray = name;
@@ -13,6 +14,15 @@ function makeShorterName(name) {
 
 const CardItem = ({ title, image, id }) => {
   const [showModal, setShowModal] = useState(false);
+  const [storedRating, setStoredRating] = useState(0);
+
+  useEffect(() => {
+    const storedRatingData = localStorage.getItem(`reviewData${id}`);
+    if (storedRatingData) {
+      const parsedData = JSON.parse(storedRatingData);
+      setStoredRating(parsedData.rating);
+    }
+  }, []);
 
   const toggleModal = (e) => {
     // e.stopPropagation();
@@ -38,6 +48,14 @@ const CardItem = ({ title, image, id }) => {
           </div>
         </Link>
 
+        {storedRating ? (
+          <div>
+            <RatingStars value={storedRating} edit={false} />
+          </div>
+        ) : (
+          <RatingStars value={0} edit={false} />
+        )}
+
         <div className='d-flex gap-2 mb-3'>
           <button className='btn btn-primary'>Add to Cart</button>
           <button
@@ -53,6 +71,7 @@ const CardItem = ({ title, image, id }) => {
             title={title}
             show={showModal}
             handleClose={toggleModal}
+            setStoredRating={setStoredRating}
           />
         </div>
       </div>

@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import RatingStars from "../components/RatingStars";
 
 const BookPage = () => {
   const { id } = useParams();
 
   const [bookDetails, setBookDetails] = useState(null);
+  const [storedRating, setStoredRating] = useState(null);
 
   useEffect(() => {
     const fetchBookDetails = async () => {
@@ -21,22 +23,33 @@ const BookPage = () => {
     };
 
     fetchBookDetails();
+
+    const storedRatingData = localStorage.getItem(`reviewData${id}`);
+    if (storedRatingData) {
+      const parsedData = JSON.parse(storedRatingData);
+      setStoredRating(parsedData.rating);
+    }
   }, [id]);
 
   return (
-    <div className="container">
+    <div className='container'>
       {bookDetails ? (
-        <div className="card" style={{ width: "18rem" }}>
+        <div className='card' style={{ width: "18rem" }}>
           <img
             src={bookDetails.volumeInfo.imageLinks.thumbnail}
-            className="card-img-top"
+            className='card-img-top'
             alt={bookDetails.volumeInfo.title}
           />
 
-          <div className="card-body">
-            <h5 className="card-title">{bookDetails.volumeInfo.title}</h5>
-            <p className="card-text">{bookDetails.volumeInfo.description}</p>
-            <button className="btn btn-primary">More Info</button>
+          <div className='card-body'>
+            <h5 className='card-title'>{bookDetails.volumeInfo.title}</h5>
+            {storedRating ? (
+              <RatingStars value={storedRating} edit={false} />
+            ) : (
+              <RatingStars value={0} edit={false} />
+            )}
+            <p className='card-text'>{bookDetails.volumeInfo.description}</p>
+            <button className='btn btn-primary'>More Info</button>
           </div>
         </div>
       ) : (
