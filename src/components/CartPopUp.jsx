@@ -9,12 +9,14 @@ const CartPopUp = ({ isOpen, closeCart }) => {
 
   return (
     <div
-      className={`position-fixed  end-0 bg-white ${isOpen ? "" : "d-none"}`}
-      style={{ width: "300px", height: "100%", ...cartStyle, zIndex: 1050 }}
+      className={`position-fixed shadow end-0 bg-white ${
+        isOpen ? "" : "d-none"
+      }`}
+      style={{ width: "20rem", ...cartStyle, zIndex: 1050 }}
     >
       <div
-        className='container my-5 p-4  mt-0 bg-light shadow'
-        style={{ width: "20rem", overflowY: "auto" }}
+        className='container my-5 p-4  mt-0bg-light'
+        style={{ width: "17rem", overflowY: "auto" }}
       >
         <h5 className='text-center mt-3'>My Book Cart</h5>
         <hr />
@@ -27,7 +29,7 @@ const CartPopUp = ({ isOpen, closeCart }) => {
         </ListGroup> */}
         <div className='d-flex justify-content-between mt-3'>
           <Link to='./' className='btn btn-primary'>
-            Go to Cart Page
+            CHECKOUT
           </Link>
           {/* <button className='btn btn-secondary'>Go to Cart Page</button> */}
           <button className='btn btn-secondary' onClick={closeCart}>
