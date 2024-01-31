@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import RatingStars from '../components/RatingStars';
+import { Rating } from '@smastrom/react-rating';
 
 const BookPage = () => {
   const { id } = useParams();
@@ -43,11 +43,7 @@ const BookPage = () => {
 
           <div className='card-body'>
             <h5 className='card-title'>{bookDetails.volumeInfo.title}</h5>
-            {storedRating ? (
-              <RatingStars value={storedRating} edit={false} />
-            ) : (
-              <RatingStars value={0} edit={false} />
-            )}
+            <Rating style={{ maxWidth: 150 }} value={storedRating} readOnly />
             <p className='card-text'>{bookDetails.volumeInfo.description}</p>
             <button className='btn btn-primary'>More Info</button>
           </div>
