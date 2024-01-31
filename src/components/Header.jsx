@@ -27,7 +27,7 @@ const Header = ({ toggleCart }) => {
 
   return (
     // <header data-bs-theme='dark' className='mb-4'>
-    <header className='mb-4'>
+    <header className='mb-4 border-bottom'>
       <nav className={`navbar navbar-expand-md ${bgColorClass}`}>
         <div className='container-fluid'>
           <Link to='/.' className='navbar-brand'>
