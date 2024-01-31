@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import RatingStars from './RatingStars';
 import { BookContext } from '../hooks/bookContext';
+import { Rating } from '@smastrom/react-rating';
 
 const ReviewModal = ({ id, title, show, handleClose, setStoredRating }) => {
   const [rating, setRating] = useState(0);
@@ -45,7 +45,11 @@ const ReviewModal = ({ id, title, show, handleClose, setStoredRating }) => {
             </h6>
           </div>
           <div className='modal-body'>
-            <RatingStars value={0} setNewRating={setRating} edit={true} />
+            <Rating
+              style={{ maxWidth: 150 }}
+              value={rating}
+              onChange={setRating}
+            />
             <div className='form-group'>
               <label htmlFor={`reviewModalMessage${id}`}>Message:</label>
               <textarea

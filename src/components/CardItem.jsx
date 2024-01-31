@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ReviewModal from './ReviewModal';
-import RatingStars from './RatingStars';
+import { Rating } from '@smastrom/react-rating';
 
 function makeShorterName(name) {
   let nameArray = name;
@@ -53,13 +53,7 @@ const CardItem = ({
           </div>
         </Link>
 
-        {storedRating ? (
-          <div>
-            <RatingStars value={storedRating} edit={false} />
-          </div>
-        ) : (
-          <RatingStars value={0} edit={false} />
-        )}
+        <Rating style={{ maxWidth: 150 }} value={storedRating} readOnly />
 
         <div className='d-flex gap-2 mb-3'>
           {isForSale ? (
