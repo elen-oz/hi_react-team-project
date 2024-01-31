@@ -8,19 +8,19 @@ HI Library is a dynamic web application built with React that provides a compreh
 
 ## Features
 
-- Book Browsing and Searching: Users can search for books by title, author, or category.
-- Dynamic Book Details: View detailed information about each book, including ratings, reviews, and descriptions.
-- Cart Functionality: A pop-up cart allows users to add books they are interested in and proceed to checkout.
-- Dark Mode: Supports dark mode for a user-friendly experience in different lighting conditions.
-- Responsive Design: Ensures a smooth browsing experience across various devices and screen sizes.
-- Accessibility Options: Aimed at supporting users with different accessibility needs.
+- _Book Browsing and Searching_: Users can search for books by title, author, or category.
+- _Dynamic Book Details_: View detailed information about each book, including ratings, reviews, and descriptions.
+- _Cart Functionality_: A pop-up cart allows users to add books they are interested in and proceed to checkout.
+- _Dark Mode_: Supports dark mode for a user-friendly experience in different lighting conditions.
+- _Responsive Design_: Ensures a smooth browsing experience across various devices and screen sizes.
+- _Accessibility Options_: Aimed at supporting users with different accessibility needs.
 
 ## Tech Stack
 
-- React: For building the user interface.
-- React Router: To handle in-app routing.
-- Bootstrap & Bootswatch: For styling and responsive design.
-- React Rating Stars Component: To display and select book ratings.
+- **React**: For building the user interface.
+- **React Router**: To handle in-app routing.
+- **Bootstrap & Bootswatch**: For styling and responsive design.
+- **React Rating Stars Component**: To display and select book ratings.
 
 ## Setup and Installation
 
