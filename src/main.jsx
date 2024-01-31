@@ -5,6 +5,7 @@ import BookProvider from './hooks/bookContext.jsx';
 import ThemeProvider from './hooks/themeContext.jsx';
 import CartProvider from './hooks/CartContext.jsx';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootswatch/dist/sketchy/bootstrap.min.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

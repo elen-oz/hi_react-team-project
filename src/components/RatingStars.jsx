@@ -1,6 +1,6 @@
 // RatingStars.js
 // import React, { useState } from "react";
-import Rating from "react-rating-stars-component";
+import Rating from 'react-rating-stars-component';
 
 const RatingStars = ({ value, setNewRating, edit }) => {
   //   const [rating, setRating] = useState(0);

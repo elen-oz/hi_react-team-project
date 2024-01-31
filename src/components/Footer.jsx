@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <div className={bgColorClass}>
       <div className='container'>
-        <footer className='row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top'>
+        <footer className='row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top  mb-0'>
           <div className='col mb-3'>
             <h5 className={textColor}>ABOUT HI LIBRARY</h5>
             <ul className='nav flex-column'>
@@ -27,22 +27,7 @@ const Footer = () => {
                   Terms of Use
                 </Link>
               </li>
-              <li className='nav-item mb-2'>
-                <Link
-                  to='/cookies'
-                  className='nav-link p-0 text-body-secondary'
-                >
-                  About Cookies
-                </Link>
-              </li>
-              <li className='nav-item mb-2'>
-                <Link
-                  to='/manage-cookies'
-                  className='nav-link p-0 text-body-secondary'
-                >
-                  Manage Cookies
-                </Link>
-              </li>
+
               <li className='nav-item mb-2'>
                 <Link
                   to='/accessibility'

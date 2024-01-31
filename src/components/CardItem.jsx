@@ -52,7 +52,7 @@ const CardItem = ({
             />
           </div>
 
-          <div className='card-body'>
+          <div className='card-body py-0'>
             <h6 className='card-title fs-6'>{makeShorterName(title)}</h6>
           </div>
         </Link>

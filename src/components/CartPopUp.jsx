@@ -10,13 +10,16 @@ const CartPopUp = ({ isOpen, closeCart }) => {
   };
 
   const cartStyle = {
+    // transform: isOpen ? 'translateX(0)' : 'translateX(100%)',
+    // transition: 'transform 0.3s ease-in-out',
     transform: isOpen ? 'translateX(0)' : 'translateX(100%)',
     transition: 'transform 0.3s ease-in-out',
   };
-
+  const { darkMode } = useContext(ThemeContext);
+  const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
   return (
     <div
-      className={`position-fixed shadow end-0 bg-white ${
+      className={`position-fixed shadow end-0 ${bgColorClass} ${
         isOpen ? '' : 'd-none'
       }`}
       style={{ width: '25rem', ...cartStyle, zIndex: 1050 }}
@@ -25,7 +28,11 @@ const CartPopUp = ({ isOpen, closeCart }) => {
         className='container my-5 p-4  mt-0bg-light'
         style={{ width: '23rem', overflowY: 'auto' }}
       >
-        <h5 className='text-center mt-3'>My Book Cart</h5>
+        {darkMode ? (
+          <h5 className='text-center mt-3 text-white'>My Book Cart</h5>
+        ) : (
+          <h5 className='text-center mt-3'>My Book Cart</h5>
+        )}
         <hr />
 
         {/* <ListGroup>
