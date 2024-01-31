@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from 'react';
 export const BookContext = createContext();
 
 const BookProvider = ({ children }) => {
@@ -6,14 +6,15 @@ const BookProvider = ({ children }) => {
 
   const fetchBooksByCategory = async (searchInput, category) => {
     try {
-      const apiKey = "AIzaSyA6MiaAOYSh1yvAfsgDoM7s5GWGmdll8Q0";
+      const apiKey = 'AIzaSyA6MiaAOYSh1yvAfsgDoM7s5GWGmdll8Q0';
       const response = await fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${searchInput}subject:${category}&maxResults=40&filter=ebooks&printType=books&key=${apiKey}`
       );
       if (!response.ok) {
-        throw new Error("Failed to fetch book data");
+        throw new Error('Failed to fetch book data');
       }
       const data = await response.json();
+      console.log('data', data);
       setBooks(data.items);
     } catch (error) {
       console.error(error);
@@ -21,7 +22,7 @@ const BookProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchBooksByCategory("", "fantasy");
+    fetchBooksByCategory('', 'fantasy');
   }, []);
 
   return (

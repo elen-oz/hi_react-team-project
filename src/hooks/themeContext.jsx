@@ -10,10 +10,8 @@ const ThemeProvider = ({ children }) => {
       let darkThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
       if (darkThemeQuery.matches) {
-        console.log('Dark theme');
         setDarkMode(true);
       } else {
-        console.log('Light theme');
         setDarkMode(false);
       }
     }

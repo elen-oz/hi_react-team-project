@@ -35,12 +35,13 @@ function App() {
           <Route path='/books/:id' element={<BookPage />} />
           <Route path='/checkout' element={<CheckoutPage />} />
           <Route path='/contact' element={<ContactPage />} />
-          <Route path='*' element={<NotFoundPage />} />
           <Route path='/privacy' element={<PrivacyPage />} />
           <Route path='/cookies' element={<AboutCookiesPage />} />
           <Route path='/terms' element={<TermsOfUsePage />} />
           <Route path='/accessibility' element={<AccessibilityPage />} />
           <Route path='/manage-cookies' element={<ManageCookiesPage />} />
+
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
         <Footer />
       </Router>
