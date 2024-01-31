@@ -42,14 +42,10 @@ const CardItem = ({
       <div className='card align-items-center'>
         <Link to={`/books/${id}`}>
           <div
-            className='overflow-hidden d-flex align-items-center'
-            style={{ height: '20.5rem' }}
+            className='overflow-hidden d-flex align-items-center my-2'
+            style={{ height: '17.5rem' }}
           >
-            <img
-              src={image}
-              className='rounded object-cover w-100'
-              alt={title}
-            />
+            <img src={image} className='object-cover w-100' alt={title} />
           </div>
 
           <div className='card-body py-0'>
