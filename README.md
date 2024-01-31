@@ -54,7 +54,8 @@ npm run dev
 
 This will start the application on `localhost:5173`.
 
-##Contributing
+## Contributing
+
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
 1. Fork the Project
@@ -78,7 +79,8 @@ git push origin feature/AmazingFeature
 
 5. Open a Pull Request
 
-##Contact
+## Contact
+
 _Contributors:_
 
 - [jesslee2023](jesslee2023)
