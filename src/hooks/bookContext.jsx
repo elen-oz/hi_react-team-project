@@ -6,8 +6,7 @@ const BookProvider = ({ children }) => {
 
   const fetchBooksByCategory = async (searchInput, category) => {
     try {
-      // const apiKey = "AIzaSyA6MiaAOYSh1yvAfsgDoM7s5GWGmdll8Q0";
-      const apiKey = "AIzaSyDT_98pBixk03PsBoRaIGpW7aO6bgz47OQ";
+      const apiKey = "AIzaSyA6MiaAOYSh1yvAfsgDoM7s5GWGmdll8Q0";
       const response = await fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${searchInput}subject:${category}&maxResults=40&filter=ebooks&printType=books&key=${apiKey}`
       );
