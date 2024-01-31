@@ -1,6 +1,6 @@
-import React, { useState, useContext } from "react";
-import RatingStars from "./RatingStars";
-import { BookContext } from "../hooks/bookContext";
+import React, { useState, useContext } from 'react';
+import RatingStars from './RatingStars';
+import { BookContext } from '../hooks/bookContext';
 
 const ReviewModal = ({ id, title, show, handleClose, setStoredRating }) => {
   const [rating, setRating] = useState(0);
@@ -23,19 +23,19 @@ const ReviewModal = ({ id, title, show, handleClose, setStoredRating }) => {
   };
   return (
     <div
-      className={`modal fade ${show ? "show" : ""}`}
+      className={`modal fade ${show ? 'show' : ''}`}
       id={`reviewModal${id}`}
       tabIndex='-1'
       aria-labelledby={`modalLabel${id}`}
       aria-hidden={!show}
-      style={{ display: show ? "block" : "none" }}
+      style={{ display: show ? 'block' : 'none' }}
       // data-bs-backdrop='static'
     >
       <div className='modal-dialog'>
         <div className='modal-content'>
           <div className='modal-header'>
             <h5 className='modal-title' id={`modalLabel${id}`}>
-              Review for {title}{" "}
+              Review for {title}{' '}
             </h5>
           </div>
           <div className='modal-header'>

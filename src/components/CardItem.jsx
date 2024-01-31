@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import ReviewModal from "./ReviewModal";
-import RatingStars from "./RatingStars";
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import ReviewModal from './ReviewModal';
+import RatingStars from './RatingStars';
 
 function makeShorterName(name) {
   let nameArray = name;
@@ -29,12 +29,12 @@ const CardItem = ({ title, image, id, price, currency }) => {
     setShowModal(!showModal);
   };
   return (
-    <div key={id} style={{ maxWidth: "14rem" }}>
+    <div key={id} style={{ maxWidth: '14rem' }}>
       <div className='card align-items-center'>
         <Link to={`/books/${id}`}>
           <div
             className='overflow-hidden d-flex align-items-center'
-            style={{ height: "20.5rem" }}
+            style={{ height: '20.5rem' }}
           >
             <img
               src={image}

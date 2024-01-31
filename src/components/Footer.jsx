@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
-import { ThemeContext } from "../hooks/themeContext";
+import { ThemeContext } from '../hooks/themeContext';
 
 const Footer = () => {
   const { bgColorClass, darkMode } = useContext(ThemeContext);
-  const textColor = darkMode ? "text-light" : "text-dark";
+  const textColor = darkMode ? 'text-light' : 'text-dark';
 
   return (
     <div className={bgColorClass}>
@@ -81,10 +81,10 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <hr style={{ width: "100%" }} />
+          <hr style={{ width: '100%' }} />
           <div className='d-flex justify-content-between w-100'>
             <div className='col mb-3'>
-              <p className='text-body-secondary' style={{ fontSize: "larger" }}>
+              <p className='text-body-secondary' style={{ fontSize: 'larger' }}>
                 TEAM 7
               </p>
             </div>
@@ -94,7 +94,7 @@ const Footer = () => {
               </svg>
               <p
                 className='text-body-secondary'
-                style={{ fontSize: "smaller" }}
+                style={{ fontSize: 'smaller' }}
               >
                 Copyright ©2024 Google Books, Inc or related companies. All
                 rights reserved, including rights for text and data mining and

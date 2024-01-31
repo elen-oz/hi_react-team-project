@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import RatingStars from "../components/RatingStars";
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import RatingStars from '../components/RatingStars';
 
 const BookPage = () => {
   const { id } = useParams();
@@ -18,7 +18,7 @@ const BookPage = () => {
 
         setBookDetails(data);
       } catch (error) {
-        console.error("Error fetching book details:", error);
+        console.error('Error fetching book details:', error);
       }
     };
 
@@ -34,7 +34,7 @@ const BookPage = () => {
   return (
     <div className='container'>
       {bookDetails ? (
-        <div className='card' style={{ width: "18rem" }}>
+        <div className='card' style={{ width: '18rem' }}>
           <img
             src={bookDetails.volumeInfo.imageLinks.thumbnail}
             className='card-img-top'
