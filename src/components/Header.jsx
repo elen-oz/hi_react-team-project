@@ -11,7 +11,7 @@ const Header = ({ toggleCart, setCategory }) => {
   const { darkMode, darkModeHandle } = useContext(ThemeContext);
   const { purchasedItems, loanedItems } = useContext(CartContext);
 
-  const items = purchasedItems.length + loanedItems.length ?? 0;
+  const items = purchasedItems?.length + loanedItems?.length || 0;
 
   const handleInputChange = (e) => {
     setBookSearch(e.target.value);

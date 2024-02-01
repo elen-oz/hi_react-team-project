@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../hooks/CartContext';
 import { ThemeContext } from '../hooks/themeContext';
@@ -10,6 +10,23 @@ const CartPopUp = ({ isOpen, closeCart }) => {
   const handleRemoveItemToCart = (id) => {
     removeItem(id);
   };
+
+  const cartRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (cartRef.current && !cartRef.current.contains(event.target)) {
+      closeCart();
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   const cartStyle = {
     // todo: animation does not work
@@ -31,6 +48,7 @@ const CartPopUp = ({ isOpen, closeCart }) => {
 
   return (
     <div
+      ref={cartRef}
       className={`position-fixed shadow end-0 ${bgColorClass}  ${
         isOpen ? '' : 'd-none'
       }`}
@@ -52,7 +70,7 @@ const CartPopUp = ({ isOpen, closeCart }) => {
         <hr />
 
         <ul className={`${textColorClass}`}>
-          {purchasedItems.map((item, index) => (
+          {purchasedItems?.map((item, index) => (
             <li
               key={index}
               className='d-flex justify-content-between align-items-center'
