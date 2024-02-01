@@ -8,17 +8,25 @@ const ReviewModal = ({ id, title, show, handleClose, setStoredRating }) => {
   const item = books.find((book) => book.id === id);
 
   const handleSubmit = () => {
+    const oldReviewData = localStorage.getItem(`reviewData${id}`);
+    let newRating = rating;
+    if (oldReviewData) {
+      const parsedData = JSON.parse(oldReviewData);
+      newRating = Math.ceil((parsedData.rating + rating) / 2);
+      setRating(newRating);
+    }
+
     const message = document.getElementById(`reviewModalMessage${id}`).value;
 
     const reviewData = {
-      rating: rating,
+      rating: newRating,
       message: message,
     };
 
     const reviewDataJson = JSON.stringify(reviewData);
 
     localStorage.setItem(`reviewData${id}`, reviewDataJson);
-    setStoredRating(rating);
+    setStoredRating(newRating);
     handleClose();
   };
   return (
