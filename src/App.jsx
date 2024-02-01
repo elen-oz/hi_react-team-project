@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeContext } from './hooks/themeContext';
-import Homepage from './pages/Homepage';
+import Homepage from './pages/HomePage';
 import BookPage from './pages/BookPage';
 import CartPopUp from './components/CartPopUp';
 import CheckoutPage from './pages/CheckoutPage';
@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsOfUsePage from './pages/TermsOfUsePage';
+import BookDetailsProvider from './hooks/bookDetailsContext';
 
 import AccessibilityPage from './pages/AccessibilityPage';
 
@@ -32,8 +33,20 @@ function App() {
         <Header toggleCart={toggleCart} setCategory={setCategory} />
         <CartPopUp isOpen={isCartOpen} closeCart={() => setIsCartOpen(false)} />
         <Routes>
-          <Route path='/' element={<Homepage category={category} />} />
-          <Route path='/books/:id' element={<BookPage />} />
+
+          <Route path='/' element={<Homepage />} />
+          <Route
+            path='/books/:id'
+            element={
+              <BookDetailsProvider>
+                <BookPage />
+              </BookDetailsProvider>
+            }
+          />
+
+        {/* <Route path='/' element={<Homepage category={category} />} />
+          <Route path='/books/:id' element={<BookPage />} /> */}
+
           <Route path='/checkout' element={<CheckoutPage />} />
           <Route path='/contact' element={<ContactPage />} />
           <Route path='/privacy' element={<PrivacyPage />} />
