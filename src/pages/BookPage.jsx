@@ -1,10 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { BookDetailsContext } from '../hooks/bookDetailsContext';
-// import RatingStars from '../components/RatingStars';
-import { useEffect, useState } from 'react';
 import { Rating } from '@smastrom/react-rating';
-
 
 const BookPage = () => {
   const { bookDetails } = useContext(BookDetailsContext);
@@ -45,7 +42,7 @@ const BookPage = () => {
           <div>Loading...</div>
         )}
       </div>
-    {/* <div className='container'>
+      {/* <div className='container'>
       {bookDetails ? (
         <div className='card' style={{ width: '18rem' }}>
           <img
