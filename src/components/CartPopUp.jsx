@@ -19,6 +19,7 @@ const CartPopUp = ({ isOpen, closeCart }) => {
 
   const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
   const textColorClass = darkMode ? 'text-light' : 'text-dark';
+  const borderColorClass = darkMode ? 'border-light' : 'border-dark-subtle';
 
   return (
     <div
@@ -28,7 +29,7 @@ const CartPopUp = ({ isOpen, closeCart }) => {
       style={{ width: '33rem', ...cartStyle, zIndex: 1050 }}
     >
       <div
-        className='container my-4 p-4  mt-0bg-light border'
+        className={`container my-4 p-4  mt-0bg-light border border-1  ${borderColorClass}`}
         style={{ width: '30rem', overflowY: 'auto' }}
       >
         <div className='d-flex justify-content-between align-items-center'>
