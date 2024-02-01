@@ -8,7 +8,7 @@ import { CartContext } from '../hooks/CartContext';
 const Header = ({ toggleCart, setCategory }) => {
   const { fetchBooksByCategory } = useContext(BookContext);
   const [bookSearch, setBookSearch] = useState('');
-  const { darkMode, darkModeHandle } = useContext(ThemeContext);
+  let { darkMode, darkModeHandle } = useContext(ThemeContext);
   const { items } = useContext(CartContext);
 
   const handleInputChange = (e) => {
@@ -25,6 +25,13 @@ const Header = ({ toggleCart, setCategory }) => {
     setCategory(category);
   };
 
+  const localStorageDarkMode = localStorage.getItem('darkMode');
+  if (localStorageDarkMode) {
+    if (darkMode !== JSON.parse(localStorageDarkMode)) {
+      darkMode = JSON.parse(localStorageDarkMode);
+    }
+  }
+
   // const bgColorClass = darkMode ? 'bg-primary' : 'bg-info';
   const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
 
@@ -33,7 +40,11 @@ const Header = ({ toggleCart, setCategory }) => {
     <header className='mb-4 border-bottom'>
       <nav className={`navbar navbar-expand-md ${bgColorClass}`}>
         <div className='container-fluid'>
-          <Link to='/.' className='navbar-brand'>
+          <Link
+            to='/.'
+            className='navbar-brand'
+            onClick={() => fetchBooksByCategory('', '')}
+          >
             HI Library
           </Link>
 
@@ -68,7 +79,11 @@ const Header = ({ toggleCart, setCategory }) => {
             >
               <ul className='navbar-nav me-auto mb-lg-0'>
                 <li className='nav-item'>
-                  <Link to='./' className='nav-link active'>
+                  <Link
+                    to='./'
+                    className='nav-link active'
+                    onClick={() => fetchBooksByCategory('', '')}
+                  >
                     Home
                   </Link>
                 </li>
