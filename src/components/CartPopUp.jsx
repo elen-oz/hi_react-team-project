@@ -49,9 +49,7 @@ const CartPopUp = ({ isOpen, closeCart }) => {
   return (
     <div
       ref={cartRef}
-      className={`position-fixed shadow end-0 ${bgColorClass}  ${
-        isOpen ? '' : 'd-none'
-      }`}
+      className={`position-fixed shadow end-0 ${bgColorClass}`}
       style={{ width: '33rem', ...cartStyle, zIndex: 1050 }}
     >
       <div
