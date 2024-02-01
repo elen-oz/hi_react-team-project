@@ -33,8 +33,7 @@ function App() {
         <Header toggleCart={toggleCart} setCategory={setCategory} />
         <CartPopUp isOpen={isCartOpen} closeCart={() => setIsCartOpen(false)} />
         <Routes>
-
-          <Route path='/' element={<Homepage />} />
+          <Route path='/' element={<Homepage category={category} />} />
           <Route
             path='/books/:id'
             element={
@@ -44,7 +43,7 @@ function App() {
             }
           />
 
-        {/* <Route path='/' element={<Homepage category={category} />} />
+          {/* <Route path='/' element={<Homepage category={category} />} />
           <Route path='/books/:id' element={<BookPage />} /> */}
 
           <Route path='/checkout' element={<CheckoutPage />} />

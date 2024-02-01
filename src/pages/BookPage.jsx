@@ -4,17 +4,17 @@ import { BookDetailsContext } from '../hooks/bookDetailsContext';
 import { Rating } from '@smastrom/react-rating';
 
 const BookPage = () => {
-  const { bookDetails } = useContext(BookDetailsContext);
+  const { bookDetails, id } = useContext(BookDetailsContext);
 
   const [storedRating, setStoredRating] = useState(null);
 
-  // useEffect(() => {
-  //   const storedRatingData = localStorage.getItem(`reviewData${id}`);
-  //   if (storedRatingData) {
-  //     const parsedData = JSON.parse(storedRatingData);
-  //     setStoredRating(parsedData.rating);
-  //   }
-  // }, [bookDetails]);
+  useEffect(() => {
+    const storedRatingData = localStorage.getItem(`reviewData${id}`);
+    if (storedRatingData) {
+      const parsedData = JSON.parse(storedRatingData);
+      setStoredRating(parsedData.rating);
+    }
+  }, [bookDetails]);
 
   return (
     <div className='card mb-3 m-4' style={{ maxWidth: '540px' }}>
@@ -32,6 +32,11 @@ const BookPage = () => {
             <div className='col-md-8'>
               <div className='card-body'>
                 <h5 className='card-title'>{bookDetails.volumeInfo.title}</h5>
+                <Rating
+                  style={{ maxWidth: 150 }}
+                  value={storedRating}
+                  readOnly
+                />
                 <p className='card-text'>
                   {bookDetails.volumeInfo.description}
                 </p>
