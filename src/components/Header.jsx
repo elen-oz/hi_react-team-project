@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { BsHandbag, BsBrightnessHigh, BsFillMoonFill } from 'react-icons/bs';
 import { BookContext } from '../hooks/bookContext';
 import { ThemeContext } from '../hooks/themeContext';
+import { CartContext } from '../hooks/CartContext';
 
-const Header = ({ toggleCart }) => {
+const Header = ({ toggleCart, setCategory }) => {
   const { fetchBooksByCategory } = useContext(BookContext);
   const [bookSearch, setBookSearch] = useState('');
   const { darkMode, darkModeHandle } = useContext(ThemeContext);
+  const { items } = useContext(CartContext);
 
   const handleInputChange = (e) => {
     setBookSearch(e.target.value);
@@ -20,6 +22,7 @@ const Header = ({ toggleCart }) => {
 
   const handleCategorySelect = (category) => {
     fetchBooksByCategory('', category);
+    setCategory(category);
   };
 
   // const bgColorClass = darkMode ? 'bg-primary' : 'bg-info';
@@ -234,6 +237,7 @@ const Header = ({ toggleCart }) => {
                 >
                   <BsHandbag size={24} />
                 </Link>
+                &nbsp;<em style={{ fontSize: '1.2rem' }}>{items.length}</em>
               </div>
             </div>
           </div>

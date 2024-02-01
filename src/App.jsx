@@ -21,6 +21,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { darkMode, bgColorClass } = useContext(ThemeContext);
+  const [category, setCategory] = useState('');
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
@@ -29,9 +30,10 @@ function App() {
   return (
     <div data-bs-theme={darkMode ? 'dark' : 'light'} className={bgColorClass}>
       <Router>
-        <Header toggleCart={toggleCart} />
+        <Header toggleCart={toggleCart} setCategory={setCategory} />
         <CartPopUp isOpen={isCartOpen} closeCart={() => setIsCartOpen(false)} />
         <Routes>
+
           <Route path='/' element={<Homepage />} />
           <Route
             path='/books/:id'
@@ -41,13 +43,18 @@ function App() {
               </BookDetailsProvider>
             }
           />
+
+        {/* <Route path='/' element={<Homepage category={category} />} />
+          <Route path='/books/:id' element={<BookPage />} /> */}
+
           <Route path='/checkout' element={<CheckoutPage />} />
           <Route path='/contact' element={<ContactPage />} />
-          <Route path='*' element={<NotFoundPage />} />
           <Route path='/privacy' element={<PrivacyPage />} />
 
           <Route path='/terms' element={<TermsOfUsePage />} />
           <Route path='/accessibility' element={<AccessibilityPage />} />
+
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
         <Footer />
       </Router>

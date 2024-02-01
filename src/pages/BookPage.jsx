@@ -1,7 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { BookDetailsContext } from '../hooks/bookDetailsContext';
-import RatingStars from '../components/RatingStars';
+// import RatingStars from '../components/RatingStars';
+import { useEffect, useState } from 'react';
+import { Rating } from '@smastrom/react-rating';
+
 
 const BookPage = () => {
   const { bookDetails } = useContext(BookDetailsContext);
@@ -42,6 +45,25 @@ const BookPage = () => {
           <div>Loading...</div>
         )}
       </div>
+    {/* <div className='container'>
+      {bookDetails ? (
+        <div className='card' style={{ width: '18rem' }}>
+          <img
+            src={bookDetails.volumeInfo.imageLinks.thumbnail}
+            className='card-img-top'
+            alt={bookDetails.volumeInfo.title}
+          />
+
+          <div className='card-body'>
+            <h5 className='card-title'>{bookDetails.volumeInfo.title}</h5>
+            <Rating style={{ maxWidth: 150 }} value={storedRating} readOnly />
+            <p className='card-text'>{bookDetails.volumeInfo.description}</p>
+            <button className='btn btn-primary'>More Info</button>
+          </div>
+        </div>
+      ) : (
+        <div>Loading...</div>
+      )} */}
     </div>
   );
 };
