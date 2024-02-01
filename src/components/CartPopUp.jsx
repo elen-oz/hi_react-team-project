@@ -4,7 +4,8 @@ import { CartContext } from '../hooks/CartContext';
 import { ThemeContext } from '../hooks/themeContext';
 
 const CartPopUp = ({ isOpen, closeCart }) => {
-  const { items, totalAmount, removeItem, clearCart } = useContext(CartContext);
+  const { purchasedItems, totalAmount, removeItem, clearCart } =
+    useContext(CartContext);
 
   const handleRemoveItemToCart = (id) => {
     removeItem(id);
@@ -51,7 +52,7 @@ const CartPopUp = ({ isOpen, closeCart }) => {
         <hr />
 
         <ul className={`${textColorClass}`}>
-          {items.map((item, index) => (
+          {purchasedItems.map((item, index) => (
             <li
               key={index}
               className='d-flex justify-content-between align-items-center'
