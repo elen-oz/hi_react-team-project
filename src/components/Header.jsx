@@ -27,6 +27,11 @@ const Header = ({ toggleCart, setCategory }) => {
     setCategory(category);
   };
 
+  const handleHomeClick = () => {
+    fetchBooksByCategory('', '');
+    setCategory('');
+  };
+
   const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
 
   return (
@@ -75,7 +80,7 @@ const Header = ({ toggleCart, setCategory }) => {
                   <Link
                     to='./'
                     className='nav-link active'
-                    onClick={() => fetchBooksByCategory('', '')}
+                    onClick={handleHomeClick}
                   >
                     Home
                   </Link>
