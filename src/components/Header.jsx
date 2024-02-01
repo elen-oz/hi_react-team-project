@@ -13,7 +13,6 @@ const Header = ({ toggleCart, setCategory }) => {
 
   const items = purchasedItems.length + loanedItems.length ?? 0;
 
-
   const handleInputChange = (e) => {
     setBookSearch(e.target.value);
   };
@@ -28,18 +27,9 @@ const Header = ({ toggleCart, setCategory }) => {
     setCategory(category);
   };
 
-  const localStorageDarkMode = localStorage.getItem('darkMode');
-  if (localStorageDarkMode) {
-    if (darkMode !== JSON.parse(localStorageDarkMode)) {
-      darkMode = JSON.parse(localStorageDarkMode);
-    }
-  }
-
-  // const bgColorClass = darkMode ? 'bg-primary' : 'bg-info';
   const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
 
   return (
-    // <header data-bs-theme='dark' className='mb-4'>
     <header className='mb-4 border-bottom'>
       <nav className={`navbar navbar-expand-md ${bgColorClass}`}>
         <div className='container-fluid'>
