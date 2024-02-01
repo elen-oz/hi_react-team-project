@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import ReviewModal from './ReviewModal';
+// import ReviewModal from './ReviewModal';
 import { Rating } from '@smastrom/react-rating';
 
 function makeShorterName(name) {
@@ -18,10 +18,11 @@ const CardItem = ({
   id,
   price,
   currency,
-  addToCart,
+  addToBuy,
+  addToLoan,
   isForSale,
 }) => {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const [storedRating, setStoredRating] = useState(0);
 
   useEffect(() => {
@@ -32,10 +33,10 @@ const CardItem = ({
     }
   }, []);
 
-  const toggleModal = (e) => {
-    // e.stopPropagation();
-    setShowModal(!showModal);
-  };
+  // const toggleModal = (e) => {
+  //   // e.stopPropagation();
+  //   setShowModal(!showModal);
+  // };
 
   return (
     <div key={id} style={{ maxWidth: '14rem' }}>
@@ -57,29 +58,40 @@ const CardItem = ({
 
         <div className='d-flex gap-2 mb-3'>
           {isForSale ? (
-            <button className='btn btn-primary' onClick={addToCart}>
-              Add to Cart
+            <button className='btn btn-primary' onClick={addToBuy}>
+              Buy
             </button>
           ) : (
             <button className='btn btn-primary disabled' disabled>
-              Loan
+              Not for sale
             </button>
           )}
-          <button
+          {/* <button
             className='btn btn-info'
             data-bs-toggle='modal'
             data-bs-target={`#reviewModal${id}`}
             onClick={toggleModal}
           >
             Review
-          </button>
-          <ReviewModal
+          </button> */}
+
+          {!isForSale ? (
+            <button className='btn btn-info' onClick={addToLoan}>
+              Loan
+            </button>
+          ) : (
+            <button className='btn btn-info disabled' disabled>
+              Not for loan
+            </button>
+          )}
+
+          {/* <ReviewModal
             id={id}
             title={title}
             show={showModal}
             handleClose={toggleModal}
             setStoredRating={setStoredRating}
-          />
+          /> */}
         </div>
       </div>
     </div>

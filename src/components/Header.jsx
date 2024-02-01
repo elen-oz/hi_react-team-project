@@ -9,7 +9,9 @@ const Header = ({ toggleCart, setCategory }) => {
   const { fetchBooksByCategory } = useContext(BookContext);
   const [bookSearch, setBookSearch] = useState('');
   const { darkMode, darkModeHandle } = useContext(ThemeContext);
-  const { items } = useContext(CartContext);
+  const { purchasedItems, loanedItems } = useContext(CartContext);
+
+  const items = purchasedItems.length + loanedItems.length ?? 0;
 
   const handleInputChange = (e) => {
     setBookSearch(e.target.value);
@@ -237,7 +239,7 @@ const Header = ({ toggleCart, setCategory }) => {
                 >
                   <BsHandbag size={24} />
                 </Link>
-                &nbsp;<em style={{ fontSize: '1.2rem' }}>{items.length}</em>
+                &nbsp;<em style={{ fontSize: '1.2rem' }}>{items}</em>
               </div>
             </div>
           </div>
