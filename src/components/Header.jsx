@@ -33,7 +33,11 @@ const Header = ({ toggleCart, setCategory }) => {
     <header className='mb-4 border-bottom'>
       <nav className={`navbar navbar-expand-md ${bgColorClass}`}>
         <div className='container-fluid'>
-          <Link to='/.' className='navbar-brand'>
+          <Link
+            to='/.'
+            className='navbar-brand'
+            onClick={() => fetchBooksByCategory('', '')}
+          >
             HI Library
           </Link>
 
@@ -68,7 +72,11 @@ const Header = ({ toggleCart, setCategory }) => {
             >
               <ul className='navbar-nav me-auto mb-lg-0'>
                 <li className='nav-item'>
-                  <Link to='./' className='nav-link active'>
+                  <Link
+                    to='./'
+                    className='nav-link active'
+                    onClick={() => fetchBooksByCategory('', '')}
+                  >
                     Home
                   </Link>
                 </li>

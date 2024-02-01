@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeContext } from './hooks/themeContext';
+import { BookContext } from './hooks/bookContext';
 import Homepage from './pages/HomePage';
 import BookPage from './pages/BookPage';
 import CartPopUp from './components/CartPopUp';
@@ -22,7 +23,7 @@ function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { darkMode, bgColorClass } = useContext(ThemeContext);
   const [category, setCategory] = useState('');
-
+  const { fetchBooksByCategory } = useContext(BookContext);
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
   };
@@ -30,7 +31,11 @@ function App() {
   return (
     <div data-bs-theme={darkMode ? 'dark' : 'light'} className={bgColorClass}>
       <Router>
-        <Header toggleCart={toggleCart} setCategory={setCategory} />
+        <Header
+          toggleCart={toggleCart}
+          setCategory={setCategory}
+          fetchBooksByCategory={fetchBooksByCategory}
+        />
         <CartPopUp isOpen={isCartOpen} closeCart={() => setIsCartOpen(false)} />
         <Routes>
           <Route path='/' element={<Homepage category={category} />} />
