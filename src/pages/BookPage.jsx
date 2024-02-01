@@ -1,12 +1,17 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { BookDetailsContext } from '../hooks/bookDetailsContext';
 import { Rating } from '@smastrom/react-rating';
+import ReviewModal from '../components/ReviewModal';
 
 const BookPage = () => {
   const { bookDetails, id } = useContext(BookDetailsContext);
 
   const [storedRating, setStoredRating] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
 
   useEffect(() => {
     const storedRatingData = localStorage.getItem(`reviewData${id}`);
@@ -36,6 +41,21 @@ const BookPage = () => {
                   style={{ maxWidth: 150 }}
                   value={storedRating}
                   readOnly
+                />
+                <button
+                  className='btn btn-info'
+                  data-bs-toggle='modal'
+                  data-bs-target={`#reviewModal${id}`}
+                  onClick={toggleModal}
+                >
+                  Review
+                </button>
+                <ReviewModal
+                  id={id}
+                  title={bookDetails.volumeInfo.title}
+                  show={showModal}
+                  handleClose={toggleModal}
+                  setStoredRating={setStoredRating}
                 />
                 <p className='card-text'>
                   {bookDetails.volumeInfo.description}
