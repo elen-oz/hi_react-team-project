@@ -6,6 +6,9 @@ import ReviewModal from '../components/ReviewModal';
 const BookPage = () => {
   const { bookDetails, id } = useContext(BookDetailsContext);
 
+  const descriptionWithHtml = bookDetails?.volumeInfo?.description || '';
+  const descriptionWithoutHtml = descriptionWithHtml.replace(/<[^>]*>/g, '');
+
   const [storedRating, setStoredRating] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -22,17 +25,21 @@ const BookPage = () => {
   }, [bookDetails]);
 
   return (
-    <div className='card mb-3 m-4' style={{ maxWidth: '540px' }}>
+    <div className='card mb-3 mx-auto' style={{ maxWidth: '650px' }}>
       <div className='row g-2 '>
         {bookDetails ? (
           <>
-            <div className='col-md-4'>
+            <div className='col-md-4 d-flex flex-column gap-1 text-start p-3'>
               <img
-                src={bookDetails.volumeInfo.imageLinks.thumbnail}
+                src={bookDetails.volumeInfo.imageLinks.smallThumbnail}
                 className='img-fluid rounded-start'
                 alt={bookDetails.volumeInfo.title}
-                style={{ padding: '1rem' }}
               />
+              <p className='card-text'>
+                {bookDetails.volumeInfo.authors}
+                <br></br>
+                {bookDetails.volumeInfo.publishedDate}
+              </p>
             </div>
             <div className='col-md-8'>
               <div className='card-body'>
@@ -42,6 +49,8 @@ const BookPage = () => {
                   value={storedRating}
                   readOnly
                 />
+
+                <p className='card-text'>{descriptionWithoutHtml}</p>
                 <button
                   className='btn btn-info'
                   data-bs-toggle='modal'
@@ -57,9 +66,6 @@ const BookPage = () => {
                   handleClose={toggleModal}
                   setStoredRating={setStoredRating}
                 />
-                <p className='card-text'>
-                  {bookDetails.volumeInfo.description}
-                </p>
               </div>
             </div>
           </>
@@ -67,25 +73,6 @@ const BookPage = () => {
           <div>Loading...</div>
         )}
       </div>
-      {/* <div className='container'>
-      {bookDetails ? (
-        <div className='card' style={{ width: '18rem' }}>
-          <img
-            src={bookDetails.volumeInfo.imageLinks.thumbnail}
-            className='card-img-top'
-            alt={bookDetails.volumeInfo.title}
-          />
-
-          <div className='card-body'>
-            <h5 className='card-title'>{bookDetails.volumeInfo.title}</h5>
-            <Rating style={{ maxWidth: 150 }} value={storedRating} readOnly />
-            <p className='card-text'>{bookDetails.volumeInfo.description}</p>
-            <button className='btn btn-primary'>More Info</button>
-          </div>
-        </div>
-      ) : (
-        <div>Loading...</div>
-      )} */}
     </div>
   );
 };

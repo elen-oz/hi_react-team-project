@@ -22,7 +22,7 @@ const BookProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchBooksByCategory('', 'fantasy');
+    fetchBooksByCategory('', '');
   }, []);
 
   return (

@@ -5,7 +5,7 @@ import { Rating } from '@smastrom/react-rating';
 const ReviewModal = ({ id, title, show, handleClose, setStoredRating }) => {
   const [rating, setRating] = useState(0);
   const { books } = useContext(BookContext);
-  const item = books.find((book) => book.id === id);
+  const item = books?.find((book) => book.id === id);
 
   const handleSubmit = () => {
     const oldReviewData = localStorage.getItem(`reviewData${id}`);
@@ -49,7 +49,7 @@ const ReviewModal = ({ id, title, show, handleClose, setStoredRating }) => {
           <div className='modal-header'>
             <h6>
               Author:
-              {` ${item.volumeInfo.authors}`}
+              {` ${item?.volumeInfo.authors}`}
             </h6>
           </div>
           <div className='modal-body'>
