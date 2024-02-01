@@ -13,7 +13,7 @@ const ListCardItems = () => {
   };
 
   const handleLoanItem = (id) => {
-    console.log('id', id);
+    console.log('clicked item id:', id);
     loanItem(id);
   };
 

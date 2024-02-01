@@ -43,7 +43,7 @@ const CartProvider = (props) => {
 
         return {
           purchasedItems: [...prevCartState.purchasedItems, newItem],
-          loanedItems: [...prevCartState.loanedItems], // Добавляем пустой массив для займа
+          loanedItems: [...prevCartState.loanedItems],
           totalAmount:
             prevCartState.totalAmount + item.saleInfo.listPrice.amount,
           totalQuantity: prevCartState.totalQuantity + 1,
@@ -52,26 +52,58 @@ const CartProvider = (props) => {
     });
   };
 
+  // const loanItemHandler = (id) => {
+  //   setCartState((prevCartState) => {
+  //     const updatedPurchasedItems = prevCartState.purchasedItems.map((item) =>
+  //       item.id === id ? { ...item, isLoaned: true } : item
+  //     );
+
+  //     console.log('Context: prevCartState:', prevCartState);
+  //     console.log('Context: updatedPurchasedItems:', updatedPurchasedItems);
+
+  //     const loanedItem = updatedPurchasedItems.find((item) => item.id === id);
+  //     if (loanedItem) {
+  //       console.log(
+  //         `Book loaned: ${loanedItem.volumeInfo.title}, isLoaned: ${loanedItem.isLoaned}`
+  //       );
+  //     } else {
+  //       console.log('Context: loanedItem:', loanedItem);
+  //       console.error(
+  //         `Book not found in the purchased items array with id: ${id}`
+  //       );
+  //     }
+
+  //     return {
+  //       ...prevCartState,
+  //       purchasedItems: updatedPurchasedItems,
+  //     };
+  //   });
+  // };
+
   const loanItemHandler = (id) => {
     setCartState((prevCartState) => {
-      const updatedPurchasedItems = prevCartState.purchasedItems.map((item) =>
-        item.id === id ? { ...item, isLoaned: true } : item
+      const purchasedItemToLoan = prevCartState.purchasedItems.find(
+        (item) => item.id === id
       );
 
-      const loanedItem = updatedPurchasedItems.find((item) => item.id === id);
-      if (loanedItem) {
-        console.log(
-          `Book loaned: ${loanedItem.volumeInfo.title}, isLoaned: ${loanedItem.isLoaned}`
-        );
-      } else {
+      if (!purchasedItemToLoan) {
         console.error(
           `Book not found in the purchased items array with id: ${id}`
         );
+        return prevCartState;
       }
 
+      console.log(
+        `Book loaned: ${purchasedItemToLoan.volumeInfo.title}, isLoaned: true`
+      );
+
       return {
-        ...prevCartState,
-        purchasedItems: updatedPurchasedItems,
+        purchasedItems: prevCartState.purchasedItems.filter(
+          (item) => item.id !== id
+        ),
+        loanedItems: [...prevCartState.loanedItems, purchasedItemToLoan],
+        totalAmount: prevCartState.totalAmount,
+        totalQuantity: prevCartState.totalQuantity - 1,
       };
     });
   };
