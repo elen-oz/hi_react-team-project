@@ -8,7 +8,7 @@ import { CartContext } from '../hooks/CartContext';
 const Header = ({ toggleCart, setCategory }) => {
   const { fetchBooksByCategory } = useContext(BookContext);
   const [bookSearch, setBookSearch] = useState('');
-  const { darkMode, darkModeHandle } = useContext(ThemeContext);
+  let { darkMode, darkModeHandle } = useContext(ThemeContext);
   const { items } = useContext(CartContext);
 
   const handleInputChange = (e) => {
@@ -24,6 +24,13 @@ const Header = ({ toggleCart, setCategory }) => {
     fetchBooksByCategory('', category);
     setCategory(category);
   };
+
+  const localStorageDarkMode = localStorage.getItem('darkMode');
+  if (localStorageDarkMode) {
+    if (darkMode !== JSON.parse(localStorageDarkMode)) {
+      darkMode = JSON.parse(localStorageDarkMode);
+    }
+  }
 
   // const bgColorClass = darkMode ? 'bg-primary' : 'bg-info';
   const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';

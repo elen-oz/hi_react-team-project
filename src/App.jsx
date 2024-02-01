@@ -21,12 +21,20 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const { darkMode, bgColorClass } = useContext(ThemeContext);
+  let { darkMode, bgColorClass } = useContext(ThemeContext);
   const [category, setCategory] = useState('');
   const { fetchBooksByCategory } = useContext(BookContext);
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
   };
+
+  const localStorageDarkMode = localStorage.getItem('darkMode');
+  if (localStorageDarkMode) {
+    if (darkMode !== JSON.parse(localStorageDarkMode)) {
+      darkMode = JSON.parse(localStorageDarkMode);
+      bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
+    }
+  }
 
   return (
     <div data-bs-theme={darkMode ? 'dark' : 'light'} className={bgColorClass}>

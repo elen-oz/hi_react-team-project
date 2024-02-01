@@ -15,7 +15,14 @@ const CartPopUp = ({ isOpen, closeCart }) => {
     transform: isOpen ? 'translateX(0)' : 'translateX(100%)',
     transition: 'transform 0.9s ease-in-out',
   };
-  const { darkMode } = useContext(ThemeContext);
+  let { darkMode } = useContext(ThemeContext);
+
+  const localStorageDarkMode = localStorage.getItem('darkMode');
+  if (localStorageDarkMode) {
+    if (darkMode !== JSON.parse(localStorageDarkMode)) {
+      darkMode = JSON.parse(localStorageDarkMode);
+    }
+  }
 
   const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
   const textColorClass = darkMode ? 'text-light' : 'text-dark';
