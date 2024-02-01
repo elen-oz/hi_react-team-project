@@ -16,23 +16,26 @@ const CartPopUp = ({ isOpen, closeCart }) => {
     transition: 'transform 0.9s ease-in-out',
   };
   const { darkMode } = useContext(ThemeContext);
+
   const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
+  const textColorClass = darkMode ? 'bg-dark' : 'bg-light';
+
   return (
     <div
-      className={`position-fixed shadow end-0 ${bgColorClass} ${
+      className={`position-fixed shadow end-0 ${bgColorClass}  ${
         isOpen ? '' : 'd-none'
       }`}
-      style={{ width: '25rem', ...cartStyle, zIndex: 1050 }}
+      style={{ width: '33rem', ...cartStyle, zIndex: 1050 }}
     >
       <div
-        className='container my-5 p-4  mt-0bg-light'
-        style={{ width: '23rem', overflowY: 'auto' }}
+        className='container my-4 p-4  mt-0bg-light border'
+        style={{ width: '30rem', overflowY: 'auto' }}
       >
-        {darkMode ? (
+        {/* {darkMode ? (
           <h5 className='text-center mt-3 text-white'>My Book Cart</h5>
-        ) : (
-          <h5 className='text-center mt-3'>My Book Cart</h5>
-        )}
+        ) : ( */}
+        <h5 className={`text-center mt-3 ${textColorClass}`}> My Book Cart</h5>
+        {/* )} */}
         <hr />
 
         {/* <ListGroup>
