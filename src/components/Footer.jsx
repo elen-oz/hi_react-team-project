@@ -4,7 +4,15 @@ import { Link } from 'react-router-dom';
 import { ThemeContext } from '../hooks/themeContext';
 
 const Footer = () => {
-  const { bgColorClass, darkMode } = useContext(ThemeContext);
+  let { bgColorClass, darkMode } = useContext(ThemeContext);
+  const localStorageDarkMode = localStorage.getItem('darkMode');
+  if (localStorageDarkMode) {
+    if (darkMode !== JSON.parse(localStorageDarkMode)) {
+      darkMode = JSON.parse(localStorageDarkMode);
+      bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
+    }
+  }
+
   const textColor = darkMode ? 'text-light' : 'text-dark';
 
   return (

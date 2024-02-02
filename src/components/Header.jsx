@@ -9,7 +9,9 @@ const Header = ({ toggleCart, setCategory }) => {
   const { fetchBooksByCategory } = useContext(BookContext);
   const [bookSearch, setBookSearch] = useState('');
   const { darkMode, darkModeHandle } = useContext(ThemeContext);
-  const { items } = useContext(CartContext);
+  const { purchasedItems, loanedItems } = useContext(CartContext);
+
+  const items = purchasedItems?.length + loanedItems?.length || 0;
 
   const handleInputChange = (e) => {
     setBookSearch(e.target.value);
@@ -25,15 +27,22 @@ const Header = ({ toggleCart, setCategory }) => {
     setCategory(category);
   };
 
-  // const bgColorClass = darkMode ? 'bg-primary' : 'bg-info';
+  const handleHomeClick = () => {
+    fetchBooksByCategory('', '');
+    setCategory('');
+  };
+
   const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
 
   return (
-    // <header data-bs-theme='dark' className='mb-4'>
     <header className='mb-4 border-bottom'>
       <nav className={`navbar navbar-expand-md ${bgColorClass}`}>
         <div className='container-fluid'>
-          <Link to='/.' className='navbar-brand'>
+          <Link
+            to='/.'
+            className='navbar-brand'
+            onClick={() => fetchBooksByCategory('', '')}
+          >
             HI Library
           </Link>
 
@@ -68,7 +77,11 @@ const Header = ({ toggleCart, setCategory }) => {
             >
               <ul className='navbar-nav me-auto mb-lg-0'>
                 <li className='nav-item'>
-                  <Link to='./' className='nav-link active'>
+                  <Link
+                    to='./'
+                    className='nav-link active'
+                    onClick={handleHomeClick}
+                  >
                     Home
                   </Link>
                 </li>
@@ -237,7 +250,7 @@ const Header = ({ toggleCart, setCategory }) => {
                 >
                   <BsHandbag size={24} />
                 </Link>
-                &nbsp;<em style={{ fontSize: '1.2rem' }}>{items.length}</em>
+                &nbsp;<em style={{ fontSize: '1.2rem' }}>{items}</em>
               </div>
             </div>
           </div>

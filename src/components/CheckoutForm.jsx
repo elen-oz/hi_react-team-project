@@ -110,7 +110,7 @@ const CheckoutForm = () => {
               disabled={isSubmitting}
               style={{ marginTop: '1em' }}
             >
-              Submit
+              Order
             </Button>
           </Form>
         )}
