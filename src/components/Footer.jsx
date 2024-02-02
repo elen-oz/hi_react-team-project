@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div className={bgColorClass}>
       <div className='container'>
-        <footer className='row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-5 mt-5 border-top'>
+        <footer className='row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-3 mt-4 border-top'>
           <div className='col mb-3'>
             <h5 className={textColorClass}>ABOUT HI LIBRARY</h5>
             <ul className='nav flex-column'>
@@ -82,7 +82,7 @@ const Footer = () => {
           </div>
           <hr style={{ width: '100%' }} />
           <div className='d-flex justify-content-between w-100'>
-            <div className='col mb-3'>
+            <div className='col'>
               <p className='text-body-secondary' style={{ fontSize: 'larger' }}>
                 TEAM 7
               </p>

@@ -7,8 +7,8 @@ import BookPage from './pages/BookPage';
 import CartPopUp from './components/CartPopUp';
 import CheckoutPage from './pages/CheckoutPage';
 import ContactPage from './pages/ContactPage';
-import Header from './components/Header';
-import Footer from './components/Footer';
+// import Header from './components/Header';
+// import Footer from './components/Footer';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsOfUsePage from './pages/TermsOfUsePage';
 import BookDetailsProvider from './hooks/bookDetailsContext';
@@ -16,6 +16,7 @@ import AccessibilityPage from './pages/AccessibilityPage';
 import NotFoundPage from './pages/NotFoundPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import PagesContainer from './components/PagesContainer';
 
 function App() {
   let { darkMode, bgColorClass } = useContext(ThemeContext);
@@ -23,32 +24,58 @@ function App() {
   const { fetchBooksByCategory } = useContext(BookContext);
 
   return (
-    <div data-bs-theme={darkMode ? 'dark' : 'light'} className={bgColorClass}>
+    <div
+      data-bs-theme={darkMode ? 'dark' : 'light'}
+      className={`vh-100 ${bgColorClass}`}
+    >
       <Router>
-        <Header
+
+        <PagesContainer>
+          {/* <Header
+          toggleCart={toggleCart}
           setCategory={setCategory}
           fetchBooksByCategory={fetchBooksByCategory}
-        />
-        <CartPopUp />
-        <Routes>
-          <Route path='/' element={<Homepage category={category} />} />
-          <Route
-            path='/books/:id'
-            element={
-              <BookDetailsProvider>
-                <BookPage />
-              </BookDetailsProvider>
-            }
-          />
-          <Route path='/checkout' element={<CheckoutPage />} />
-          <Route path='/contact' element={<ContactPage />} />
+        /> */}
+          <CartPopUp
+            isOpen={isCartOpen}
+            closeCart={() => setIsCartOpen(false)}
 
-          <Route path='/privacy' element={<PrivacyPage />} />
-          <Route path='/terms' element={<TermsOfUsePage />} />
-          <Route path='/accessibility' element={<AccessibilityPage />} />
-          <Route path='*' element={<NotFoundPage />} />
-        </Routes>
-        <Footer />
+//         <Header
+//           setCategory={setCategory}
+//           fetchBooksByCategory={fetchBooksByCategory}
+//         />
+//         <CartPopUp />
+//         <Routes>
+//           <Route path='/' element={<Homepage category={category} />} />
+//           <Route
+//             path='/books/:id'
+//             element={
+//               <BookDetailsProvider>
+//                 <BookPage />
+//               </BookDetailsProvider>
+//             }
+
+          />
+          <Routes>
+            <Route path='/' element={<Homepage category={category} />} />
+            <Route
+              path='/books/:id'
+              element={
+                <BookDetailsProvider>
+                  <BookPage />
+                </BookDetailsProvider>
+              }
+            />
+            <Route path='/checkout' element={<CheckoutPage />} />
+            <Route path='/contact' element={<ContactPage />} />
+
+            <Route path='/privacy' element={<PrivacyPage />} />
+            <Route path='/terms' element={<TermsOfUsePage />} />
+            <Route path='/accessibility' element={<AccessibilityPage />} />
+            <Route path='*' element={<NotFoundPage />} />
+          </Routes>
+          {/* <Footer /> */}
+        </PagesContainer>
       </Router>
     </div>
   );
