@@ -2,13 +2,13 @@ import { useContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeContext } from './hooks/themeContext';
 import { BookContext } from './hooks/bookContext';
+import { CartPopUpContext } from './hooks/cartPopUpContext';
+import { CategoryContext } from './hooks/categoryContext';
 import Homepage from './pages/HomePage';
 import BookPage from './pages/BookPage';
 import CartPopUp from './components/CartPopUp';
 import CheckoutPage from './pages/CheckoutPage';
 import ContactPage from './pages/ContactPage';
-// import Header from './components/Header';
-// import Footer from './components/Footer';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsOfUsePage from './pages/TermsOfUsePage';
 import BookDetailsProvider from './hooks/bookDetailsContext';
@@ -19,9 +19,10 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import PagesContainer from './components/PagesContainer';
 
 function App() {
-  let { darkMode, bgColorClass } = useContext(ThemeContext);
-  const [category, setCategory] = useState('');
-  const { fetchBooksByCategory } = useContext(BookContext);
+  const { darkMode, bgColorClass } = useContext(ThemeContext);
+  const { category } = useContext(CategoryContext);
+  // const [category, setCategory] = useState('');
+  // const { isOpen, toggleCart } = useContext(CartPopUpContext);
 
   return (
     <div
@@ -29,33 +30,8 @@ function App() {
       className={`vh-100 ${bgColorClass}`}
     >
       <Router>
-
         <PagesContainer>
-          {/* <Header
-          toggleCart={toggleCart}
-          setCategory={setCategory}
-          fetchBooksByCategory={fetchBooksByCategory}
-        /> */}
-          <CartPopUp
-            isOpen={isCartOpen}
-            closeCart={() => setIsCartOpen(false)}
-
-//         <Header
-//           setCategory={setCategory}
-//           fetchBooksByCategory={fetchBooksByCategory}
-//         />
-//         <CartPopUp />
-//         <Routes>
-//           <Route path='/' element={<Homepage category={category} />} />
-//           <Route
-//             path='/books/:id'
-//             element={
-//               <BookDetailsProvider>
-//                 <BookPage />
-//               </BookDetailsProvider>
-//             }
-
-          />
+          <CartPopUp />
           <Routes>
             <Route path='/' element={<Homepage category={category} />} />
             <Route
