@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div className={bgColorClass}>
       <div className='container'>
-        <footer className='row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top  mb-0'>
+        <footer className='row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-5 mt-5 border-top'>
           <div className='col mb-3'>
             <h5 className={textColorClass}>ABOUT HI LIBRARY</h5>
             <ul className='nav flex-column'>

@@ -20,9 +20,9 @@ const CheckoutListToLoans = () => {
         {loanedItems.map((item) => (
           <li
             key={item.id}
-            className='list-group-item d-flex justify-content-between'
+            className='list-group-item d-flex justify-content-between align-items-center'
           >
-            <span className='w-100 px-2 d-flex justify-content-between'>
+            <span className='w-100 px-2 d-flex justify-content-between align-items-center'>
               <span>{item.volumeInfo.title}</span>
 
               <button

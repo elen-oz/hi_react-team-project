@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { ThemeContext } from '../hooks/themeContext';
 import { CartContext } from '../hooks/CartContext';
 import { LoanCartContext } from '../hooks/loanCartContext';
 import { Form, Button } from 'react-bootstrap';
@@ -25,6 +26,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const CheckoutForm = () => {
+  const { bgColorClass, textColorClass } = useContext(ThemeContext);
   const { purchasedItems } = useContext(CartContext);
   const { loanedItems } = useContext(LoanCartContext);
 
@@ -32,7 +34,7 @@ const CheckoutForm = () => {
     <>
       {!(purchasedItems.length === 0 && loanedItems.length === 0) && (
         <div
-          className='container my-5 p-4 bg-light shadow'
+          className={`container my-5 p-4 ${bgColorClass} shadow`}
           style={{ width: '20rem' }}
         >
           <Formik
