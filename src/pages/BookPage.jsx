@@ -50,7 +50,11 @@ const BookPage = () => {
                   readOnly
                 />
 
-                <p className='card-text'>{descriptionWithoutHtml}</p>
+                <p className='card-text'>
+                  {!bookDetails.volumeInfo.description &&
+                    'No description provided'}
+                  {descriptionWithoutHtml}
+                </p>
                 <button
                   className='btn btn-info'
                   data-bs-toggle='modal'
