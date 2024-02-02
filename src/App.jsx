@@ -26,14 +26,6 @@ function App() {
     setIsCartOpen(!isCartOpen);
   };
 
-  const localStorageDarkMode = localStorage.getItem('darkMode');
-  if (localStorageDarkMode) {
-    if (darkMode !== JSON.parse(localStorageDarkMode)) {
-      darkMode = JSON.parse(localStorageDarkMode);
-      bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
-    }
-  }
-
   return (
     <div data-bs-theme={darkMode ? 'dark' : 'light'} className={bgColorClass}>
       <Router>
@@ -53,17 +45,12 @@ function App() {
               </BookDetailsProvider>
             }
           />
-
-          {/* <Route path='/' element={<Homepage category={category} />} />
-          <Route path='/books/:id' element={<BookPage />} /> */}
-
           <Route path='/checkout' element={<CheckoutPage />} />
           <Route path='/contact' element={<ContactPage />} />
-          <Route path='/privacy' element={<PrivacyPage />} />
 
+          <Route path='/privacy' element={<PrivacyPage />} />
           <Route path='/terms' element={<TermsOfUsePage />} />
           <Route path='/accessibility' element={<AccessibilityPage />} />
-
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
         <Footer />
