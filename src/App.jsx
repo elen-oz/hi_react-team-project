@@ -28,7 +28,10 @@ function App() {
   };
 
   return (
-    <div data-bs-theme={darkMode ? 'dark' : 'light'} className={bgColorClass}>
+    <div
+      data-bs-theme={darkMode ? 'dark' : 'light'}
+      className={`vh-100 ${bgColorClass}`}
+    >
       <Router>
         <PagesContainer>
           {/* <Header
