@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../hooks/CartContext';
 import { LoanCartContext } from '../hooks/loanCartContext';
 import { ThemeContext } from '../hooks/themeContext';
+import { makeShorterName } from '../utils';
 
 const CartPopUp = ({ isOpen, closeCart }) => {
   const { purchasedItems, totalAmount, removeItem, clearCart } =
@@ -60,9 +61,14 @@ const CartPopUp = ({ isOpen, closeCart }) => {
       >
         <div className='d-flex justify-content-between align-items-center'>
           <h5 className={`text-center mt-3 ${textColorClass}`}>My Book Cart</h5>
-          <button className='btn btn-danger' onClick={clearCart}>
-            Clear
-          </button>
+          <div className='d-flex gap-2'>
+            <Link to='/checkout' className='btn btn-success'>
+              CHECKOUT
+            </Link>
+            <button className='btn btn-secondary' onClick={closeCart}>
+              Close
+            </button>
+          </div>
         </div>
         <hr />
         {purchasedItems.length === 0 && <div>Your cart is empty... ☹️ </div>}
@@ -72,7 +78,8 @@ const CartPopUp = ({ isOpen, closeCart }) => {
               key={index}
               className='d-flex justify-content-between align-items-center'
             >
-              {item.volumeInfo.title} - {item.volumeInfo.authors}
+              {makeShorterName(item.volumeInfo.title, 30)} -{' '}
+              {makeShorterName(item.volumeInfo.authors)}
               <button
                 className='btn btn-warning m-1 py-1'
                 onClick={() => {
@@ -86,16 +93,6 @@ const CartPopUp = ({ isOpen, closeCart }) => {
         </ul>
 
         <div className={`${textColorClass}`}>Total: {totalAmount}</div>
-
-        <div className='d-flex justify-content-between mt-3'>
-          <Link to='/checkout' className='btn btn-success'>
-            CHECKOUT
-          </Link>
-
-          <button className='btn btn-secondary' onClick={closeCart}>
-            Close Cart
-          </button>
-        </div>
       </div>
 
       {/* --------------------------------------------------------- */}
@@ -108,9 +105,7 @@ const CartPopUp = ({ isOpen, closeCart }) => {
           <h5 className={`text-center mt-3 ${textColorClass}`}>
             Books to loan
           </h5>
-          <button className='btn btn-danger' onClick={clearLoanCart}>
-            Clear
-          </button>
+          <div></div>
         </div>
         <hr />
         {loanedItems.length === 0 && <div>No books... ☹️ </div>}
@@ -120,8 +115,8 @@ const CartPopUp = ({ isOpen, closeCart }) => {
               key={index}
               className='d-flex justify-content-between align-items-center'
             >
-              {item.volumeInfo.title} - {item.volumeInfo.authors}
-              {/* {item.volumeInfo} */}
+              {makeShorterName(item.volumeInfo.title, 30)} -{' '}
+              {makeShorterName(item.volumeInfo.authors)}
               <button
                 className='btn btn-warning m-1 py-1'
                 onClick={() => {
@@ -135,16 +130,6 @@ const CartPopUp = ({ isOpen, closeCart }) => {
         </ul>
 
         <div className={`${textColorClass}`}>Quantity: {totalLoanQuantity}</div>
-
-        <div className='d-flex justify-content-between mt-3'>
-          <Link to='/checkout' className='btn btn-success'>
-            CHECKOUT
-          </Link>
-
-          <button className='btn btn-secondary' onClick={closeCart}>
-            Close Cart
-          </button>
-        </div>
       </div>
     </div>
   );
