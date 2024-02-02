@@ -9,7 +9,8 @@ import { LoanCartContext } from '../hooks/loanCartContext';
 const Header = ({ toggleCart, setCategory }) => {
   const { fetchBooksByCategory } = useContext(BookContext);
   const [bookSearch, setBookSearch] = useState('');
-  const { darkMode, darkModeHandle, bgColorClass } = useContext(ThemeContext);
+  const { darkMode, darkModeHandle, bgColorClass, textColorClass } =
+    useContext(ThemeContext);
   const { purchasedItems } = useContext(CartContext);
   const { loanedItems } = useContext(LoanCartContext);
   const { pathname } = useLocation();
@@ -38,8 +39,8 @@ const Header = ({ toggleCart, setCategory }) => {
   const shouldShowSearchForm = pathname !== '/contact';
 
   return (
-    <header className='mb-4 border-bottom'>
-      <nav className={`navbar navbar-expand-md ${bgColorClass}`}>
+    <header className={`mb-4 border-bottom ${textColorClass}`}>
+      <nav className={'navbar navbar-expand-md'}>
         <div className='container-fluid'>
           <Link
             to='/.'
