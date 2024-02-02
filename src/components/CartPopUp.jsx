@@ -57,10 +57,7 @@ const CartPopUp = ({ isOpen, closeCart }) => {
         style={{ width: '30rem', overflowY: 'auto' }}
       >
         <div className='d-flex justify-content-between align-items-center'>
-          <h5 className={`text-center mt-3 ${textColorClass}`}>
-            {' '}
-            My Book Cart
-          </h5>
+          <h5 className={`text-center mt-3 ${textColorClass}`}>My Book Cart</h5>
           <button className='btn btn-danger' onClick={clearCart}>
             Clear
           </button>
@@ -73,7 +70,7 @@ const CartPopUp = ({ isOpen, closeCart }) => {
               key={index}
               className='d-flex justify-content-between align-items-center'
             >
-              {item.volumeInfo.title} - {item.volumeInfo.authors}{' '}
+              {item.volumeInfo.title} - {item.volumeInfo.authors}
               <button
                 className='btn btn-warning m-1 py-1'
                 onClick={() => {

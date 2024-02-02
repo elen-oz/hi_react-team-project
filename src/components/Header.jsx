@@ -9,9 +9,9 @@ const Header = ({ toggleCart, setCategory }) => {
   const { fetchBooksByCategory } = useContext(BookContext);
   const [bookSearch, setBookSearch] = useState('');
   const { darkMode, darkModeHandle } = useContext(ThemeContext);
-  const { purchasedItems, loanedItems } = useContext(CartContext);
+  const { purchasedItems } = useContext(CartContext);
 
-  const items = purchasedItems?.length + loanedItems?.length || 0;
+  const items = purchasedItems?.length;
 
   const handleInputChange = (e) => {
     setBookSearch(e.target.value);
