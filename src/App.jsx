@@ -18,23 +18,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
-  const [isCartOpen, setIsCartOpen] = useState(false);
   let { darkMode, bgColorClass } = useContext(ThemeContext);
   const [category, setCategory] = useState('');
   const { fetchBooksByCategory } = useContext(BookContext);
-  const toggleCart = () => {
-    setIsCartOpen(!isCartOpen);
-  };
 
   return (
     <div data-bs-theme={darkMode ? 'dark' : 'light'} className={bgColorClass}>
       <Router>
         <Header
-          toggleCart={toggleCart}
           setCategory={setCategory}
           fetchBooksByCategory={fetchBooksByCategory}
         />
-        <CartPopUp isOpen={isCartOpen} closeCart={() => setIsCartOpen(false)} />
+        <CartPopUp />
         <Routes>
           <Route path='/' element={<Homepage category={category} />} />
           <Route
