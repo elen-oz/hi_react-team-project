@@ -1,8 +1,11 @@
-import React from 'react';
+import { useContext } from 'react';
+import { ThemeContext } from '../hooks/themeContext';
 
 const Accessibility = () => {
+  const { textColorClass } = useContext(ThemeContext);
+
   return (
-    <div className='accessibility'>
+    <div className={`accessibility ${textColorClass}`}>
       <div className='container'>
         <h1 className='mt-3 mb-3'>Accessibility Statement</h1>
         <p>Last updated: January 26, 2024</p>

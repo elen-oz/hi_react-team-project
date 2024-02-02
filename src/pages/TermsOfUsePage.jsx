@@ -1,8 +1,11 @@
-import React from 'react';
+import { useContext } from 'react';
+import { ThemeContext } from '../hooks/themeContext';
 
 const TermsOfUse = () => {
+  const { textColorClass, bgColorClass } = useContext(ThemeContext);
+
   return (
-    <div className='terms-of-use'>
+    <div className={`terms-of-use ${bgColorClass} ${textColorClass}`}>
       <div className='container'>
         <h1 className='mt-3 mb-3'>Terms of Use for Our Library</h1>
         <p>Last updated: January 26, 2024</p>

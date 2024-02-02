@@ -44,7 +44,6 @@ function App() {
             />
             <Route path='/checkout' element={<CheckoutPage />} />
             <Route path='/contact' element={<ContactPage />} />
-
             <Route path='/privacy' element={<PrivacyPage />} />
             <Route path='/terms' element={<TermsOfUsePage />} />
             <Route path='/accessibility' element={<AccessibilityPage />} />
