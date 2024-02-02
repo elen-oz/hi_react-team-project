@@ -1,17 +1,9 @@
 import { useContext, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { CartContext } from '../hooks/CartContext';
-import { LoanCartContext } from '../hooks/loanCartContext';
 import { ThemeContext } from '../hooks/themeContext';
-import { makeShorterName } from '../utils';
+import CartPopUpToBuy from './CartPopUpToBuy';
+import CartPopUptoLoan from './CartPopUptoLoan';
 
 const CartPopUp = ({ isOpen, closeCart }) => {
-  const { purchasedItems, totalAmount, removeItem, clearCart } =
-    useContext(CartContext);
-
-  const { loanedItems, removeLoanedItem, clearLoanCart, totalLoanQuantity } =
-    useContext(LoanCartContext);
-
   const cartRef = useRef(null);
   let { darkMode } = useContext(ThemeContext);
 
@@ -55,82 +47,8 @@ const CartPopUp = ({ isOpen, closeCart }) => {
       className={`position-fixed shadow end-0 ${bgColorClass}`}
       style={{ width: '33rem', ...cartStyle, zIndex: 1050 }}
     >
-      <div
-        className={`container my-4 p-4  mt-0 ${bgColorClass} border border-1  ${borderColorClass}`}
-        style={{ width: '30rem', overflowY: 'auto' }}
-      >
-        <div className='d-flex justify-content-between align-items-center'>
-          <h5 className={`text-center mt-3 ${textColorClass}`}>My Book Cart</h5>
-          <div className='d-flex gap-2'>
-            <Link to='/checkout' className='btn btn-success'>
-              CHECKOUT
-            </Link>
-            <button className='btn btn-secondary' onClick={closeCart}>
-              Close
-            </button>
-          </div>
-        </div>
-        <hr />
-        {purchasedItems.length === 0 && <div>Your cart is empty... ☹️ </div>}
-        <ul className={`${textColorClass}`}>
-          {purchasedItems?.map((item, index) => (
-            <li
-              key={index}
-              className='d-flex justify-content-between align-items-center'
-            >
-              {makeShorterName(item.volumeInfo.title, 30)} -{' '}
-              {makeShorterName(item.volumeInfo.authors)}
-              <button
-                className='btn btn-warning m-1 py-1'
-                onClick={() => {
-                  removeItem(item.id);
-                }}
-              >
-                X
-              </button>
-            </li>
-          ))}
-        </ul>
-
-        <div className={`${textColorClass}`}>Total: {totalAmount}</div>
-      </div>
-
-      {/* --------------------------------------------------------- */}
-
-      <div
-        className={`container my-4 p-4  mt-0 ${bgColorClass} border border-1  ${borderColorClass}`}
-        style={{ width: '30rem', overflowY: 'auto' }}
-      >
-        <div className='d-flex justify-content-between align-items-center'>
-          <h5 className={`text-center mt-3 ${textColorClass}`}>
-            Books to loan
-          </h5>
-          <div></div>
-        </div>
-        <hr />
-        {loanedItems.length === 0 && <div>No books... ☹️ </div>}
-        <ul className={`${textColorClass}`}>
-          {loanedItems?.map((item, index) => (
-            <li
-              key={index}
-              className='d-flex justify-content-between align-items-center'
-            >
-              {makeShorterName(item.volumeInfo.title, 30)} -{' '}
-              {makeShorterName(item.volumeInfo.authors)}
-              <button
-                className='btn btn-warning m-1 py-1'
-                onClick={() => {
-                  removeLoanedItem(item.id);
-                }}
-              >
-                X
-              </button>
-            </li>
-          ))}
-        </ul>
-
-        <div className={`${textColorClass}`}>Quantity: {totalLoanQuantity}</div>
-      </div>
+      <CartPopUpToBuy isOpen={isOpen} closeCart={closeCart} />
+      <CartPopUptoLoan isOpen={isOpen} closeCart={closeCart} />
     </div>
   );
 };
