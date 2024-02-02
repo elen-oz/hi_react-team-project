@@ -6,16 +6,17 @@ import { ThemeContext } from '../hooks/themeContext';
 import { CartContext } from '../hooks/CartContext';
 import { LoanCartContext } from '../hooks/loanCartContext';
 import { CartPopUpContext } from '../hooks/cartPopUpContext';
+import { CategoryContext } from '../hooks/categoryContext';
 
-const Header = ({ setCategory }) => {
+const Header = () => {
   const { fetchBooksByCategory } = useContext(BookContext);
   const [bookSearch, setBookSearch] = useState('');
-  const { darkMode, darkModeHandle, bgColorClass, textColorClass } =
-    useContext(ThemeContext);
+  const { darkMode, darkModeHandle, textColorClass } = useContext(ThemeContext);
   const { purchasedItems } = useContext(CartContext);
   const { loanedItems } = useContext(LoanCartContext);
   const { pathname } = useLocation();
   const { toggleCart } = useContext(CartPopUpContext);
+  const { setCategory } = useContext(CategoryContext);
 
   const itemsTotalQuantity = purchasedItems?.length + loanedItems?.length;
 
