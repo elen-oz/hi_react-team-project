@@ -1,28 +1,42 @@
 import { useContext } from 'react';
-import { CartContext } from '../hooks/CartContext';
+import { LoanCartContext } from '../hooks/loanCartContext';
 
 const CheckoutListToLoans = () => {
-  const { loanedItems, totalAmount, removeItem, clearCart } =
-    useContext(CartContext);
+  const { loanedItems, removeLoanedItem, clearLoanCart } =
+    useContext(LoanCartContext);
 
   return (
-    <div className='mx-auto mb-3 p-2' style={{ width: '19rem' }}>
-      <h3>To loans</h3>
-      <ul className='border p-4'>
+    <div className='mx-auto  p-2' style={{ width: '35rem' }}>
+      <div className='d-flex justify-content-between align-items-center mb-2'>
+        <h3>To loan</h3>
+        {loanedItems.length !== 0 && (
+          <button className='btn btn-danger' onClick={clearLoanCart}>
+            Clear Loan Cart
+          </button>
+        )}
+      </div>
+      {loanedItems.length === 0 && <div>No books to loan... ☹️ </div>}
+      <ol className='list-group list-group-numbered mb-5'>
         {loanedItems.map((item) => (
           <li
             key={item.id}
-            className='d-flex  justify-content-between align-items-center'
+            className='list-group-item d-flex justify-content-between'
           >
-            <span>{item.volumeInfo.title}</span>
-            <span>1</span>
+            <span className='w-100 px-2 d-flex justify-content-between'>
+              <span>{item.volumeInfo.title}</span>
+
+              <button
+                className='btn btn-warning m-1 py-1'
+                onClick={() => {
+                  removeLoanedItem(item.id);
+                }}
+              >
+                X
+              </button>
+            </span>
           </li>
         ))}
-      </ul>
-      {/* <div className='px-3 d-flex  justify-content-between align-items-center border-bottom'>
-        <span>Total:</span>
-        <span>{totalAmount}</span>
-      </div> */}
+      </ol>
     </div>
   );
 };

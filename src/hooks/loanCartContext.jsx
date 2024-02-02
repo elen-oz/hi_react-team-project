@@ -23,6 +23,8 @@ const LoanCartProvider = (props) => {
   }, [cartState]);
 
   const loanItemHandler = (item) => {
+    console.log('click loan on item:', item);
+
     setCartState((prevCartState) => {
       const isItemInCart = prevCartState.loanedItems.some(
         (cartItem) => cartItem.id === item.id
@@ -33,7 +35,12 @@ const LoanCartProvider = (props) => {
       } else {
         const newItem = { ...item, isLoaned: true, isPurchased: false };
         console.log(
-          `Added to loanCart: ${newItem.volumeInfo.title}, isLoaned: ${newItem.isLoaned}, isPurchased: ${newItem.isPurchased}`
+          `Added to loanCart: ${newItem.id}, isLoaned: ${
+            newItem.isLoaned
+          }, isPurchased: ${newItem.isPurchased}, added: loanedItems: ${[
+            ...prevCartState.loanedItems,
+            newItem,
+          ]}`
         );
 
         return {
@@ -53,6 +60,8 @@ const LoanCartProvider = (props) => {
         (item) => item.id !== id
       );
 
+      console.log('removed: loanedItems', cartContext.loanedItems);
+
       return {
         loanedItems: updatedPurchasedItems,
         totalQuantity: prevCartState.totalQuantity - 1,
@@ -66,10 +75,10 @@ const LoanCartProvider = (props) => {
 
   const cartContext = {
     loanedItems: cartState.loanedItems,
-    totalQuantity: cartState.totalQuantity,
+    totalLoanQuantity: cartState.totalQuantity,
     loanItem: loanItemHandler,
-    removeItem: removeItemToCartHandler,
-    clearCart: clearCartHandler,
+    removeLoanedItem: removeItemToCartHandler,
+    clearLoanCart: clearCartHandler,
   };
 
   return (
