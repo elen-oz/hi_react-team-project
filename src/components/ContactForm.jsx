@@ -1,5 +1,7 @@
 import { Form, Button } from 'react-bootstrap';
 import { Formik } from 'formik';
+import { useContext } from 'react';
+import { ThemeContext } from '../hooks/themeContext';
 import * as Yup from 'yup';
 
 // Schema for yup
@@ -16,9 +18,12 @@ const validationSchema = Yup.object().shape({
 });
 
 const CheckoutForm = () => {
+  const { darkMode, darkModeHandle } = useContext(ThemeContext);
+  const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
+  const textColor = darkMode ? 'text-light' : 'text-dark';
   return (
     <div
-      className='container my-5 p-4 bg-light shadow'
+      className={`container my-5 p-4 ${bgColorClass} shadow`}
       style={{ width: '20rem' }}
     >
       <Formik
@@ -41,7 +46,7 @@ const CheckoutForm = () => {
           isSubmitting,
         }) => (
           <Form onSubmit={handleSubmit} className='mx-auto'>
-            <Form.Group controlId='formName' className='mb-3'>
+            <Form.Group controlId='formName' className={`mb-3 ${textColor}`}>
               <Form.Label>Name:</Form.Label>
               <Form.Control
                 type='text'
@@ -60,7 +65,7 @@ const CheckoutForm = () => {
               ) : null}
             </Form.Group>
 
-            <Form.Group controlId='formEmail' className='mb-3'>
+            <Form.Group controlId='formEmail' className={`mb-3 ${textColor}`}>
               <Form.Label>Email:</Form.Label>
               <Form.Control
                 type='text'
@@ -79,7 +84,7 @@ const CheckoutForm = () => {
               ) : null}
             </Form.Group>
 
-            <Form.Group controlId='formMessage' className='mb-3'>
+            <Form.Group controlId='formMessage' className={`mb-3 ${textColor}`}>
               <Form.Label>Message:</Form.Label>
               <Form.Control
                 as='textarea'
@@ -100,6 +105,7 @@ const CheckoutForm = () => {
             </Form.Group>
 
             <Button
+              className={` ${bgColorClass} ${textColor}`}
               variant='primary'
               type='submit'
               disabled={isSubmitting}

@@ -12,9 +12,7 @@ import Footer from './components/Footer';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsOfUsePage from './pages/TermsOfUsePage';
 import BookDetailsProvider from './hooks/bookDetailsContext';
-
 import AccessibilityPage from './pages/AccessibilityPage';
-
 import NotFoundPage from './pages/NotFoundPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
