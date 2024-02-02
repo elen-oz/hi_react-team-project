@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { BsHandbag, BsBrightnessHigh, BsFillMoonFill } from 'react-icons/bs';
 import { BookContext } from '../hooks/bookContext';
 import { ThemeContext } from '../hooks/themeContext';
@@ -12,6 +12,7 @@ const Header = ({ toggleCart, setCategory }) => {
   const { darkMode, darkModeHandle, bgColorClass } = useContext(ThemeContext);
   const { purchasedItems } = useContext(CartContext);
   const { loanedItems } = useContext(LoanCartContext);
+  const { pathname } = useLocation();
 
   const itemsTotalQuantity = purchasedItems?.length + loanedItems?.length;
 
@@ -33,6 +34,8 @@ const Header = ({ toggleCart, setCategory }) => {
     fetchBooksByCategory('', '');
     setCategory('');
   };
+
+  const shouldShowSearchForm = pathname !== '/contact';
 
   return (
     <header className='mb-4 border-bottom'>
@@ -222,24 +225,25 @@ const Header = ({ toggleCart, setCategory }) => {
                 )}
               </div>
 
-              <form className='d-flex' role='search'>
-                <input
-                  data-bs-theme={darkMode ? 'dark' : 'light'}
-                  className='form-control me-2'
-                  type='search'
-                  placeholder='Search'
-                  aria-label='Search'
-                  onChange={handleInputChange}
-                />
-                <button
-                  onClick={handleSearchBook}
-                  className='btn btn-secondary'
-                  type='submit'
-                >
-                  Search
-                </button>
-              </form>
-
+              {shouldShowSearchForm && (
+                <form className='d-flex' role='search'>
+                  <input
+                    data-bs-theme={darkMode ? 'dark' : 'light'}
+                    className='form-control me-2'
+                    type='search'
+                    placeholder='Search'
+                    aria-label='Search'
+                    onChange={handleInputChange}
+                  />
+                  <button
+                    onClick={handleSearchBook}
+                    className='btn btn-secondary'
+                    type='submit'
+                  >
+                    Search
+                  </button>
+                </form>
+              )}
               <div className='d-md-block d-none px-4'>
                 <Link
                   to='./checkout'
