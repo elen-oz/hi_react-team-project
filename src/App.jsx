@@ -19,13 +19,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import PagesContainer from './components/PagesContainer';
 
 function App() {
-  const [isCartOpen, setIsCartOpen] = useState(false);
   let { darkMode, bgColorClass } = useContext(ThemeContext);
   const [category, setCategory] = useState('');
   const { fetchBooksByCategory } = useContext(BookContext);
-  const toggleCart = () => {
-    setIsCartOpen(!isCartOpen);
-  };
 
   return (
     <div
@@ -33,6 +29,7 @@ function App() {
       className={`vh-100 ${bgColorClass}`}
     >
       <Router>
+
         <PagesContainer>
           {/* <Header
           toggleCart={toggleCart}
@@ -42,6 +39,22 @@ function App() {
           <CartPopUp
             isOpen={isCartOpen}
             closeCart={() => setIsCartOpen(false)}
+
+//         <Header
+//           setCategory={setCategory}
+//           fetchBooksByCategory={fetchBooksByCategory}
+//         />
+//         <CartPopUp />
+//         <Routes>
+//           <Route path='/' element={<Homepage category={category} />} />
+//           <Route
+//             path='/books/:id'
+//             element={
+//               <BookDetailsProvider>
+//                 <BookPage />
+//               </BookDetailsProvider>
+//             }
+
           />
           <Routes>
             <Route path='/' element={<Homepage category={category} />} />
