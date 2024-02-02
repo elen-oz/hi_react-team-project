@@ -29,6 +29,7 @@ const ReviewModal = ({ id, title, show, handleClose, setStoredRating }) => {
     setStoredRating(newRating);
     handleClose();
   };
+
   return (
     <div
       className={`modal fade ${show ? 'show' : ''}`}

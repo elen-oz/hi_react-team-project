@@ -18,9 +18,8 @@ const validationSchema = Yup.object().shape({
 });
 
 const CheckoutForm = () => {
-  const { darkMode, darkModeHandle } = useContext(ThemeContext);
-  const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
-  const textColor = darkMode ? 'text-light' : 'text-dark';
+  const { bgColorClass, textColorClass } = useContext(ThemeContext);
+
   return (
     <div
       className={`container my-5 p-4 ${bgColorClass} shadow`}
@@ -46,7 +45,10 @@ const CheckoutForm = () => {
           isSubmitting,
         }) => (
           <Form onSubmit={handleSubmit} className='mx-auto'>
-            <Form.Group controlId='formName' className={`mb-3 ${textColor}`}>
+            <Form.Group
+              controlId='formName'
+              className={`mb-3 ${textColorClass}`}
+            >
               <Form.Label>Name:</Form.Label>
               <Form.Control
                 type='text'
@@ -65,7 +67,10 @@ const CheckoutForm = () => {
               ) : null}
             </Form.Group>
 
-            <Form.Group controlId='formEmail' className={`mb-3 ${textColor}`}>
+            <Form.Group
+              controlId='formEmail'
+              className={`mb-3 ${textColorClass}`}
+            >
               <Form.Label>Email:</Form.Label>
               <Form.Control
                 type='text'
@@ -84,7 +89,10 @@ const CheckoutForm = () => {
               ) : null}
             </Form.Group>
 
-            <Form.Group controlId='formMessage' className={`mb-3 ${textColor}`}>
+            <Form.Group
+              controlId='formMessage'
+              className={`mb-3 ${textColorClass}`}
+            >
               <Form.Label>Message:</Form.Label>
               <Form.Control
                 as='textarea'
@@ -105,7 +113,7 @@ const CheckoutForm = () => {
             </Form.Group>
 
             <Button
-              className={` ${bgColorClass} ${textColor}`}
+              className={` ${bgColorClass} ${textColorClass}`}
               variant='primary'
               type='submit'
               disabled={isSubmitting}

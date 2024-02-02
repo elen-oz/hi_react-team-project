@@ -9,7 +9,7 @@ import { LoanCartContext } from '../hooks/loanCartContext';
 const Header = ({ toggleCart, setCategory }) => {
   const { fetchBooksByCategory } = useContext(BookContext);
   const [bookSearch, setBookSearch] = useState('');
-  const { darkMode, darkModeHandle } = useContext(ThemeContext);
+  const { darkMode, darkModeHandle, bgColorClass } = useContext(ThemeContext);
   const { purchasedItems } = useContext(CartContext);
   const { loanedItems } = useContext(LoanCartContext);
 
@@ -33,8 +33,6 @@ const Header = ({ toggleCart, setCategory }) => {
     fetchBooksByCategory('', '');
     setCategory('');
   };
-
-  const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
 
   return (
     <header className='mb-4 border-bottom'>

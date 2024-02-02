@@ -4,23 +4,14 @@ import { Link } from 'react-router-dom';
 import { ThemeContext } from '../hooks/themeContext';
 
 const Footer = () => {
-  let { bgColorClass, darkMode } = useContext(ThemeContext);
-  const localStorageDarkMode = localStorage.getItem('darkMode');
-  if (localStorageDarkMode) {
-    if (darkMode !== JSON.parse(localStorageDarkMode)) {
-      darkMode = JSON.parse(localStorageDarkMode);
-      bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
-    }
-  }
-
-  const textColor = darkMode ? 'text-light' : 'text-dark';
+  let { bgColorClass, textColorClass } = useContext(ThemeContext);
 
   return (
     <div className={bgColorClass}>
       <div className='container'>
         <footer className='row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top  mb-0'>
           <div className='col mb-3'>
-            <h5 className={textColor}>ABOUT HI LIBRARY</h5>
+            <h5 className={textColorClass}>ABOUT HI LIBRARY</h5>
             <ul className='nav flex-column'>
               <li className='nav-item mb-2'>
                 <Link
@@ -47,7 +38,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col mb-3'>
-            <h5 className={textColor}>HELP & SUPPORT</h5>
+            <h5 className={textColorClass}>HELP & SUPPORT</h5>
             <ul className='nav flex-column'>
               <li className='nav-item mb-2'>
                 <Link
@@ -60,7 +51,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col mb-3'>
-            <h5 className={textColor}>Schedule</h5>
+            <h5 className={textColorClass}>Schedule</h5>
             <ul className='nav flex-column'>
               <li className='nav-item mb-2 text-body-secondary'>
                 Monday-Sunday
@@ -69,7 +60,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col mb-3'>
-            <h5 className={textColor}>Follow Us</h5>
+            <h5 className={textColorClass}>Follow Us</h5>
             <ul className='nav flex-column'>
               <li className='nav-item mb-2'>
                 <a
@@ -82,7 +73,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col mb-3'>
-            <h5 className={textColor}>Address</h5>
+            <h5 className={textColorClass}>Address</h5>
             <ul className='nav flex-column'>
               <li className='nav-item mb-2 text-body-secondary'>
                 Virkesvägen 2, 12030, Stockholm

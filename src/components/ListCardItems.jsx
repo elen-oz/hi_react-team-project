@@ -10,11 +10,6 @@ const ListCardItems = () => {
   const { buyItem } = useContext(CartContext);
   const { loanItem } = useContext(LoanCartContext);
 
-  // const handleLoanItem = (id) => {
-  //   console.log('clicked item id:', id);
-  //   loanItem(id);
-  // };
-
   return (
     <>
       {books.map((book) => {
