@@ -4,14 +4,16 @@ import { BsHandbag, BsBrightnessHigh, BsFillMoonFill } from 'react-icons/bs';
 import { BookContext } from '../hooks/bookContext';
 import { ThemeContext } from '../hooks/themeContext';
 import { CartContext } from '../hooks/CartContext';
+import { LoanCartContext } from '../hooks/loanCartContext';
 
 const Header = ({ toggleCart, setCategory }) => {
   const { fetchBooksByCategory } = useContext(BookContext);
   const [bookSearch, setBookSearch] = useState('');
   const { darkMode, darkModeHandle } = useContext(ThemeContext);
   const { purchasedItems } = useContext(CartContext);
+  const { loanedItems } = useContext(LoanCartContext);
 
-  const items = purchasedItems?.length;
+  const itemsTotalQuantity = purchasedItems?.length + loanedItems?.length;
 
   const handleInputChange = (e) => {
     setBookSearch(e.target.value);
@@ -250,7 +252,8 @@ const Header = ({ toggleCart, setCategory }) => {
                 >
                   <BsHandbag size={24} />
                 </Link>
-                &nbsp;<em style={{ fontSize: '1.2rem' }}>{items}</em>
+                &nbsp;
+                <em style={{ fontSize: '1.2rem' }}>{itemsTotalQuantity}</em>
               </div>
             </div>
           </div>
