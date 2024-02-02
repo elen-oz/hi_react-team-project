@@ -63,7 +63,7 @@ const CartPopUp = ({ isOpen, closeCart }) => {
           </button>
         </div>
         <hr />
-
+        {purchasedItems.length === 0 && <div>Your cart is empty... ☹️ </div>}
         <ul className={`${textColorClass}`}>
           {purchasedItems?.map((item, index) => (
             <li

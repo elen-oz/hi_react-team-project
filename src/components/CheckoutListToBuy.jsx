@@ -17,6 +17,7 @@ const CheckoutListToBuy = () => {
           Clear Cart
         </button>
       </div>
+      {purchasedItems.length === 0 && <div>Your cart is empty... ☹️ </div>}
       <ol className='list-group list-group-numbered mb-5'>
         {purchasedItems.map((item) => (
           <li
