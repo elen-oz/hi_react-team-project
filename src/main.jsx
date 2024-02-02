@@ -6,6 +6,7 @@ import ThemeProvider from './hooks/themeContext.jsx';
 // import BookDetailsProvider from './hooks/bookDetailsContext.jsx';
 import CartProvider from './hooks/CartContext.jsx';
 import LoanCartProvider from './hooks/loanCartContext.jsx';
+import CartPopUpProvider from './hooks/cartPopUpContext.jsx';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootswatch/dist/sketchy/bootstrap.min.css';
 import '@smastrom/react-rating/style.css';
@@ -16,7 +17,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <BookProvider>
         <CartProvider>
           <LoanCartProvider>
-            <App />
+            <CartPopUpProvider>
+              <App />
+            </CartPopUpProvider>
           </LoanCartProvider>
         </CartProvider>
       </BookProvider>
