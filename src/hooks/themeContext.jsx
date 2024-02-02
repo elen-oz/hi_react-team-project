@@ -23,10 +23,20 @@ const ThemeProvider = ({ children }) => {
     localStorage.setItem('darkMode', !darkMode);
   };
 
-  const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
+  const themeContext = {
+    darkMode,
+    darkModeHandle,
+    bgColorClass: darkMode ? 'bg-dark' : 'bg-light',
+    textColorClass: darkMode ? 'text-light' : 'text-dark',
+    borderColorClass: darkMode ? 'border-light' : 'border-dark-subtle',
+  };
+
+  // const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
+  // const textColorClass = darkMode ? 'text-light' : 'text-dark';
+  // const borderColorClass = darkMode ? 'border-light' : 'border-dark-subtle';
 
   return (
-    <ThemeContext.Provider value={{ darkMode, darkModeHandle, bgColorClass }}>
+    <ThemeContext.Provider value={themeContext}>
       {children}
     </ThemeContext.Provider>
   );

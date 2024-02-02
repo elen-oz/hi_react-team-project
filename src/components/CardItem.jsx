@@ -2,15 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 // import ReviewModal from './ReviewModal';
 import { Rating } from '@smastrom/react-rating';
-
-function makeShorterName(name) {
-  let nameArray = name;
-  if (name.length > 17) {
-    nameArray = `${name.slice(0, 18)}...`;
-  }
-
-  return nameArray;
-}
+import { makeShorterName } from '../utils';
 
 const CardItem = ({
   title,

@@ -2,20 +2,13 @@ import { useContext } from 'react';
 import CardItem from '../components/CardItem';
 import { BookContext } from '../hooks/bookContext';
 import { CartContext } from '../hooks/CartContext';
+import { LoanCartContext } from '../hooks/loanCartContext';
 import noImage from '../assets/No-Image-Placeholder.png';
 
 const ListCardItems = () => {
   const { books } = useContext(BookContext);
-  const { buyItem, loanItem } = useContext(CartContext);
-
-  const handleBuyItem = (item) => {
-    buyItem(item);
-  };
-
-  const handleLoanItem = (id) => {
-    console.log('clicked item id:', id);
-    loanItem(id);
-  };
+  const { buyItem } = useContext(CartContext);
+  const { loanItem } = useContext(LoanCartContext);
 
   return (
     <>
@@ -37,10 +30,10 @@ const ListCardItems = () => {
                 : ''
             }
             addToBuy={() => {
-              handleBuyItem(book);
+              buyItem(book);
             }}
             addToLoan={() => {
-              handleLoanItem(book.id);
+              loanItem(book);
             }}
             isForSale={book?.saleInfo?.listPrice !== undefined}
           />

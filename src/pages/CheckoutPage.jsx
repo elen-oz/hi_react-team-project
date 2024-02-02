@@ -1,14 +1,13 @@
-import CheckoutForm from '../components/CheckoutForm';
 import CheckoutListToBuy from '../components/CheckoutListToBuy';
 import CheckoutListToLoans from '../components/CheckoutListToLoans';
+import CheckoutContainer from '../components/CheckoutContainer';
 
 const CheckoutPage = () => {
   return (
-    <>
-      <CheckoutListToLoans />
+    <CheckoutContainer>
       <CheckoutListToBuy />
-      <CheckoutForm />
-    </>
+      <CheckoutListToLoans />
+    </CheckoutContainer>
   );
 };
 
