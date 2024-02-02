@@ -25,7 +25,7 @@ const CartPopUp = ({ isOpen, closeCart }) => {
       style={{ width: '25rem', ...cartStyle, zIndex: 1050 }}
     >
       <div
-        className='container my-5 p-4  mt-0bg-light'
+        className='container my-5 p-4  mt-0 bg-light'
         style={{ width: '23rem', overflowY: 'auto' }}
       >
         {darkMode ? (
