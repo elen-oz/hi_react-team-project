@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../hooks/CartContext';
 import { ThemeContext } from '../hooks/themeContext';
-import { makeShorterName } from '../utils';
+import { makeShorterName } from '../utils/utils';
 
 const CartPopUpToBuy = ({ closeCart }) => {
   const { purchasedItems, totalAmount, removeItem } = useContext(CartContext);
