@@ -53,13 +53,8 @@ const CartPopUp = ({ isOpen, closeCart }) => {
       style={{ width: '33rem', ...cartStyle, zIndex: 1050 }}
     >
       <div
-
-        className='container my-5 p-4  mt-0 bg-light'
-        style={{ width: '23rem', overflowY: 'auto' }}
-
-//         className={`container my-4 p-4  mt-0 bg-light border border-1  ${borderColorClass}`}
-//         style={{ width: '30rem', overflowY: 'auto' }}
-
+        className={`container my-4 p-4  mt-0 ${bgColorClass} border border-1  ${borderColorClass}`}
+        style={{ width: '30rem', overflowY: 'auto' }}
       >
         <div className='d-flex justify-content-between align-items-center'>
           <h5 className={`text-center mt-3 ${textColorClass}`}>
