@@ -42,18 +42,16 @@ const CardItem = ({
 
         <Rating style={{ maxWidth: 150 }} value={storedRating} readOnly />
 
-        <div className='d-flex gap-2 mb-3'>
+        <div className='my-3 mx-auto w-75'>
           {isForSale ? (
-            <button className='btn btn-primary' onClick={addToBuy}>
+            <button className='btn btn-primary w-100' onClick={addToBuy}>
               Buy
             </button>
           ) : (
-            <button className='btn btn-primary disabled' disabled>
-              Not for sale
-            </button>
+            <button className='btn btn-info w-100'>Loan</button>
           )}
 
-          {!isForSale ? (
+          {/* {!isForSale ? (
             <button className='btn btn-info' onClick={addToLoan}>
               Loan
             </button>
@@ -61,7 +59,7 @@ const CardItem = ({
             <button className='btn btn-info disabled' disabled>
               Not for loan
             </button>
-          )}
+          )} */}
         </div>
       </div>
     </div>
