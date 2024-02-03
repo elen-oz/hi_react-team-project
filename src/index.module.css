@@ -1,7 +1,7 @@
-.imgContainer {
+.scaleContainer {
   transition: transform 0.3s ease-in-out;
 }
 
-.imgContainer:hover {
-  transform: scale(1.05);
+.scaleContainer:hover {
+  transform: scale(1.02);
 }
