@@ -11,7 +11,8 @@ import { CategoryContext } from '../hooks/categoryContext';
 const Header = () => {
   const { fetchBooksByCategory } = useContext(BookContext);
   const [bookSearch, setBookSearch] = useState('');
-  const { darkMode, darkModeHandle, textColorClass } = useContext(ThemeContext);
+  const { darkMode, darkModeHandle, textColorClass, bgHeaderColorClass } =
+    useContext(ThemeContext);
   const { purchasedItems } = useContext(CartContext);
   const { loanedItems } = useContext(LoanCartContext);
   const { pathname } = useLocation();
@@ -42,7 +43,7 @@ const Header = () => {
   const shouldShowSearchForm = pathname !== '/contact';
 
   return (
-    <header className={`mb-4 border-bottom ${textColorClass}`}>
+    <header className={`mb-4 border-bottom ${bgHeaderColorClass}`}>
       <nav className={'navbar navbar-expand-md'}>
         <div className='container-fluid'>
           <Link
@@ -248,7 +249,7 @@ const Header = () => {
                   </button>
                 </form>
               )}
-              <div className='d-md-block d-none px-4'>
+              <div className={`d-md-block d-none px-4 ${textColorClass}`}>
                 <Link
                   to='./checkout'
                   onClick={(e) => {
