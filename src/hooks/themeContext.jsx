@@ -27,6 +27,7 @@ const ThemeProvider = ({ children }) => {
     darkMode,
     darkModeHandle,
     bgColorClass: darkMode ? 'bg-dark' : 'bg-light',
+    bgHeaderColorClass: darkMode ? 'bg-primary' : 'bg-light',
     textColorClass: darkMode ? 'text-light' : 'text-dark',
     borderColorClass: darkMode ? 'border-light' : 'border-dark-subtle',
   };
