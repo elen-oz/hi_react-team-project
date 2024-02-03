@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-// import ReviewModal from './ReviewModal';
 import { Rating } from '@smastrom/react-rating';
 import { makeShorterName } from '../utils/utils';
+import styles from '../index.module.css';
 
 const CardItem = ({
   title,
@@ -14,7 +14,6 @@ const CardItem = ({
   addToLoan,
   isForSale,
 }) => {
-  // const [showModal, setShowModal] = useState(false);
   const [storedRating, setStoredRating] = useState(0);
 
   useEffect(() => {
@@ -25,17 +24,12 @@ const CardItem = ({
     }
   }, []);
 
-  // const toggleModal = (e) => {
-  //   // e.stopPropagation();
-  //   setShowModal(!showModal);
-  // };
-
   return (
     <div key={id} style={{ maxWidth: '14rem' }}>
-      <div className='card align-items-center'>
+      <div className={`card align-items-center ${styles.imgContainer}`}>
         <Link to={`/books/${id}`}>
           <div
-            className='overflow-hidden d-flex align-items-center my-2'
+            className={`overflow-hidden d-flex align-items-center my-2 `}
             style={{ height: '17.5rem' }}
           >
             <img src={image} className='object-cover w-100' alt={title} />
@@ -58,14 +52,6 @@ const CardItem = ({
               Not for sale
             </button>
           )}
-          {/* <button
-            className='btn btn-info'
-            data-bs-toggle='modal'
-            data-bs-target={`#reviewModal${id}`}
-            onClick={toggleModal}
-          >
-            Review
-          </button> */}
 
           {!isForSale ? (
             <button className='btn btn-info' onClick={addToLoan}>
@@ -76,14 +62,6 @@ const CardItem = ({
               Not for loan
             </button>
           )}
-
-          {/* <ReviewModal
-            id={id}
-            title={title}
-            show={showModal}
-            handleClose={toggleModal}
-            setStoredRating={setStoredRating}
-          /> */}
         </div>
       </div>
     </div>
