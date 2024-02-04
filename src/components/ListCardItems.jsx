@@ -13,8 +13,6 @@ const ListCardItems = () => {
   const { loanItem } = useContext(LoanCartContext);
   const { filter } = useContext(FilterContext);
 
-  console.log('filter:', filter);
-
   const filteredBooks = books.filter((book) => {
     if (filter === 'ALL') {
       return true;
