@@ -5,3 +5,12 @@
 .scaleContainer:hover {
   transform: scale(1.02);
 }
+
+.priceContainer {
+  position: absolute;
+  top: -0.5rem;
+  left: 0.2rem;
+
+  padding: 5px;
+  border-radius: 3px;
+}

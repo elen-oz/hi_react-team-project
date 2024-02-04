@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from 'react';
+import { useContext } from 'react';
 import { LoanCartContext } from '../hooks/loanCartContext';
 import { ThemeContext } from '../hooks/themeContext';
 import { makeShorterName } from '../utils/utils';
@@ -40,7 +40,11 @@ const CartPopUptoLoan = () => {
         ))}
       </ul>
 
-      <div className={`${textColorClass}`}>Quantity: {totalLoanQuantity}</div>
+      {loanedItems.length !== 0 && (
+        <div className={`${textColorClass}`}>
+          Quantity to loan: {totalLoanQuantity}
+        </div>
+      )}
     </div>
   );
 };

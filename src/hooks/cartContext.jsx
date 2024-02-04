@@ -34,9 +34,6 @@ const CartProvider = (props) => {
         return prevCartState;
       } else {
         const newItem = { ...item, isPurchased: true, isLoaned: false };
-        console.log(
-          `Added to cart: ${newItem.volumeInfo.title}, isPurchased: ${newItem.isPurchased}, isLoaned: ${newItem.isLoaned}`
-        );
 
         return {
           purchasedItems: [...prevCartState.purchasedItems, newItem],

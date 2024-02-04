@@ -32,10 +32,6 @@ const ThemeProvider = ({ children }) => {
     borderColorClass: darkMode ? 'border-light' : 'border-dark-subtle',
   };
 
-  // const bgColorClass = darkMode ? 'bg-dark' : 'bg-light';
-  // const textColorClass = darkMode ? 'text-light' : 'text-dark';
-  // const borderColorClass = darkMode ? 'border-light' : 'border-dark-subtle';
-
   return (
     <ThemeContext.Provider value={themeContext}>
       {children}

@@ -25,17 +25,30 @@ const CardItem = ({
   }, []);
 
   return (
-    <div key={id} style={{ maxWidth: '14rem' }}>
-      <div className={`card align-items-center ${styles.scaleContainer}`}>
+    <div key={id} style={{ maxWidth: '13rem' }}>
+      <div
+        className={`position-relative card align-items-center ${styles.scaleContainer}`}
+      >
+        {isForSale && (
+          <div className={`${styles.priceContainer} bg-danger`}>
+            {price === 0 ? 'FREE' : `${price} ${currency}`}
+          </div>
+        )}
+
         <Link to={`/books/${id}`}>
           <div
-            className={`overflow-hidden d-flex align-items-center my-2 `}
-            style={{ height: '17.5rem' }}
+            className={`overflow-hidden d-flex justify-content-center align-items-center my-2 `}
+            style={{ height: '12.5rem' }}
           >
-            <img src={image} className='object-cover w-100' alt={title} />
+            <img
+              src={image}
+              className='object-cover'
+              alt={title}
+              style={{ maxWidth: '128px' }}
+            />
           </div>
 
-          <div className='card-body py-0'>
+          <div className='card-body py-0' style={{ height: '2.4rem' }}>
             <h6 className='card-title fs-6'>{makeShorterName(title)}</h6>
           </div>
         </Link>
@@ -48,18 +61,10 @@ const CardItem = ({
               Buy
             </button>
           ) : (
-            <button className='btn btn-info w-100'>Loan</button>
-          )}
-
-          {/* {!isForSale ? (
-            <button className='btn btn-info' onClick={addToLoan}>
+            <button className='btn btn-info w-100' onClick={addToLoan}>
               Loan
             </button>
-          ) : (
-            <button className='btn btn-info disabled' disabled>
-              Not for loan
-            </button>
-          )} */}
+          )}
         </div>
       </div>
     </div>

@@ -1,29 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { BookDetailsContext } from '../hooks/bookDetailsContext';
-import { CartContext } from '../hooks/CartContext';
-import { LoanCartContext } from '../hooks/loanCartContext';
 import { Rating } from '@smastrom/react-rating';
 import ReviewModal from '../components/ReviewModal';
 
 const BookPage = () => {
-  const { bookDetails, id } = useContext(BookDetailsContext);
-  const { buyItem } = useContext(CartContext);
-  const { loanItem } = useContext(LoanCartContext);
-
-  const descriptionWithHtml = bookDetails?.volumeInfo?.description || '';
-  const descriptionWithoutHtml = descriptionWithHtml.replace(/<[^>]*>/g, '');
-
   const [storedRating, setStoredRating] = useState(null);
   const [showModal, setShowModal] = useState(false);
-
-  console.log('bookDetails', bookDetails);
-
-  const isForSale = bookDetails?.saleInfo?.listPrice !== undefined;
-  console.log('isForSale', isForSale);
-
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
+  const { bookDetails, id } = useContext(BookDetailsContext);
 
   useEffect(() => {
     const storedRatingData = localStorage.getItem(`reviewData${id}`);
@@ -33,42 +16,39 @@ const BookPage = () => {
     }
   }, [bookDetails, id]);
 
+  // console.log('bookDetails', bookDetails);
+  // const smallThumbnail = bookDetails.volumeInfo.imageLinks.smallThumbnail;
+
+  const imageCover = bookDetails.volumeInfo.imageLinks.medium;
+  // const price = bookDetails.saleInfo.listPrice.amount;
+  // const currency = bookDetails.saleInfo.listPrice.currencyCode;
+  // const pages = bookDetails.volumeInfo.pageCount;
+
+  console.log('imageCover', imageCover);
+
+  const descriptionWithHtml = bookDetails?.volumeInfo?.description || '';
+  const descriptionWithoutHtml = descriptionWithHtml.replace(/<[^>]*>/g, '');
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
-    <div className='px-2 card mb-3 mx-auto' style={{ maxWidth: '650px' }}>
+    <div className='card mb-3 mx-auto' style={{ maxWidth: '650px' }}>
       <div className='row g-2 '>
         {bookDetails ? (
           <>
             <div className='col-md-4 d-flex flex-column gap-1 text-start p-3'>
               <img
-                src={bookDetails.volumeInfo.imageLinks.thumbnail}
-                className='img-fluid rounded-start'
+                src={imageCover}
+                className='img-fluid'
                 alt={bookDetails.volumeInfo.title}
-                style={{ maxWidth: '200px' }}
               />
               <p className='card-text'>
                 {bookDetails.volumeInfo.authors}
                 <br></br>
                 {bookDetails.volumeInfo.publishedDate}
               </p>
-              {bookDetails.saleInfo?.listPrice && (
-                <div>{`${bookDetails.saleInfo?.listPrice?.amount} ${bookDetails.saleInfo?.listPrice?.currencyCode}`}</div>
-              )}
-
-              {isForSale ? (
-                <button
-                  className='btn btn-secondary w-100'
-                  onClick={() => buyItem(bookDetails)}
-                >
-                  Buy
-                </button>
-              ) : (
-                <button
-                  className='btn btn-info w-100'
-                  onClick={() => loanItem(bookDetails)}
-                >
-                  Loan
-                </button>
-              )}
             </div>
             <div className='col-md-8'>
               <div className='card-body'>
@@ -88,13 +68,19 @@ const BookPage = () => {
                     Review
                   </button>
                 </div>
-
                 <p className='card-text'>
                   {!bookDetails.volumeInfo.description &&
                     'No description provided'}
                   {descriptionWithoutHtml}
                 </p>
-
+                {/* <button
+                  className='btn btn-info'
+                  data-bs-toggle='modal'
+                  data-bs-target={`#reviewModal${id}`}
+                  onClick={toggleModal}
+                >
+                  Review
+                </button> */}
                 <ReviewModal
                   id={id}
                   title={bookDetails.volumeInfo.title}

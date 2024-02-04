@@ -34,15 +34,6 @@ const LoanCartProvider = (props) => {
         return prevCartState;
       } else {
         const newItem = { ...item, isLoaned: true, isPurchased: false };
-        console.log(
-          `Added to loanCart: ${newItem.id}, isLoaned: ${
-            newItem.isLoaned
-          }, isPurchased: ${newItem.isPurchased}, added: loanedItems: ${[
-            ...prevCartState.loanedItems,
-            newItem,
-          ]}`
-        );
-
         return {
           loanedItems: [...prevCartState.loanedItems, newItem],
           totalQuantity: prevCartState.totalQuantity + 1,
@@ -53,9 +44,6 @@ const LoanCartProvider = (props) => {
 
   const removeItemToCartHandler = (id) => {
     setCartState((prevCartState) => {
-      //   const removedItem = prevCartState.loanedItems.find(
-      //     (item) => item.id === id
-      //   );
       const updatedPurchasedItems = prevCartState.loanedItems.filter(
         (item) => item.id !== id
       );
