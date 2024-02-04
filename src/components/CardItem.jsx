@@ -48,7 +48,7 @@ const CardItem = ({
             />
           </div>
 
-          <div className='card-body py-0'>
+          <div className='card-body py-0' style={{ height: '2.4rem' }}>
             <h6 className='card-title fs-6'>{makeShorterName(title)}</h6>
           </div>
         </Link>
