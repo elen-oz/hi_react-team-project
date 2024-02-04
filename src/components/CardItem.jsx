@@ -26,7 +26,15 @@ const CardItem = ({
 
   return (
     <div key={id} style={{ maxWidth: '14rem' }}>
-      <div className={`card align-items-center ${styles.scaleContainer}`}>
+      <div
+        className={`position-relative card align-items-center ${styles.scaleContainer}`}
+      >
+        {isForSale && (
+          <div className={`${styles.priceContainer} bg-warning`}>
+            {price === 0 ? 'FREE' : `${price} ${currency}`}
+          </div>
+        )}
+
         <Link to={`/books/${id}`}>
           <div
             className={`overflow-hidden d-flex align-items-center my-2 `}
@@ -48,7 +56,9 @@ const CardItem = ({
               Buy
             </button>
           ) : (
-            <button className='btn btn-info w-100'>Loan</button>
+            <button className='btn btn-info w-100' onClick={addToLoan}>
+              Loan
+            </button>
           )}
 
           {/* {!isForSale ? (
