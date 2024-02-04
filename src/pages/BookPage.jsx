@@ -22,7 +22,7 @@ const BookPage = () => {
       const parsedData = JSON.parse(storedRatingData);
       setStoredRating(parsedData.rating);
     }
-  }, [bookDetails]);
+  }, [bookDetails, id]);
 
   return (
     <div className='card mb-3 mx-auto' style={{ maxWidth: '650px' }}>
@@ -34,6 +34,7 @@ const BookPage = () => {
                 src={bookDetails.volumeInfo.imageLinks.smallThumbnail}
                 className='img-fluid rounded-start'
                 alt={bookDetails.volumeInfo.title}
+                style={{ maxWidth: '128px' }}
               />
               <p className='card-text'>
                 {bookDetails.volumeInfo.authors}

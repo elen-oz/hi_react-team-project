@@ -25,7 +25,7 @@ const CardItem = ({
   }, []);
 
   return (
-    <div key={id} style={{ maxWidth: '14rem' }}>
+    <div key={id} style={{ maxWidth: '13rem' }}>
       <div
         className={`position-relative card align-items-center ${styles.scaleContainer}`}
       >
@@ -37,10 +37,15 @@ const CardItem = ({
 
         <Link to={`/books/${id}`}>
           <div
-            className={`overflow-hidden d-flex align-items-center my-2 `}
-            style={{ height: '17.5rem' }}
+            className={`overflow-hidden d-flex justify-content-center align-items-center my-2 `}
+            style={{ height: '12.5rem' }}
           >
-            <img src={image} className='object-cover w-100' alt={title} />
+            <img
+              src={image}
+              className='object-cover'
+              alt={title}
+              style={{ maxWidth: '128px' }}
+            />
           </div>
 
           <div className='card-body py-0'>
@@ -60,16 +65,6 @@ const CardItem = ({
               Loan
             </button>
           )}
-
-          {/* {!isForSale ? (
-            <button className='btn btn-info' onClick={addToLoan}>
-              Loan
-            </button>
-          ) : (
-            <button className='btn btn-info disabled' disabled>
-              Not for loan
-            </button>
-          )} */}
         </div>
       </div>
     </div>

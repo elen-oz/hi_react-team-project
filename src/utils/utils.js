@@ -1,4 +1,4 @@
-export function makeShorterName(name, length = 17) {
+export function makeShorterName(name, length = 35) {
   let nameArray = '';
 
   if (Array.isArray(name) && name.length > 0) {
