@@ -57,15 +57,21 @@ const Header = () => {
           </Link>
 
           <div>
-            <div className='d-md-none d-block d-flex justify-content-end'>
-              <div className='p-2 mx-4 '>
+            <div className='d-md-none d-block d-flex   justify-content-end'>
+              <div className='p-2 mx-4 d-flex flex-row  justify-content-end gap-4 align-items-center'>
+                <div className='d-md-none d-block'>
+                  <Link to='./checkout'>
+                    <BsHandbag size={24} />
+                  </Link>
+                </div>
+
                 {darkMode ? (
                   <BsBrightnessHigh
                     className='text-white'
                     onClick={darkModeHandle}
                   />
                 ) : (
-                  <BsFillMoonFill onClick={darkModeHandle} />
+                  <BsFillMoonFill onClick={darkModeHandle} size={20} />
                 )}
               </div>
 
@@ -233,6 +239,15 @@ const Header = () => {
                     <li>
                       <Link
                         to='./'
+                        onClick={() => handleFilterSelect('ALL')}
+                        className='dropdown-item'
+                      >
+                        all books
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to='./'
                         onClick={() => handleFilterSelect('BUY')}
                         className='dropdown-item'
                       >
@@ -248,15 +263,6 @@ const Header = () => {
                         to loan
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        to='./'
-                        onClick={() => handleFilterSelect('ALL')}
-                        className='dropdown-item'
-                      >
-                        all books
-                      </Link>
-                    </li>
                   </ul>
                 </li>
                 <li className='nav-item'>
@@ -270,6 +276,20 @@ const Header = () => {
                   </Link>
                 </li>
               </ul>
+
+              {/* <div className={`d-md-block d-none px-4 ${textColorClass}`}>
+                <Link
+                  to='./checkout'
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleCart();
+                  }}
+                >
+                  <BsHandbag size={24} />
+                </Link>
+                &nbsp;
+                <span style={{ fontSize: '1.2rem' }}>{itemsTotalQuantity}</span>
+              </div> */}
 
               <div className='d-md-block d-none px-3'>
                 {darkMode ? (
@@ -312,7 +332,7 @@ const Header = () => {
                   <BsHandbag size={24} />
                 </Link>
                 &nbsp;
-                <em style={{ fontSize: '1.2rem' }}>{itemsTotalQuantity}</em>
+                <span style={{ fontSize: '1.2rem' }}>{itemsTotalQuantity}</span>
               </div>
             </div>
           </div>
