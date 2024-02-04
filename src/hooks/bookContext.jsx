@@ -3,9 +3,11 @@ export const BookContext = createContext();
 
 const BookProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchBooksByCategory = async (searchInput, category) => {
     try {
+      setIsLoading(true);
       // const apiKey = 'AIzaSyA6MiaAOYSh1yvAfsgDoM7s5GWGmdll8Q0';
       const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -18,7 +20,9 @@ const BookProvider = ({ children }) => {
       const data = await response.json();
       console.log('data', data);
       setBooks(data.items);
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.error(error);
     }
   };
@@ -28,7 +32,7 @@ const BookProvider = ({ children }) => {
   }, []);
 
   return (
-    <BookContext.Provider value={{ books, fetchBooksByCategory }}>
+    <BookContext.Provider value={{ books, fetchBooksByCategory, isLoading }}>
       {children}
     </BookContext.Provider>
   );

@@ -3,15 +3,17 @@ import CardItem from '../components/CardItem';
 import { BookContext } from '../hooks/bookContext';
 import { CartContext } from '../hooks/CartContext';
 import { LoanCartContext } from '../hooks/loanCartContext';
+import SpinnerComponent from './SpinnerComponent';
 import noImage from '../assets/No-Image-Placeholder.png';
 
 const ListCardItems = () => {
-  const { books } = useContext(BookContext);
+  const { books, isLoading } = useContext(BookContext);
   const { buyItem } = useContext(CartContext);
   const { loanItem } = useContext(LoanCartContext);
 
   return (
     <>
+      {isLoading && <SpinnerComponent />}
       {books.map((book) => {
         return (
           <CardItem

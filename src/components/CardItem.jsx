@@ -30,7 +30,7 @@ const CardItem = ({
         className={`position-relative card align-items-center ${styles.scaleContainer}`}
       >
         {isForSale && (
-          <div className={`${styles.priceContainer} bg-danger`}>
+          <div className={`${styles.priceContainer} bg-warning text-dark`}>
             {price === 0 ? 'FREE' : `${price} ${currency}`}
           </div>
         )}
