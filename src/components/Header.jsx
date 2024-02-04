@@ -7,6 +7,7 @@ import { CartContext } from '../hooks/CartContext';
 import { LoanCartContext } from '../hooks/loanCartContext';
 import { CartPopUpContext } from '../hooks/cartPopUpContext';
 import { CategoryContext } from '../hooks/categoryContext';
+import { FilterContext } from '../hooks/filterContext';
 
 const Header = () => {
   const { fetchBooksByCategory } = useContext(BookContext);
@@ -18,6 +19,7 @@ const Header = () => {
   const { pathname } = useLocation();
   const { toggleCart } = useContext(CartPopUpContext);
   const { setCategory } = useContext(CategoryContext);
+  const { setFilter } = useContext(FilterContext);
 
   const itemsTotalQuantity = purchasedItems?.length + loanedItems?.length;
 
@@ -35,6 +37,10 @@ const Header = () => {
     setCategory(category);
   };
 
+  const handleFilterSelect = (filter) => {
+    setFilter(filter);
+  };
+
   const handleHomeClick = () => {
     fetchBooksByCategory('', '');
     setCategory('');
@@ -46,11 +52,7 @@ const Header = () => {
     <header className={`mb-4 border-bottom ${bgHeaderColorClass}`}>
       <nav className={'navbar navbar-expand-md'}>
         <div className='container-fluid'>
-          <Link
-            to='/.'
-            className='navbar-brand'
-            onClick={() => fetchBooksByCategory('', '')}
-          >
+          <Link to='/.' className='navbar-brand' onClick={handleHomeClick}>
             HI Library
           </Link>
 
@@ -105,6 +107,15 @@ const Header = () => {
                     Catalog
                   </a>
                   <ul className='dropdown-menu'>
+                    <li>
+                      <Link
+                        to='./'
+                        onClick={() => handleCategorySelect('')}
+                        className='dropdown-item'
+                      >
+                        All books
+                      </Link>
+                    </li>
                     <li>
                       <Link
                         to='./'
@@ -203,6 +214,47 @@ const Header = () => {
                         className='dropdown-item'
                       >
                         Thriller
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+
+                <li className='nav-item dropdown'>
+                  <a
+                    className='nav-link dropdown-toggle'
+                    href='#'
+                    role='button'
+                    data-bs-toggle='dropdown'
+                    aria-expanded='false'
+                  >
+                    Filter
+                  </a>
+                  <ul className='dropdown-menu'>
+                    <li>
+                      <Link
+                        to='./'
+                        onClick={() => handleFilterSelect('BUY')}
+                        className='dropdown-item'
+                      >
+                        to buy
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to='./'
+                        onClick={() => handleFilterSelect('LOAN')}
+                        className='dropdown-item'
+                      >
+                        to loan
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to='./'
+                        onClick={() => handleFilterSelect('ALL')}
+                        className='dropdown-item'
+                      >
+                        all books
                       </Link>
                     </li>
                   </ul>
