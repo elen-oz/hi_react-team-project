@@ -98,7 +98,7 @@ const Header = () => {
                     className='nav-link active'
                     onClick={handleHomeClick}
                   >
-                    Home
+                    home
                   </Link>
                 </li>
 
@@ -110,7 +110,7 @@ const Header = () => {
                     data-bs-toggle='dropdown'
                     aria-expanded='false'
                   >
-                    Catalog
+                    catalog
                   </a>
                   <ul className='dropdown-menu'>
                     <li>
@@ -119,7 +119,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('')}
                         className='dropdown-item'
                       >
-                        All books
+                        all books
                       </Link>
                     </li>
                     <li>
@@ -128,7 +128,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Adventure')}
                         className='dropdown-item'
                       >
-                        Adventure
+                        adventure
                       </Link>
                     </li>
                     <li>
@@ -137,7 +137,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Biography')}
                         className='dropdown-item'
                       >
-                        Biography
+                        biography
                       </Link>
                     </li>
                     <li>
@@ -146,7 +146,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Classics')}
                         className='dropdown-item'
                       >
-                        Classics
+                        classics
                       </Link>
                     </li>
                     <li>
@@ -155,7 +155,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Fantasy')}
                         className='dropdown-item'
                       >
-                        Fantasy
+                        fantasy
                       </Link>
                     </li>
                     <li>
@@ -164,7 +164,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Fiction')}
                         className='dropdown-item'
                       >
-                        Fiction
+                        fiction
                       </Link>
                     </li>
                     <li>
@@ -173,7 +173,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Horror')}
                         className='dropdown-item'
                       >
-                        Horror
+                        horror
                       </Link>
                     </li>
                     <li>
@@ -182,7 +182,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('History')}
                         className='dropdown-item'
                       >
-                        History
+                        history
                       </Link>
                     </li>
 
@@ -192,7 +192,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Mystery')}
                         className='dropdown-item'
                       >
-                        Mystery
+                        mystery
                       </Link>
                     </li>
                     <li>
@@ -201,7 +201,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Romance')}
                         className='dropdown-item'
                       >
-                        Romance
+                        romance
                       </Link>
                     </li>
                     <li>
@@ -210,7 +210,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Science fiction')}
                         className='dropdown-item'
                       >
-                        Science fiction
+                        science fiction
                       </Link>
                     </li>
                     <li>
@@ -219,7 +219,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Thriller')}
                         className='dropdown-item'
                       >
-                        Thriller
+                        thriller
                       </Link>
                     </li>
                   </ul>
@@ -233,7 +233,7 @@ const Header = () => {
                     data-bs-toggle='dropdown'
                     aria-expanded='false'
                   >
-                    Filter
+                    filter
                   </a>
                   <ul className='dropdown-menu'>
                     <li>
@@ -267,29 +267,15 @@ const Header = () => {
                 </li>
                 <li className='nav-item'>
                   <Link to='/contact' className='nav-link'>
-                    Contact
+                    contact
                   </Link>
                 </li>
                 <li className='d-md-none d-block'>
                   <Link to='/checkout' className='nav-link'>
-                    Cart
+                    cart
                   </Link>
                 </li>
               </ul>
-
-              {/* <div className={`d-md-block d-none px-4 ${textColorClass}`}>
-                <Link
-                  to='./checkout'
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toggleCart();
-                  }}
-                >
-                  <BsHandbag size={24} />
-                </Link>
-                &nbsp;
-                <span style={{ fontSize: '1.2rem' }}>{itemsTotalQuantity}</span>
-              </div> */}
 
               <div className='d-md-block d-none px-3'>
                 {darkMode ? (
@@ -317,7 +303,7 @@ const Header = () => {
                     className='btn btn-secondary'
                     type='submit'
                   >
-                    Search
+                    search
                   </button>
                 </form>
               )}
