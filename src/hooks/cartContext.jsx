@@ -33,7 +33,7 @@ const CartProvider = (props) => {
       if (isItemInCart) {
         return prevCartState;
       } else {
-        const newItem = { ...item, isPurchased: true, isLoaned: false };
+        const newItem = { ...item };
 
         return {
           purchasedItems: [...prevCartState.purchasedItems, newItem],
