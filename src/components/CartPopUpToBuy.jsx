@@ -5,7 +5,8 @@ import { ThemeContext } from '../hooks/themeContext';
 import { makeShorterName } from '../utils/utils';
 
 const CartPopUpToBuy = ({ closeCart }) => {
-  const { purchasedItems, totalAmount, removeItem } = useContext(CartContext);
+  const { purchasedItems, totalAmount, removeItem, totalQuantity } =
+    useContext(CartContext);
   const { bgColorClass, textColorClass, borderColorClass } =
     useContext(ThemeContext);
 
@@ -47,7 +48,14 @@ const CartPopUpToBuy = ({ closeCart }) => {
         ))}
       </ul>
 
-      <div className={`${textColorClass}`}>Total: {totalAmount}</div>
+      {purchasedItems.length !== 0 && (
+        <div className={`${textColorClass}`}>
+          Quantity to buy: {totalQuantity}
+        </div>
+      )}
+      {purchasedItems.length !== 0 && (
+        <div className={`${textColorClass}`}>To pay: {totalAmount} SEK</div>
+      )}
     </div>
   );
 };

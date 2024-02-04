@@ -34,14 +34,14 @@ const LoanCartProvider = (props) => {
         return prevCartState;
       } else {
         const newItem = { ...item, isLoaned: true, isPurchased: false };
-        console.log(
-          `Added to loanCart: ${newItem.id}, isLoaned: ${
-            newItem.isLoaned
-          }, isPurchased: ${newItem.isPurchased}, added: loanedItems: ${[
-            ...prevCartState.loanedItems,
-            newItem,
-          ]}`
-        );
+        // console.log(
+        //   `Added to loanCart: ${newItem.id}, isLoaned: ${
+        //     newItem.isLoaned
+        //   }, isPurchased: ${newItem.isPurchased}, added: loanedItems: ${[
+        //     ...prevCartState.loanedItems,
+        //     newItem,
+        //   ]}`
+        // );s
 
         return {
           loanedItems: [...prevCartState.loanedItems, newItem],
