@@ -33,7 +33,7 @@ const LoanCartProvider = (props) => {
       if (isItemInCart) {
         return prevCartState;
       } else {
-        const newItem = { ...item, isLoaned: true, isPurchased: false };
+        const newItem = { ...item };
         return {
           loanedItems: [...prevCartState.loanedItems, newItem],
           totalQuantity: prevCartState.totalQuantity + 1,
