@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from 'react';
+import { useContext } from 'react';
 import { LoanCartContext } from '../hooks/loanCartContext';
 import { ThemeContext } from '../hooks/themeContext';
 import { makeShorterName } from '../utils/utils';

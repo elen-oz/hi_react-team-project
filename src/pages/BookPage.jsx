@@ -10,15 +10,6 @@ const BookPage = () => {
   const { buyItem } = useContext(CartContext);
   const { loanItem } = useContext(LoanCartContext);
 
-  // const price = bookDetails.saleInfo?.listPrice?.amount;
-  // const currency = bookDetails.saleInfo.listPrice.currencyCode;
-
-  // console.log(
-  //   'is price',
-  //   bookDetails.saleInfo?.listPrice?.amount,
-  //   bookDetails.saleInfo.listPrice.currencyCode
-  // );
-
   const descriptionWithHtml = bookDetails?.volumeInfo?.description || '';
   const descriptionWithoutHtml = descriptionWithHtml.replace(/<[^>]*>/g, '');
 
