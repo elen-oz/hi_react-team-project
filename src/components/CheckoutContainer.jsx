@@ -1,7 +1,7 @@
-import CheckoutForm from '../components/CheckoutForm';
 import { useContext } from 'react';
 import { LoanCartContext } from '../hooks/loanCartContext';
 import { CartContext } from '../hooks/CartContext';
+import CheckoutForm from '../components/CheckoutForm';
 
 const CheckoutContainer = ({ children }) => {
   const { totalLoanQuantity } = useContext(LoanCartContext);

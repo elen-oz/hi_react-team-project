@@ -210,7 +210,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Science fiction')}
                         className='dropdown-item'
                       >
-                        Science fiction
+                        Science Fiction
                       </Link>
                     </li>
                     <li>
@@ -242,7 +242,7 @@ const Header = () => {
                         onClick={() => handleFilterSelect('ALL')}
                         className='dropdown-item'
                       >
-                        all books
+                        All books
                       </Link>
                     </li>
                     <li>
@@ -251,7 +251,7 @@ const Header = () => {
                         onClick={() => handleFilterSelect('BUY')}
                         className='dropdown-item'
                       >
-                        to buy
+                        To buy
                       </Link>
                     </li>
                     <li>
@@ -260,7 +260,7 @@ const Header = () => {
                         onClick={() => handleFilterSelect('LOAN')}
                         className='dropdown-item'
                       >
-                        to loan
+                        To loan
                       </Link>
                     </li>
                   </ul>
@@ -276,20 +276,6 @@ const Header = () => {
                   </Link>
                 </li>
               </ul>
-
-              {/* <div className={`d-md-block d-none px-4 ${textColorClass}`}>
-                <Link
-                  to='./checkout'
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toggleCart();
-                  }}
-                >
-                  <BsHandbag size={24} />
-                </Link>
-                &nbsp;
-                <span style={{ fontSize: '1.2rem' }}>{itemsTotalQuantity}</span>
-              </div> */}
 
               <div className='d-md-block d-none px-3'>
                 {darkMode ? (

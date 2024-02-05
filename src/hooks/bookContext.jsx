@@ -8,7 +8,6 @@ const BookProvider = ({ children }) => {
   const fetchBooksByCategory = async (searchInput, category) => {
     try {
       setIsLoading(true);
-      // const apiKey = 'AIzaSyA6MiaAOYSh1yvAfsgDoM7s5GWGmdll8Q0';
       const apiKey = import.meta.env.VITE_API_KEY;
 
       const response = await fetch(

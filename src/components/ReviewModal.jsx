@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { BookContext } from '../hooks/bookContext';
 import { Rating } from '@smastrom/react-rating';
 
@@ -38,13 +38,12 @@ const ReviewModal = ({ id, title, show, handleClose, setStoredRating }) => {
       aria-labelledby={`modalLabel${id}`}
       aria-hidden={!show}
       style={{ display: show ? 'block' : 'none' }}
-      // data-bs-backdrop='static'
     >
       <div className='modal-dialog'>
         <div className='modal-content'>
           <div className='modal-header'>
             <h5 className='modal-title' id={`modalLabel${id}`}>
-              Review for {title}{' '}
+              Review for {title}
             </h5>
           </div>
           <div className='modal-header'>

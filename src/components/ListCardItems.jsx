@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import CardItem from '../components/CardItem';
 import { BookContext } from '../hooks/bookContext';
 import { CartContext } from '../hooks/CartContext';
 import { LoanCartContext } from '../hooks/loanCartContext';
 import { FilterContext } from '../hooks/filterContext';
+import CardItem from '../components/CardItem';
 import SpinnerComponent from './SpinnerComponent';
 import noImage from '../assets/No-Image-Placeholder.png';
 
@@ -26,12 +26,19 @@ const ListCardItems = () => {
 
   return (
     <>
-      {isLoading && <SpinnerComponent />}
+      {isLoading && (
+        <div className={`container h-full`}>
+          <div className='mx-auto p-2' style={{ width: '110px' }}>
+            <SpinnerComponent />
+          </div>
+        </div>
+      )}
       {!isLoading && filteredBooks.length === 0 && (
         <div className='d-flex justify-content-center'>
           <h3>No books found for this filter</h3>
         </div>
       )}
+
       {filteredBooks.map((book) => {
         return (
           <CardItem

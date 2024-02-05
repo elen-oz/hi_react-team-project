@@ -32,8 +32,8 @@ const CartPopUp = () => {
   return (
     <div
       ref={cartRef}
-      className={`position-fixed shadow end-0 ${bgColorClass} ${textColorClass}`}
-      style={{ width: '33rem', ...cartStyle, zIndex: 1050 }}
+      className={`position-fixed shadow end-0 ${bgColorClass} ${textColorClass} overflow-y-auto`}
+      style={{ width: '33rem', maxHeight: '720px', ...cartStyle, zIndex: 1050 }}
     >
       <CartPopUpToBuy closeCart={toggleCart} />
       <CartPopUptoLoan />

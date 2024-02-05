@@ -12,7 +12,7 @@ const Homepage = ({ category }) => {
             <h5 style={{ paddingLeft: '5%' }}>{`Category > ${category}`}</h5>
           </div>
         )}
-        <div className='d-flex row justify-content-center align-items-center g-3'>
+        <div className='d-flex row justify-content-start align-items-center g-3'>
           <ListCardItems />
         </div>
       </div>

@@ -3,8 +3,8 @@ import { createContext, useState, useEffect } from 'react';
 export const LoanCartContext = createContext({
   loanedItems: [],
   totalQuantity: 0,
-  loanItem: (item) => {},
-  removeItem: (id) => {},
+  loanItem: () => {},
+  removeItem: () => {},
   clearCart: () => {},
 });
 
