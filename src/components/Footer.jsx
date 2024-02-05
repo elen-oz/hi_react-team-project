@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ThemeContext } from '../hooks/themeContext';
 
 const Footer = () => {
-  let { bgColorClass, textColorClass } = useContext(ThemeContext);
+  let { bgColorClass } = useContext(ThemeContext);
 
   return (
     <div className={`${bgColorClass} text-body-secondary`}>
