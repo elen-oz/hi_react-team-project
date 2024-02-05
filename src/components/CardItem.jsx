@@ -22,7 +22,7 @@ const CardItem = ({
       const parsedData = JSON.parse(storedRatingData);
       setStoredRating(parsedData.rating);
     }
-  }, []);
+  }, [id]);
 
   return (
     <div key={id} style={{ maxWidth: '13rem' }}>

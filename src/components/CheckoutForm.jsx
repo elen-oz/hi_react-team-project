@@ -26,7 +26,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const CheckoutForm = () => {
-  const { bgColorClass, textColorClass } = useContext(ThemeContext);
+  const { bgColorClass } = useContext(ThemeContext);
   const { purchasedItems } = useContext(CartContext);
   const { loanedItems } = useContext(LoanCartContext);
 
