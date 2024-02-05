@@ -5,7 +5,10 @@ const Privacy = () => {
   const { textColorClass, bgColorClass } = useContext(ThemeContext);
 
   return (
-    <div className={`privacy-policy ${textColorClass} ${bgColorClass}`}>
+    <div
+      className={`privacy-policy ${textColorClass} ${bgColorClass}`}
+      style={{ paddingTop: '70px' }}
+    >
       <div className='container'>
         <h1 className='mt-3 mb-3'>Privacy Policy for Our Library</h1>
         <p>Last updated: January 26, 2024</p>

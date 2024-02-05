@@ -5,7 +5,10 @@ const Accessibility = () => {
   const { textColorClass } = useContext(ThemeContext);
 
   return (
-    <div className={`accessibility ${textColorClass}`}>
+    <div
+      className={`accessibility ${textColorClass}`}
+      style={{ paddingTop: '70px' }}
+    >
       <div className='container'>
         <h1 className='mt-3 mb-3'>Accessibility Statement</h1>
         <p>Last updated: January 26, 2024</p>

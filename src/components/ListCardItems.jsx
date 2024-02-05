@@ -34,7 +34,10 @@ const ListCardItems = () => {
         </div>
       )}
       {!isLoading && filteredBooks.length === 0 && (
-        <div className='d-flex justify-content-center'>
+        <div
+          className='d-flex justify-content-center'
+          style={{ minHeight: '45vh' }}
+        >
           <h3>No books found for this filter</h3>
         </div>
       )}

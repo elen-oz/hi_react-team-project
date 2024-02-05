@@ -8,7 +8,10 @@ const CheckoutPage = () => {
   const { textColorClass, bgColorClass } = useContext(ThemeContext);
 
   return (
-    <div className={`${textColorClass} ${bgColorClass}`}>
+    <div
+      className={`${textColorClass} ${bgColorClass}`}
+      style={{ paddingTop: '70px' }}
+    >
       <CheckoutContainer>
         <CheckoutListToBuy />
         <CheckoutListToLoans />

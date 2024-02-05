@@ -34,7 +34,10 @@ const BookPage = () => {
   }, [bookDetails, id]);
 
   return (
-    <div className='px-2 card mb-3 mx-auto' style={{ maxWidth: '650px' }}>
+    <div
+      className='px-2 card mb-3 mx-auto'
+      style={{ maxWidth: '650px', marginTop: '70px' }}
+    >
       <div className='row g-2 '>
         {bookDetails ? (
           <>
