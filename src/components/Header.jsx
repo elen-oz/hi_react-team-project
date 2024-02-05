@@ -98,7 +98,7 @@ const Header = () => {
                     className='nav-link active'
                     onClick={handleHomeClick}
                   >
-                    home
+                    Home
                   </Link>
                 </li>
 
@@ -110,7 +110,7 @@ const Header = () => {
                     data-bs-toggle='dropdown'
                     aria-expanded='false'
                   >
-                    catalog
+                    Catalog
                   </a>
                   <ul className='dropdown-menu'>
                     <li>
@@ -119,7 +119,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('')}
                         className='dropdown-item'
                       >
-                        all books
+                        All books
                       </Link>
                     </li>
                     <li>
@@ -128,7 +128,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Adventure')}
                         className='dropdown-item'
                       >
-                        adventure
+                        Adventure
                       </Link>
                     </li>
                     <li>
@@ -137,7 +137,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Biography')}
                         className='dropdown-item'
                       >
-                        biography
+                        Biography
                       </Link>
                     </li>
                     <li>
@@ -146,7 +146,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Classics')}
                         className='dropdown-item'
                       >
-                        classics
+                        Classics
                       </Link>
                     </li>
                     <li>
@@ -155,7 +155,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Fantasy')}
                         className='dropdown-item'
                       >
-                        fantasy
+                        Fantasy
                       </Link>
                     </li>
                     <li>
@@ -164,7 +164,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Fiction')}
                         className='dropdown-item'
                       >
-                        fiction
+                        Fiction
                       </Link>
                     </li>
                     <li>
@@ -173,7 +173,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Horror')}
                         className='dropdown-item'
                       >
-                        horror
+                        Horror
                       </Link>
                     </li>
                     <li>
@@ -182,7 +182,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('History')}
                         className='dropdown-item'
                       >
-                        history
+                        History
                       </Link>
                     </li>
 
@@ -192,7 +192,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Mystery')}
                         className='dropdown-item'
                       >
-                        mystery
+                        Mystery
                       </Link>
                     </li>
                     <li>
@@ -201,7 +201,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Romance')}
                         className='dropdown-item'
                       >
-                        romance
+                        Romance
                       </Link>
                     </li>
                     <li>
@@ -210,7 +210,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Science fiction')}
                         className='dropdown-item'
                       >
-                        science fiction
+                        Science Fiction
                       </Link>
                     </li>
                     <li>
@@ -219,7 +219,7 @@ const Header = () => {
                         onClick={() => handleCategorySelect('Thriller')}
                         className='dropdown-item'
                       >
-                        thriller
+                        Thriller
                       </Link>
                     </li>
                   </ul>
@@ -233,7 +233,7 @@ const Header = () => {
                     data-bs-toggle='dropdown'
                     aria-expanded='false'
                   >
-                    filter
+                    Filter
                   </a>
                   <ul className='dropdown-menu'>
                     <li>
@@ -242,7 +242,7 @@ const Header = () => {
                         onClick={() => handleFilterSelect('ALL')}
                         className='dropdown-item'
                       >
-                        all books
+                        All books
                       </Link>
                     </li>
                     <li>
@@ -251,7 +251,7 @@ const Header = () => {
                         onClick={() => handleFilterSelect('BUY')}
                         className='dropdown-item'
                       >
-                        to buy
+                        To buy
                       </Link>
                     </li>
                     <li>
@@ -260,19 +260,19 @@ const Header = () => {
                         onClick={() => handleFilterSelect('LOAN')}
                         className='dropdown-item'
                       >
-                        to loan
+                        To loan
                       </Link>
                     </li>
                   </ul>
                 </li>
                 <li className='nav-item'>
                   <Link to='/contact' className='nav-link'>
-                    contact
+                    Contact
                   </Link>
                 </li>
                 <li className='d-md-none d-block'>
                   <Link to='/checkout' className='nav-link'>
-                    cart
+                    Cart
                   </Link>
                 </li>
               </ul>
@@ -303,7 +303,7 @@ const Header = () => {
                     className='btn btn-secondary'
                     type='submit'
                   >
-                    search
+                    Search
                   </button>
                 </form>
               )}
