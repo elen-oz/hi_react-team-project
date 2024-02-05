@@ -6,11 +6,11 @@ const Footer = () => {
   let { bgColorClass, textColorClass } = useContext(ThemeContext);
 
   return (
-    <div className={bgColorClass}>
+    <div className={`${bgColorClass} text-body-secondary`}>
       <div className='container'>
         <footer className='row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-3 mt-4 border-top'>
           <div className='col mb-3'>
-            <h5 className={textColorClass}>ABOUT HI LIBRARY</h5>
+            <h5>About HI Library</h5>
             <ul className='nav flex-column'>
               <li className='nav-item mb-2'>
                 <Link
@@ -37,7 +37,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col mb-3'>
-            <h5 className={textColorClass}>HELP & SUPPORT</h5>
+            <h5>Help & Support</h5>
             <ul className='nav flex-column'>
               <li className='nav-item mb-2'>
                 <Link
@@ -50,16 +50,14 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col mb-3'>
-            <h5 className={textColorClass}>Schedule</h5>
+            <h5>Schedule</h5>
             <ul className='nav flex-column'>
-              <li className='nav-item mb-2 text-body-secondary'>
-                Monday-Sunday
-              </li>
-              <li className='nav-item mb-2 text-body-secondary'>9am-11pm</li>
+              <li className='nav-item mb-2'>Monday-Sunday</li>
+              <li className='nav-item mb-2'>9am-11pm</li>
             </ul>
           </div>
           <div className='col mb-3'>
-            <h5 className={textColorClass}>Follow Us</h5>
+            <h5>Follow Us</h5>
             <ul className='nav flex-column'>
               <li className='nav-item mb-2'>
                 <a
@@ -72,31 +70,19 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col mb-3'>
-            <h5 className={textColorClass}>Address</h5>
+            <h5>Address</h5>
             <ul className='nav flex-column'>
-              <li className='nav-item mb-2 text-body-secondary'>
-                Virkesvägen 2, 12030, Stockholm
-              </li>
+              <li className='nav-item mb-2'>Virkesvägen 2, 12030, Stockholm</li>
             </ul>
           </div>
           <hr style={{ width: '100%' }} />
           <div className='d-flex justify-content-between w-100'>
             <div className='col'>
-              <p className='text-body-secondary' style={{ fontSize: 'larger' }}>
-                TEAM 7
-              </p>
+              <p style={{ fontSize: 'larger' }}>TEAM 7</p>
             </div>
-            <div className='col mb-3'>
-              <svg className='bi me-2' width='40' height='32'>
-                <use xlinkHref='#bootstrap'></use>
-              </svg>
-              <p
-                className='text-body-secondary'
-                style={{ fontSize: 'smaller' }}
-              >
-                Copyright ©2024 Google Books, Inc or related companies. All
-                rights reserved, including rights for text and data mining and
-                training of artificial technologies or similar technologies.
+            <div className='col'>
+              <p style={{ fontSize: 'smaller' }}>
+                Copyright ©2024 Google Books, Inc or related companies.
               </p>
             </div>
           </div>

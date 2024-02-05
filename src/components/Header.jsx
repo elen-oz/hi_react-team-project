@@ -25,34 +25,54 @@ const Header = () => {
 
   const handleInputChange = (e) => {
     setBookSearch(e.target.value);
+
+    const element = document.getElementById('shop');
+    element.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleSearchBook = (e) => {
     e.preventDefault();
     fetchBooksByCategory(bookSearch, '');
+
+    const element = document.getElementById('shop');
+    element.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleCategorySelect = (category) => {
     fetchBooksByCategory('', category);
     setCategory(category);
+
+    const element = document.getElementById('shop');
+    element.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleFilterSelect = (filter) => {
     setFilter(filter);
+
+    const element = document.getElementById('shop');
+    element.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleHomeClick = () => {
     fetchBooksByCategory('', '');
     setCategory('');
+
+    const element = document.getElementById('top');
+    element.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // const handleScrollToShop = () => {
+  //   const element = document.getElementById('shop');
+  //   element.scrollIntoView({ behavior: 'smooth' });
+  // };
 
   const shouldShowSearchForm = pathname !== '/contact';
 
   return (
-    <header className={`mb-4 border-bottom ${bgHeaderColorClass}`}>
+    <header className={`mb-4 fixed-top ${bgHeaderColorClass}`}>
       <nav className={'navbar navbar-expand-md'}>
         <div className='container-fluid'>
-          <Link to='/.' className='navbar-brand' onClick={handleHomeClick}>
+          <Link to='/' className='navbar-brand' onClick={handleHomeClick}>
             HI Library
           </Link>
 
