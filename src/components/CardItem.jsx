@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating';
 import { makeShorterName } from '../utils/utils';
 import styles from '../index.module.css';
