@@ -17,7 +17,7 @@ const validationSchema = Yup.object().shape({
   message: Yup.string().required('*Message required'),
 });
 
-const CheckoutForm = () => {
+const ContactForm = () => {
   const { bgColorClass, textColorClass } = useContext(ThemeContext);
 
   return (
