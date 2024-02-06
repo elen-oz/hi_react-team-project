@@ -1,8 +1,10 @@
 import { useContext } from 'react';
-import { BookContext } from '../context/bookContext';
-import { CartContext } from '../context/CartContext';
-import { LoanCartContext } from '../context/loanCartContext';
-import { FilterContext } from '../context/filterContext';
+
+import { BookContext } from '../hooks/bookContext';
+import { CartContext } from '../hooks/cartContext';
+import { LoanCartContext } from '../hooks/loanCartContext';
+import { FilterContext } from '../hooks/filterContext';
+
 import CardItem from '../components/CardItem';
 import SpinnerComponent from './SpinnerComponent';
 import noImage from '../assets/No-Image-Placeholder.png';

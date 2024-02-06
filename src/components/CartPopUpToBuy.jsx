@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../context/CartContext';
-import { ThemeContext } from '../context/themeContext';
+import { CartContext } from '../hooks/cartContext';
+import { ThemeContext } from '../hooks/themeContext';
+
 import { makeShorterName } from '../utils/utils';
 
 const CartPopUpToBuy = ({ closeCart }) => {
