@@ -25,7 +25,7 @@ const CardItem = ({
   }, [id]);
 
   return (
-    <div key={id} style={{ maxWidth: '13rem' }}>
+    <div key={id} style={{ maxWidth: '11rem' }}>
       <div
         className={`position-relative card align-items-center ${styles.scaleContainer}`}
       >
@@ -38,7 +38,7 @@ const CardItem = ({
         <Link to={`/books/${id}`}>
           <div
             className={`overflow-hidden d-flex justify-content-center align-items-center my-2 `}
-            style={{ height: '12.5rem' }}
+            style={{ height: '13rem' }}
           >
             <img
               src={image}
@@ -49,11 +49,15 @@ const CardItem = ({
           </div>
 
           <div className='card-body py-0' style={{ height: '2.4rem' }}>
-            <h6 className='card-title fs-6'>{makeShorterName(title)}</h6>
+            <div className='card-title'>{makeShorterName(title)}</div>
           </div>
         </Link>
 
-        <Rating style={{ maxWidth: 150 }} value={storedRating} readOnly />
+        <Rating
+          style={{ maxWidth: 150, paddingTop: '1rem' }}
+          value={storedRating}
+          readOnly
+        />
 
         <div className='my-3 mx-auto w-75'>
           {isForSale ? (

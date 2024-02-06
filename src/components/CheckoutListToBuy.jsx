@@ -5,7 +5,7 @@ const CheckoutListToBuy = () => {
   const { purchasedItems, removeItem, clearCart } = useContext(CartContext);
 
   return (
-    <div className='mx-auto  p-2' style={{ width: '35rem' }}>
+    <div className='mx-auto  p-2' style={{ maxWidth: '35rem' }}>
       <div className='d-flex justify-content-between align-items-center mb-2'>
         <h3>To buy</h3>
 
@@ -22,11 +22,14 @@ const CheckoutListToBuy = () => {
         {purchasedItems.map((item) => (
           <li
             key={item.id}
-            className='list-group-item d-flex justify-content-between  align-items-center'
+            className='list-group-item d-flex justify-content-between  align-items-center pe-1'
           >
-            <span className='w-100 px-2 d-flex justify-content-between align-items-center'>
-              <span>{item.volumeInfo.title}</span>
-              <span>
+            <span className='w-100 ps-2 d-flex justify-content-between align-items-center'>
+              <span className=''>{item.volumeInfo.title}</span>
+              <span
+                className='d-flex justify-content-end align-items-center'
+                style={{ minWidth: '5.5rem' }}
+              >
                 {item.saleInfo.listPrice.amount}
                 <button
                   className='btn btn-warning m-1 py-1'

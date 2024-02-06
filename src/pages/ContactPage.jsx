@@ -2,7 +2,7 @@ import ContactForm from '../components/ContactForm';
 
 const ContactPage = () => {
   return (
-    <div>
+    <div style={{ paddingTop: '70px' }}>
       <ContactForm />
     </div>
   );
