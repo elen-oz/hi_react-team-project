@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CartContext } from '../hooks/CartContext';
+import { CartContext } from '../hooks/cartContext';
 
 const CheckoutListToBuy = () => {
   const { purchasedItems, removeItem, clearCart } = useContext(CartContext);

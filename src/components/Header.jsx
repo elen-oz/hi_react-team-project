@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { BsHandbag, BsBrightnessHigh, BsFillMoonFill } from 'react-icons/bs';
 import { BookContext } from '../hooks/bookContext';
 import { ThemeContext } from '../hooks/themeContext';
-import { CartContext } from '../hooks/CartContext';
+import { CartContext } from '../hooks/cartContext';
 import { LoanCartContext } from '../hooks/loanCartContext';
 import { CartPopUpContext } from '../hooks/cartPopUpContext';
 import { CategoryContext } from '../hooks/categoryContext';
