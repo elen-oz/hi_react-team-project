@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Rating } from '@smastrom/react-rating';
 import { BookDetailsContext } from '../hooks/bookDetailsContext';
-import { CartContext } from '../hooks/CartContext';
+import { CartContext } from '../hooks/cartContext';
 import { LoanCartContext } from '../hooks/loanCartContext';
 import { ThemeContext } from '../hooks/themeContext';
 import ReviewModal from '../components/ReviewModal';
