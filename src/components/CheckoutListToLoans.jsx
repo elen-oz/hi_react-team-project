@@ -6,7 +6,7 @@ const CheckoutListToLoans = () => {
     useContext(LoanCartContext);
 
   return (
-    <div className='mx-auto  p-2' style={{ width: '35rem' }}>
+    <div className='mx-auto  p-2' style={{ maxWidth: '35rem' }}>
       <div className='d-flex justify-content-between align-items-center mb-2'>
         <h3>To loan</h3>
         {loanedItems.length !== 0 && (

@@ -5,7 +5,7 @@ const CheckoutListToBuy = () => {
   const { purchasedItems, removeItem, clearCart } = useContext(CartContext);
 
   return (
-    <div className='mx-auto  p-2' style={{ width: '35rem' }}>
+    <div className='mx-auto  p-2' style={{ maxWidth: '35rem' }}>
       <div className='d-flex justify-content-between align-items-center mb-2'>
         <h3>To buy</h3>
 
