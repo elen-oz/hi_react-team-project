@@ -23,15 +23,12 @@ const Homepage = ({ category }) => {
               HI Library brings the entire library to your fingertips
             </h1>
             <p className='lead'>
-              Explore, Borrow, Buy – All in One Place Gone are the days of
+              Explore, Borrow, Buy U+002d All in One Place Gone are the days of
               wandering through physical aisles or waiting for your next book
               delivery.
             </p>
             <p>Ready to embark on your next literary adventure?</p>
-            {/* <p>
-              Click below to Go to Books and start exploring the vast universe
-              of stories waiting
-            </p> */}
+
             <div className='d-grid gap-2 d-md-flex justify-content-md-start'>
               <a
                 href='#shop'
@@ -58,7 +55,7 @@ const Homepage = ({ category }) => {
                 <h5 style={{ paddingLeft: '5%' }}>{`Category > All Books`}</h5>
               </div>
             )}
-            <div className='d-flex row justify-content-start align-items-center g-3'>
+            <div className='d-flex row justify-content-evenly justify-content-md-start align-items-center g-3'>
               <ListCardItems />
             </div>
           </div>
