@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { BookContext } from '../hooks/bookContext';
+import { BookContext } from '../context/bookContext';
 import { Rating } from '@smastrom/react-rating';
 
 const ReviewModal = ({ id, title, show, handleClose, setStoredRating }) => {

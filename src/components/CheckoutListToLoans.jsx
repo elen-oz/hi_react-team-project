@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { LoanCartContext } from '../hooks/loanCartContext';
+import { LoanCartContext } from '../context/loanCartContext';
 
 const CheckoutListToLoans = () => {
   const { loanedItems, removeLoanedItem, clearLoanCart } =

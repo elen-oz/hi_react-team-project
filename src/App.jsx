@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeContext } from './hooks/themeContext';
-import { CategoryContext } from './hooks/categoryContext';
-import BookDetailsProvider from './hooks/bookDetailsContext';
+import { ThemeContext } from './context/themeContext';
+import { CategoryContext } from './context/categoryContext';
+import BookDetailsProvider from './context/bookDetailsContext';
 import PagesContainer from './components/PagesContainer';
 import Homepage from './pages/HomePage';
 import BookPage from './pages/BookPage';
