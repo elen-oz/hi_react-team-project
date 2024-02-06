@@ -1,13 +1,13 @@
 import { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BsHandbag, BsBrightnessHigh, BsFillMoonFill } from 'react-icons/bs';
-import { BookContext } from '../hooks/bookContext';
-import { ThemeContext } from '../hooks/themeContext';
-import { CartContext } from '../hooks/CartContext';
-import { LoanCartContext } from '../hooks/loanCartContext';
-import { CartPopUpContext } from '../hooks/cartPopUpContext';
-import { CategoryContext } from '../hooks/categoryContext';
-import { FilterContext } from '../hooks/filterContext';
+import { BookContext } from '../context/bookContext';
+import { ThemeContext } from '../context/themeContext';
+import { CartContext } from '../context/CartContext';
+import { LoanCartContext } from '../context/loanCartContext';
+import { CartPopUpContext } from '../context/cartPopUpContext';
+import { CategoryContext } from '../context/categoryContext';
+import { FilterContext } from '../context/filterContext';
 
 const Header = () => {
   const { fetchBooksByCategory } = useContext(BookContext);

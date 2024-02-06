@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { ThemeContext } from '../hooks/themeContext';
+import { ThemeContext } from '../context/themeContext';
 
 const Footer = () => {
   let { bgColorClass } = useContext(ThemeContext);

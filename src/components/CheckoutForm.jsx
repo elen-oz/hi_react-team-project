@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { ThemeContext } from '../hooks/themeContext';
-import { CartContext } from '../hooks/CartContext';
-import { LoanCartContext } from '../hooks/loanCartContext';
+import { ThemeContext } from '../context/themeContext';
+import { CartContext } from '../context/CartContext';
+import { LoanCartContext } from '../context/loanCartContext';
 import { Form, Button } from 'react-bootstrap';
 import { Formik } from 'formik';
 import * as Yup from 'yup';

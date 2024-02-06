@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ThemeContext } from '../hooks/themeContext';
+import { ThemeContext } from '../context/themeContext';
 import CheckoutListToBuy from '../components/CheckoutListToBuy';
 import CheckoutListToLoans from '../components/CheckoutListToLoans';
 import CheckoutContainer from '../components/CheckoutContainer';

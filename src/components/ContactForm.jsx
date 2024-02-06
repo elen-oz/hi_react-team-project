@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { ThemeContext } from '../hooks/themeContext';
+import { ThemeContext } from '../context/themeContext';
 import { Form, Button } from 'react-bootstrap';
 
 // Schema for yup

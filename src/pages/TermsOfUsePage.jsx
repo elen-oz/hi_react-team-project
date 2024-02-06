@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ThemeContext } from '../hooks/themeContext';
+import { ThemeContext } from '../context/themeContext';
 
 const TermsOfUse = () => {
   const { textColorClass, bgColorClass } = useContext(ThemeContext);
