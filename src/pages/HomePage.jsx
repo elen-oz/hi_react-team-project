@@ -20,14 +20,15 @@ const Homepage = ({ category }) => {
           </div>
           <div className='col-lg-6'>
             <h1 className='display-5 fw-bold text-body-emphasis lh-1 mb-3'>
-              Responsive left-aligned hero with image
+              HI Library brings the entire library to your fingertips
             </h1>
             <p className='lead'>
-              Quickly design and customize responsive mobile-first sites with
-              Bootstrap, the worlds most popular front-end open source toolkit,
-              featuring Sass variables and mixins, responsive grid system,
-              extensive prebuilt components, and powerful JavaScript plugins.
+              Explore, Borrow, Buy U+002d All in One Place Gone are the days of
+              wandering through physical aisles or waiting for your next book
+              delivery.
             </p>
+            <p>Ready to embark on your next literary adventure?</p>
+
             <div className='d-grid gap-2 d-md-flex justify-content-md-start'>
               <a
                 href='#shop'
@@ -54,7 +55,7 @@ const Homepage = ({ category }) => {
                 <h5 style={{ paddingLeft: '5%' }}>{`Category > All Books`}</h5>
               </div>
             )}
-            <div className='d-flex row justify-content-start align-items-center g-3'>
+            <div className='d-flex row justify-content-evenly justify-content-md-start align-items-center g-3'>
               <ListCardItems />
             </div>
           </div>
