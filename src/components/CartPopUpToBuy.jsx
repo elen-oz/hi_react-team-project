@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../hooks/cartContext';
-import { ThemeContext } from '../hooks/themeContext';
+import { CartContext } from '../context/cartContext';
+import { ThemeContext } from '../context/themeContext';
 
 import { makeShorterName } from '../utils/utils';
 

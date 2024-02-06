@@ -1,8 +1,7 @@
 import { useContext } from 'react';
 
-import { LoanCartContext } from '../hooks/loanCartContext';
-import { CartContext } from '../hooks/cartContext';
-
+import { LoanCartContext } from '../context/loanCartContext';
+import { CartContext } from '../context/cartContext';
 
 import CheckoutForm from '../components/CheckoutForm';
 

@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { Rating } from '@smastrom/react-rating';
 
-import { BookDetailsContext } from '../hooks/bookDetailsContext';
-import { CartContext } from '../hooks/cartContext';
-import { LoanCartContext } from '../hooks/loanCartContext';
-import { ThemeContext } from '../hooks/themeContext';
+import { BookDetailsContext } from '../context/bookDetailsContext';
+import { CartContext } from '../context/cartContext';
+import { LoanCartContext } from '../context/loanCartContext';
+import { ThemeContext } from '../context/themeContext';
 
 import ReviewModal from '../components/ReviewModal';
 

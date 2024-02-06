@@ -1,9 +1,8 @@
 import { useContext } from 'react';
 
-import { ThemeContext } from '../hooks/themeContext';
-import { CartContext } from '../hooks/cartContext';
-import { LoanCartContext } from '../hooks/loanCartContext';
-
+import { ThemeContext } from '../context/themeContext';
+import { CartContext } from '../context/cartContext';
+import { LoanCartContext } from '../context/loanCartContext';
 
 import { Form, Button } from 'react-bootstrap';
 import { Formik } from 'formik';

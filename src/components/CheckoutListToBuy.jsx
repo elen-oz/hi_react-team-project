@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { CartContext } from '../hooks/cartContext';
+import { CartContext } from '../context/cartContext';
 
 
 const CheckoutListToBuy = () => {
