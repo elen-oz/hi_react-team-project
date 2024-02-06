@@ -1,7 +1,6 @@
-import { createContext, useEffect, useState } from 'react';
-export const BookContext = createContext();
+import { useEffect, useState } from 'react';
 
-const BookProvider = ({ children }) => {
+export const useBookFetching = () => {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,10 +29,5 @@ const BookProvider = ({ children }) => {
     fetchBooksByCategory('', '');
   }, []);
 
-  return (
-    <BookContext.Provider value={{ books, fetchBooksByCategory, isLoading }}>
-      {children}
-    </BookContext.Provider>
-  );
+  return { books, fetchBooksByCategory, isLoading };
 };
-export default BookProvider;

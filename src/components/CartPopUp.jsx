@@ -1,8 +1,8 @@
 import { useContext, useEffect, useRef } from 'react';
-import { ThemeContext } from '../hooks/themeContext';
+import { ThemeContext } from '../context/themeContext';
 import CartPopUpToBuy from './CartPopUpToBuy';
 import CartPopUptoLoan from './CartPopUptoLoan';
-import { CartPopUpContext } from '../hooks/cartPopUpContext';
+import { CartPopUpContext } from '../context/cartPopUpContext';
 
 const CartPopUp = () => {
   const { isOpen, toggleCart } = useContext(CartPopUpContext);

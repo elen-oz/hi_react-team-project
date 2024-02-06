@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { LoanCartContext } from '../hooks/loanCartContext';
-import { ThemeContext } from '../hooks/themeContext';
+import { LoanCartContext } from '../context/loanCartContext';
+import { ThemeContext } from '../context/themeContext';
 import { makeShorterName } from '../utils/utils';
 
 const CartPopUptoLoan = () => {
