@@ -23,7 +23,7 @@ const Homepage = ({ category }) => {
               HI Library brings the entire library to your fingertips
             </h1>
             <p className='lead'>
-              Explore, Borrow, Buy U+002d All in One Place Gone are the days of
+              Explore, Borrow, Buy &ndash; All in One Place Gone are the days of
               wandering through physical aisles or waiting for your next book
               delivery.
             </p>
