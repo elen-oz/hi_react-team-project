@@ -61,7 +61,7 @@ const Footer = () => {
             <ul className='nav flex-column'>
               <li className='nav-item mb-2'>
                 <a
-                  href='https://github.com/collaboration-work/team-7-react-project'
+                  href='https://github.com/elen-oz/hi_react-team-project'
                   className='nav-link p-0 text-body-secondary'
                 >
                   Github
