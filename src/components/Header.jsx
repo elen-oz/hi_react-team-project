@@ -10,7 +10,6 @@ import { CartPopUpContext } from '../context/cartPopUpContext';
 import { CategoryContext } from '../context/categoryContext';
 import { FilterContext } from '../context/filterContext';
 
-
 const Header = () => {
   const { fetchBooksByCategory } = useContext(BookContext);
   const [bookSearch, setBookSearch] = useState('');
@@ -63,11 +62,6 @@ const Header = () => {
     element.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // const handleScrollToShop = () => {
-  //   const element = document.getElementById('shop');
-  //   element.scrollIntoView({ behavior: 'smooth' });
-  // };
-
   const shouldShowSearchForm = pathname !== '/contact';
 
   return (
@@ -79,8 +73,8 @@ const Header = () => {
           </Link>
 
           <div>
-            <div className='d-md-none d-block d-flex   justify-content-end'>
-              <div className='p-2 mx-4 d-flex flex-row  justify-content-end gap-4 align-items-center'>
+            <div className='d-md-none d-block d-flex justify-content-end'>
+              <div className='p-2 mx-4 d-flex flex-row justify-content-end gap-4 align-items-center'>
                 <div className='d-md-none d-block'>
                   <Link to='./checkout'>
                     <BsHandbag size={24} />
