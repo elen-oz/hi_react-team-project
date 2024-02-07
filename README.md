@@ -11,6 +11,7 @@ Books can be bought and borrowed, and the platform provides two separate carts f
 ## Features
 
 - _Book Browsing and Searching_: Users can search for books by title, author, or category.
+- _Rating_: Users can leave reviews and give star ratings, which are saved in localStorage.
 - _Filtering_: Users can filter books by actions: for buying books or borrowing.
 - _Dynamic Book Details_: View detailed information about each book, including ratings, reviews, and descriptions.
 - _Cart Functionality_: A pop-up cart allows users to add books they are interested in and proceed to checkout.
