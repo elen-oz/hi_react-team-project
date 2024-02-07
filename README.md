@@ -1,4 +1,4 @@
-#### Team #7's group project for the React.js course at Hyper Island School
+#### Group project for the React.js course at Hyper Island
 
 # HI Library
 
@@ -105,5 +105,3 @@ _Contributors:_
 - [jesslee2023](jesslee2023)
 - [Shandiyaravi](https://github.com/Shandiyaravi)
 - [elen-oz](https://github.com/elen-oz)
-
-... _Rahmat_?
